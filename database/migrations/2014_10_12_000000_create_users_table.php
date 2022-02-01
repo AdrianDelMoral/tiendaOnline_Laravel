@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('nif');
             $table->string('password');
-            $table->double("address");
+            $table->double("address")->default(0);
             $table->string('avatar', 2048)->nullable();
-            $table->string("rol");
+            $table->string("rol")->default('user');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->timestamps();

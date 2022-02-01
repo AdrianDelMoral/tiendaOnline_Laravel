@@ -65,6 +65,13 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
+
+        <!-- nif -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="nif" value="nif" />
+            <x-jet-input id="nif" type="text" class="mt-1 block w-full" wire:model.defer="state.nif" autocomplete="nif" />
+            <x-jet-input-error for="nif" class="mt-2" />
+        </div>
     </x-slot>
 
     <x-slot name="actions">
