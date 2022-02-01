@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('nif');
             $table->string('password');
-            $table->int("address");
+            $table->double("address");
             $table->string('avatar', 2048)->nullable();
             $table->string("rol");
             $table->rememberToken();
