@@ -19,12 +19,12 @@
         <div class="bordes">
             <div class="ordenar1">
                 <div class="logoPagina">
-                    <img src="img/logo-pccomponentes.svg">
+                    <img src="{{asset('images/logo-pccomponentes.svg')}}">
                 </div>
 
                 <form action="">
                     <input type="text" name="Buscador" id="buscadorNav" placeholder="Busca en PcComponentes...">
-                    <img src="img/icon/lupa.png" alt="">
+                    <img src="{{asset('images/icon/lupa.png')}}">
                 </form>
             </div>
 
@@ -51,7 +51,7 @@
 
                     <a href=".">
                         <li>
-                            <img src="img/icon/carrito.png" alt="">
+                            <img src="{{asset('images/icon/carrito.png')}}">
                             <p>Mi Carrito</p>
                         </li>
                     </a>
