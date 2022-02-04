@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderlinesTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateOrderlinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('orderlines', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("order_id")->constrained();
-            $table->foreignId("product_id")->constrained();
-            $table->double("precio");
-            $table->double("descuento");
+            $table->string("nombre");
+            $table->string("descripcion");
+            $table->timestamps();
         });
     }
 
@@ -29,6 +28,6 @@ class CreateOrderlinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderlines');
+        Schema::dropIfExists('categories');
     }
 }
