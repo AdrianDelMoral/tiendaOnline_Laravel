@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    @include('partials.head')
-    <title>Nav</title>
-</head>
-
-<body>
-    <header>
-        @include('partials.nav')
-    </header>
-    <footer>
-        @include('partials.footer')
-    </footer>
+@include('partials.nav')
 {{-- <body class="antialiased">
     <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
         @if (Route::has('login'))
@@ -28,8 +14,3 @@
                 @endauth
             </div>
         @endif --}}
-</body>
-<html>
-
-
-
