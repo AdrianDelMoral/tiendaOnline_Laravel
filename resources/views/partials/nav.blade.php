@@ -10,7 +10,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <form class="d-flex ml-auto">
+                <form class="d-flex ml-auto tamanyoInput">
                     <input class="form-control me-2 buscadorNav" type="search" placeholder="Buscar..." aria-label="Search">
                 </form>
                 <ul class="navbar-nav me-auto mb-2 ml-lg-auto">

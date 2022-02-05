@@ -1,3 +1,23 @@
+/* Nav */
+.logoPagina {
+    width: 140px;
+    margin-right: 6rem;
+}
+.buscadorNav {
+    width: 35rem;
+    height: 3rem;
+    border-radius: .3rem;
+}
+@media (max-width: 1200px){
+    .buscadorNav {
+        width: auto;
+        height: 3rem;
+        border-radius: .3rem;
+    }
+
+}
+
+/* Footer */
 a {
     text-decoration: none;
     color: #4b4b4b;
