@@ -20,37 +20,31 @@
             <div class="ordenar1">
                 <div class="logoPagina">
                     <img src="{{asset('images/logo-pccomponentes.svg')}}">
-                </div>
-
-                <form action="">
-                    <input type="text" name="Buscador" id="buscadorNav" placeholder="Busca en PcComponentes...">
-                    <img src="{{asset('images/icon/lupa.png')}}">
-                </form>
+                </a>
             </div>
-
-            <div class="ordenar2">
-                <ul class="estilos">
-                    <a href=".">
-                        <li>
-                            <img src="img/icon/perfil.png" alt="">
-                            @if (Route::has('login'))
-                            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                @auth
-                                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                                @else
-                                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                                    @if (Route::has('register'))
-                                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                                    @endif
-                                @endauth
-                            </div>
-                        @endif
-                        </li>
-                    </a>
-
-                    <a href=".">
-                        <li>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <form class="d-flex ml-auto tamanyoInput">
+                    <input class="form-control me-2 buscadorNav" type="search" placeholder="Buscar..." aria-label="Search">
+                </form>
+                <ul class="navbar-nav me-auto mb-2 ml-lg-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{asset('images/icon/perfil.png')}}" alt="">
+                            Mi cuenta
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="{{ route('login') }}">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}">Registrarse</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active" href="#" id="navbarScrollingDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="{{asset('images/icon/carrito.png')}}">
                             <p>Mi Carrito</p>
                         </li>
