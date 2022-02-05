@@ -1,38 +1,65 @@
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-        <div class="container container-fluid py-3 d-flex justify-content-center">
-            <div class="mb-2 mb-lg-0 logoPagina">
-                <a href="/" class="navbar-brand d-flex align-items-center">
-                    <img src="{{asset('images/logo-pccomponentes.svg')}}">
-                </a>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <form class="d-flex ml-auto">
-                    <input class="form-control me-2 buscadorNav" type="search" placeholder="Buscar..." aria-label="Search">
-                </form>
-                <ul class="navbar-nav me-auto mb-2 ml-lg-auto">
-                    <li class="nav-item dropdown">
+<!DOCTYPE html>
+<html lang="en">
 
-                        <a class="nav-link active dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{asset('images/icon/perfil.png')}}" alt="">
-                            Mi cuenta
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="{{ route('login') }}">Iniciar Sesión</a></li>
-                            <li><a class="dropdown-item" href="{{ route('register') }}">Registrarse</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link active" href="#" id="navbarScrollingDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Librería de FA -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{{URL::asset('css/inicio.css')}}">
+    <title>Nav</title>
+</head>
+
+<body>
+    <nav>
+        <div class="bordes">
+            <div class="ordenar1">
+                <div class="logoPagina">
+                    <img src="{{asset('images/logo-pccomponentes.svg')}}">
+                </div>
+
+                <form action="">
+                    <input type="text" name="Buscador" id="buscadorNav" placeholder="Busca en PcComponentes...">
+                    <img src="{{asset('images/icon/lupa.png')}}">
+                </form>
+            </div>
+
+            <div class="ordenar2">
+                <ul class="estilos">
+                    <a href=".">
+                        <li>
+                            <img src="img/icon/perfil.png" alt="">
+                            @if (Route::has('login'))
+                            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                                @auth
+                                    <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                                    @endif
+                                @endauth
+                            </div>
+                        @endif
+                        </li>
+                    </a>
+
+                    <a href=".">
+                        <li>
                             <img src="{{asset('images/icon/carrito.png')}}">
-                            Carrito
-                        </a>
-                    </li>
+                            <p>Mi Carrito</p>
+                        </li>
+                    </a>
+                </ul>
             </div>
         </div>
     </nav>
+
+</body>
+
+</html>
