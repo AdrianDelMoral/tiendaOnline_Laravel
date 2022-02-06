@@ -9,10 +9,10 @@ class Product extends Model
 {
     use HasFactory;
     public function images(){
-        return $this->belongsTo(Image::class);
+        return $this->hasMany(Image::class);
     }
 
-    public function categories(){
-        return $this->hasMany(Category::class);
+    public function category(){
+        return $this->belongsTo(Category::class);
     }
 }
