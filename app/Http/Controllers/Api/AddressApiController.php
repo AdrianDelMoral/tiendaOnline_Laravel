@@ -15,7 +15,8 @@ class AddressApiController extends Controller
      */
     public function index()
     {
-        //
+        $addresses = Address::get();
+        return response()->json($addresses, 200);
     }
 
     /**
@@ -26,7 +27,19 @@ class AddressApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $address = new Address();
+        $address -> id = $request->get('id');
+        $address -> calle = $request->get('calle');
+        $address -> patio = $request->get('patio');
+        $address -> puerta = $request->get('puerta');
+        $address -> numero = $request->get('numero');
+        $address -> cod_postal = $request->get('cod_postal');
+        $address -> ciudad = $request->get('ciudad');
+        $address -> provincia = $request->get('provincia');
+        $address -> pais = $request->get('pais');
+        $address->save();
+
+        return response()->json($address, 201);
     }
 
     /**
@@ -60,6 +73,7 @@ class AddressApiController extends Controller
      */
     public function destroy(Address $address)
     {
-        //
+        $address->delete();
+        return response()->json(null, 204);
     }
 }
