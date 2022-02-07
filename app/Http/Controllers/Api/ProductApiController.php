@@ -30,7 +30,7 @@ class ProductApiController extends Controller
         $product = new Product();
         $product -> nombre = $request->get('nombre');
         $product -> descripcion = $request->get('descripcion');
-        $product -> visibilidad = $request->has("visibilidad") ? 1 : 0;
+        $product -> visibilidad = $request->get('visibilidad');
         $product -> category_id = $request->get('category_id');
         $product -> precio_base = $request->get('precio_base');
         $product -> impuestos = $request->get('impuestos');

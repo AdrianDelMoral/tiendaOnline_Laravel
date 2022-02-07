@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::get();
+        $products = Product::where("visibilidad",1)->get();
         return view("catalogo.inicio", compact("products"));
     }
 
@@ -26,8 +26,12 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
-        return view("catalogo.store");
+        //strcmp
+        if(strcmp(Auth::user()->rol, "administrador") === 0){
+            return view("catalogo.store");
+        }
+        abort(404);
+        //lo optimo seria redirigir al index
     }
 
     /**
