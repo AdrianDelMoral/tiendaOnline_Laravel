@@ -28,7 +28,6 @@ class AddressApiController extends Controller
     public function store(Request $request)
     {
         $address = new Address();
-        $address -> id = $request->get('id');
         $address -> calle = $request->get('calle');
         $address -> patio = $request->get('patio');
         $address -> puerta = $request->get('puerta');
