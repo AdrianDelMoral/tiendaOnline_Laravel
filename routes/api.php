@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('/direccion', AddressApiController::class)->only("store");
 Route::apiResource('/agregarProducto', ProductApiController::class)->only("store");
-
+Route::apiResource('/productos', ProductApiController::class);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

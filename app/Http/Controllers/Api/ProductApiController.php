@@ -37,7 +37,7 @@ class ProductApiController extends Controller
         $product -> descuento = $request->get('descuento');
         $product->save();
 
-        return response()->json($product, 201);
+        return response()->json($product, 200);
     }
 
     /**
