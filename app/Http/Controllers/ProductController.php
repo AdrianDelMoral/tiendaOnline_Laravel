@@ -27,6 +27,7 @@ class ProductController extends Controller
     public function create()
     {
         //
+        return view("catalogo.store");
     }
 
     /**
@@ -48,7 +49,6 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-
         return view("catalogo.show", compact("product"));
     }
 
