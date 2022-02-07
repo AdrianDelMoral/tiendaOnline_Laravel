@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -15,7 +14,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::get();
+        $products = Product::where("visibilidad",1)->get();
         return view("catalogo.inicio", compact("products"));
     }
 
