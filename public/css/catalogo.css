@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: #444444;
+}
+
+a, a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.section-products {
+    padding: 80px 0 54px;
+}
+
+.header {
+    margin-bottom: 50px;
+}
+
+.header h3 {
+    font-size: 1rem;
+    color: #fe302f;
+    font-weight: 500;
+}
+
+.header h2 {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #444444;
+}
+
+.single-product {
+    margin-bottom: 26px;
+}
+
+.part-1 {
+    position: relative;
+    height: 290px;
+    max-height: 290px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.part-1::before {
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		transition: all 0.3s;
+}
+
+.single-product img{
+    align-items: center;
+    width: 70%;
+    height: auto;
+    cursor: pointer;
+}
+
+.discount, .new {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: #ffffff;
+    background-color: #fe302f;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.new {
+    left: 0;
+    background-color: #444444;
+}
+
+.part-1 ul {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: -41px;
+    left: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    opacity: 0;
+    transition: bottom 0.5s, opacity 0.5s;
+}
+
+.single-product:hover .part-1 ul {
+    bottom: 30px;
+    opacity: 1;
+}
+
+.part-1 ul li {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.part-1 ul li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ffffff;
+    color: #444444;
+    text-align: center;
+    box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
+    transition: color 0.2s;
+}
+
+.part-1 ul li a:hover {
+    color: #fe302f;
+}
+
+.product-title {
+    font-size: 1rem;
+}
+
+.part-2 h2 {
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.product-info {
+    display: inline-block;
+    font-size: 1rem;
+    color: #fe302f;
+}
+
+.product-old-price {
+    position: relative;
+    padding: 0 7px;
+    margin-right: 2px;
+    opacity: 0.6;
+}
+
+.product-old-price::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #444444;
+    transform: translateY(-50%);
+}
+
+
+.heroBackGround {
+    background: #fe822f no-repeat center;
+    background-size: cover;
+	transition: all 0.3s;
+    box-shadow: inset 0 0 8rem rgb(0, 0, 0);
+    border-radius: 2rem;
+}
+
+.mt-5{
+    margin-top: 6rem!important;
+}
