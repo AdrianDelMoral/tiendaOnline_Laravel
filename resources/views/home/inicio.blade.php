@@ -1,5 +1,5 @@
-@extends('catalogo')
-@section('titulo', 'Catalogo de Productos')
+@extends('inicio')
+@section('titulo', 'Home')
 
 @include('partials.head')
 
