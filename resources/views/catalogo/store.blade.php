@@ -8,7 +8,7 @@
     <script src="{{asset("js/product/store.js")}}" defer></script>
 </head>
 <body>
-    <form action="/api/agregarProducto" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST" enctype="multipart/form-data" id="subirProd">
         <input name="nombre" id="nombre" placeholder="nombre">
         <input name="descripcion" id="descripcion" placeholder="descripcion">
         <select name="visibilidad" id="visibilidad">

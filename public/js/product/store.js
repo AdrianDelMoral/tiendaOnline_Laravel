@@ -4,8 +4,11 @@ let envioBtn = document.body.querySelector("#enviar");
 
 envioBtn.onclick = sendForm;
 
-function sendForm(event) {
+async function sendForm(event) {
+
+    event.preventDefault();
     //campos
+    let formulario = document.body.querySelector("#subirProd");
     let nombre = document.body.querySelector("#nombre");
     let descripcion = document.body.querySelector("#descripcion");
     let visibilidad = document.body.querySelector("#visibilidad");
@@ -15,14 +18,16 @@ function sendForm(event) {
     let descuento = document.body.querySelector("#descuento");
 
 
-    let formData = new FormData([form]);
-    // formData.append("nombre", )
-
-    event.preventDefault();
-    let promesa = fetch('/api/agregarProducto', {
-        headers: {
-            "Content-Type": "text/plain;charset=UTF-8"
-        },
-        body: formData,
+    let response = await fetch('/api/agregarProducto', {
+        method: 'POST',
+        body: new FormData(formulario)
     });
+
+    let result = await response.json();
+
+    if (response.status === 200) {
+        alert("El producto: " + result.nombre + " ha sido creado con éxito");
+    } else {
+        alert("Ha ocurrido un error, vuelve a intentarlo");
+    }
 }
