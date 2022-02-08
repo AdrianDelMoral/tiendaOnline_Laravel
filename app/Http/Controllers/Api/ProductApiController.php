@@ -38,7 +38,7 @@ class ProductApiController extends Controller
         $product -> precio_base = $request->get('precio_base');
         $product -> impuestos = $request->get('impuestos');
         $product -> descuento = $request->get('descuento');
-        $path = Storage::putFile('products-imgs', $request->file('avatar'));
+        $path = Storage::putFile('products-imgs', $request->file('prod-img'));
         $product->save();
 
         $imgs = new Image();

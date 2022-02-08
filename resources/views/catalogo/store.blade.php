@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crear Producto</title>
-    {{-- <script src="{{asset("js/product/store.js")}}" defer></script> --}}
+    <script src="{{asset("js/product/store.js")}}" defer></script>
 </head>
 <body>
     <form action="/api/agregarProducto" method="POST" enctype="multipart/form-data">
@@ -19,7 +19,7 @@
         <input name="precio_base" id="precio_base" placeholder="precio_base">
         <input name="impuestos" id="impuestos" placeholder="impuestos">
         <input name="descuento" id="descuento" placeholder="descuento">
-        <input type="file" name="avatar" id="avatar">
+        <input type="file" name="prod-img" id="prod-img">
         <input type="submit" id="enviar">
     </form>
 </body>
