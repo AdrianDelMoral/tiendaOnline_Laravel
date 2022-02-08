@@ -6,8 +6,12 @@
     <title>@yield('titulo')</title>{{-- Titulo de catalogo --}}
 </head>
 <body>
-    @include('partials.nav'){{-- Se incluirá el nav de partials/nav.blade.php --}}
+    <nav>
+        @include('partials.nav'){{-- Se incluirá el nav de partials/nav.blade.php --}}
+    </nav>
     @yield('cuerpo')
-    @include('partials.footer'){{-- Se incluirá el nav de partials/nav.blade.php --}}
+    <footer>
+        @include('partials.footer'){{-- Se incluirá el nav de partials/nav.blade.php --}}
+    </footer>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('inicio');
-});
+}); */
 
+/* Inicio */
+Route::resource('/', InicioController::class)->parameters(["catalogo"=> "product"])->only('index');
+
+/* Catalogo */
 Route::resource('/catalogo', ProductController::class)->parameters(["catalogo"=> "product"]);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
