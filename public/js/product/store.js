@@ -6,12 +6,16 @@ envioBtn.onclick = sendForm;
 
 function sendForm(event) {
     //campos
-    let campos = document.body.querySelector("#nombre");
+    let nombre = document.body.querySelector("#nombre");
+    let descripcion = document.body.querySelector("#descripcion");
+    let visibilidad = document.body.querySelector("#visibilidad");
+    let category_id = document.body.querySelector("#category_id");
+    let precio_base = document.body.querySelector("#");
 
 
 
     let formData = new FormData([form]);
-
+    // formData.append("nombre", )
 
     event.preventDefault();
     let promesa = fetch('/api/agregarProducto', {

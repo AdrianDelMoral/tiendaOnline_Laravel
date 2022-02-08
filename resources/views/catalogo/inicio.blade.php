@@ -6,7 +6,7 @@
     Categoria: {{$product->category->nombre}}<br>
     Precio Total: {{$product->precio_base - $product->descuento + $product->impuestos}}€
     @forelse ($product->images as $imagen)
-        <img src="{{asset("images/products-imgs/".$imagen->img_path)}}">
+        <img src="{{asset("storage/".$imagen->img_path)}}">
     @empty
         <p>No hay imagenes</p>
     @endforelse

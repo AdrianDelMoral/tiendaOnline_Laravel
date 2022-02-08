@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Image;
+
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class ProductApiController extends Controller
@@ -35,9 +38,16 @@ class ProductApiController extends Controller
         $product -> precio_base = $request->get('precio_base');
         $product -> impuestos = $request->get('impuestos');
         $product -> descuento = $request->get('descuento');
+        $path = Storage::putFile('products-imgs', $request->file('avatar'));
         $product->save();
 
-        return response()->json($product, 201);
+        $imgs = new Image();
+
+        $imgs -> product_id = $product->id;
+        $imgs -> img_path = $path;
+        $imgs->save();
+        //Storage::move("/storage/app/".$imgs->img_path, "/storage/public/".$imgs->img_path);
+        return response()->json($path, 201);
     }
 
     /**
