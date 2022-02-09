@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::resource('/', InicioController::class)->parameters(["catalogo"=> "product
 
 /* Catalogo */
 Route::resource('/catalogo', ProductController::class)->parameters(["catalogo"=> "product"]);
+Route::resource('/category', CategoryController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
