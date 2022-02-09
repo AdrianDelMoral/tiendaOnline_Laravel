@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::where("visibilidad",1)->get();
+        $products = Product::where("visibilidad",1)->orderBy("created_at", 'desc')->get();
         return view("catalogo.inicio", compact("products"));
     }
 
