@@ -41,6 +41,7 @@ class ProductApiController extends Controller
         $path = Storage::putFile('products-imgs', $request->file('prod-img'));
         $product->save();
 
+
         $imgs = new Image();
 
         $imgs -> product_id = $product->id;
