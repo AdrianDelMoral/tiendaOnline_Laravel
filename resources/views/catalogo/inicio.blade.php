@@ -45,7 +45,7 @@
                             <div class="part-1 row justify-content-center align-items-center">
                                 <ul>
                                     <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="{{ route('catalogo.show', $product)}}"><i class="fas fa-eye"></i></a></li>
                                 </ul>
                                 @forelse ($product->images as $imagen)
                                     <img src="{{'storage/'.$imagen->img_path}}">
