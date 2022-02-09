@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string("nombre");
             $table->string("descripcion");
+            $table->double("visibilidad");
             $table->foreignId("category_id")->constrained();
             $table->double("precio_base");
             $table->double("impuestos");
