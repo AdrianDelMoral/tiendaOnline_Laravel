@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,12 +27,13 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $categories = Category::get();
         //strcmp
         if(!Auth::user()){
             abort(404);
         }
         if(strcmp(Auth::user()->rol, "administrador") === 0){
-            return view("catalogo.store");
+            return view("catalogo.store", compact('categories'));
         }
         abort(404);
         //lo optimo seria redirigir al index
