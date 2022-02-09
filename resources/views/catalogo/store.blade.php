@@ -14,9 +14,13 @@
         <select name="visibilidad" id="visibilidad">
             <option value="1" selected>Visible</option>
             <option value="2">Oculto</option>
-          </select>
-        <input name="cantidad" id="cantidad" placeholder="cantidad">
-        <input name="category_id" id="category_id" placeholder="category_id">
+        </select>
+        <select class="form-control" name="category_id" id="category_id">
+            @foreach ($categories as $cat)
+                <option value="{{ $cat->id }}">{{ $cat->nombre }}</option>
+
+            @endforeach
+        </select>
         <input name="precio_base" id="precio_base" placeholder="precio_base">
         <input name="impuestos" id="impuestos" placeholder="impuestos">
         <input name="descuento" id="descuento" placeholder="descuento">
