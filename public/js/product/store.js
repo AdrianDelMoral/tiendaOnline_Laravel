@@ -17,16 +17,19 @@ async function sendForm(event) {
     let impuestos = document.body.querySelector("#impuestos");
     let descuento = document.body.querySelector("#descuento");
 
-
+    let formData = new FormData(formulario);
+    console.log([...formData.entries()]);
     let response = await fetch('/api/agregarProducto', {
         method: 'POST',
-        body: new FormData(formulario)
+        body: formData
     });
 
     let result = await response.json();
-
+    console.log(result);
+    console.log(response.status);
     if (response.status === 200) {
         alert("El producto: " + result.nombre + " ha sido creado con éxito");
+        console.log(formulario);
     } else {
         alert("Ha ocurrido un error, vuelve a intentarlo");
     }
