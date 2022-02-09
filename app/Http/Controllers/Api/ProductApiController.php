@@ -47,7 +47,7 @@ class ProductApiController extends Controller
         $imgs -> img_path = $path;
         $imgs->save();
         //Storage::move("/storage/app/".$imgs->img_path, "/storage/public/".$imgs->img_path);
-        return response()->json($path, 201);
+        return response()->json($product, 200);
     }
 
     /**
