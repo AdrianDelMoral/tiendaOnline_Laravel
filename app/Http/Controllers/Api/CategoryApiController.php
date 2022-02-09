@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class CategoryController extends Controller
+class CategoryApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,21 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-         //strcmp
-         if(strcmp(Auth::user()->rol, "administrador") === 0){
-            return view("category.store");
-        }
-        abort(404);
+        $categories = Category::get();
+        return response()->json($categories, 200);
     }
 
     /**
@@ -39,7 +27,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+        $category -> nombre = $request->get('nombre');
+        $category -> descripcion = $request->get('descripcion');
+
+        $category->save();
+
+        return response()->json($category, 201);
     }
 
     /**
@@ -49,17 +43,6 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Category $category)
     {
         //
     }
@@ -84,6 +67,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return response()->json(null, 204);
     }
 }
