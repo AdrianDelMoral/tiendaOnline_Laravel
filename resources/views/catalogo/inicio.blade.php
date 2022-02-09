@@ -48,7 +48,7 @@
                                     <li><a href="#"><i class="fas fa-eye"></i></a></li>
                                 </ul>
                                 @forelse ($product->images as $imagen)
-                                    <img src="{{ asset('images/products-imgs/' . $imagen->img_path) }}">
+                                    <img src="{{'storage/'.$imagen->img_path}}">
                                 @empty
                                     <p>No hay imagen del Producto</p>
                                 @endforelse
