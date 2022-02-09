@@ -1,9 +1,10 @@
-<!-- bordes -->
-<div class="bordes">
-    <!-- Links etc -->
-    <div class="bordes__ordenar">
-        <div class="margenFooter">
-            <span>Por qué comprar</span>
+<footer>
+    <!-- bordes -->
+    <div class="bordes">
+        <!-- Links etc -->
+        <div class="bordes__ordenar">
+            <div class="margenFooter">
+                <span>Por qué comprar</span>
                 <ul class="izquierda">
                     <li><a href=".">Premium</a></li>
                     <li><a href=".">Cómo comprar</a></li>
@@ -57,61 +58,62 @@
             <div class="margenFooter">
                 <span>Comunidad</span>
                 <ul class="izquierda">
-               <a href="">
-                   <li>
-                       <img src="{{asset('images/icon/social-Icons/blog.png')}}" alt=""><!-- blog -->
-                       <p>Blog</p>
-                   </li>
-               </a>
-               <a href="">
-                   <li>
-                       <img src="{{asset('images/icon/social-Icons/instagram.png')}}" alt=""><!-- instagram -->
-                       <p>Instagram</p>
-                   </li>
-               </a>
-               <a href="">
-                   <li>
-                       <img src="{{asset('images/icon/social-Icons/twitter.png')}}" alt=""><!-- twitter -->
-                       <p>Twitter</p>
-                   </li>
-               </a>
-               <a href="">
-                   <li>
-                       <img src="{{asset('images/icon/social-Icons/facebook.png')}}" alt=""><!-- facebook -->
-                       <p>Facebook</p>
-                   </li>
-               </a>
-               <a href="">
-                   <li>
-                       <img src="{{asset('images/icon/social-Icons/telegram.png')}}" alt=""><!-- telegram -->
-                       <p>Telegram</p>
-                   </li>
-               </a>
-               <a href="">
-                   <li>
-                       <img src="{{asset('images/icon/social-Icons/youtube.png')}}" alt=""><!-- youtube -->
-                       <p>Youtube</p>
-                   </li>
-               </a>
-               <a href="">
-                   <li>
-                       <img src="{{asset('images/icon/social-Icons/tik-tok.png')}}" alt=""><!-- tiktok -->
-                       <p>Tik-Tok</p>
-                   </li>
-               </a>
-               <a href="">
-                   <li>
-                       <img src="{{asset('images/icon/social-Icons/twitch.png')}}" alt=""><!-- twitch -->
-                       <p>Twitch</p>
-                   </li>
-               </a>
-            </ul>
+                    <a href="">
+                        <li>
+                            <img src="{{ asset('images/icon/social-Icons/blog.png') }}" alt=""><!-- blog -->
+                            <p>Blog</p>
+                        </li>
+                    </a>
+                    <a href="">
+                        <li>
+                            <img src="{{ asset('images/icon/social-Icons/instagram.png') }}" alt=""><!-- instagram -->
+                            <p>Instagram</p>
+                        </li>
+                    </a>
+                    <a href="">
+                        <li>
+                            <img src="{{ asset('images/icon/social-Icons/twitter.png') }}" alt=""><!-- twitter -->
+                            <p>Twitter</p>
+                        </li>
+                    </a>
+                    <a href="">
+                        <li>
+                            <img src="{{ asset('images/icon/social-Icons/facebook.png') }}" alt=""><!-- facebook -->
+                            <p>Facebook</p>
+                        </li>
+                    </a>
+                    <a href="">
+                        <li>
+                            <img src="{{ asset('images/icon/social-Icons/telegram.png') }}" alt=""><!-- telegram -->
+                            <p>Telegram</p>
+                        </li>
+                    </a>
+                    <a href="">
+                        <li>
+                            <img src="{{ asset('images/icon/social-Icons/youtube.png') }}" alt=""><!-- youtube -->
+                            <p>Youtube</p>
+                        </li>
+                    </a>
+                    <a href="">
+                        <li>
+                            <img src="{{ asset('images/icon/social-Icons/tik-tok.png') }}" alt=""><!-- tiktok -->
+                            <p>Tik-Tok</p>
+                        </li>
+                    </a>
+                    <a href="">
+                        <li>
+                            <img src="{{ asset('images/icon/social-Icons/twitch.png') }}" alt=""><!-- twitch -->
+                            <p>Twitch</p>
+                        </li>
+                    </a>
+                </ul>
+            </div>
         </div>
+        <!-- Links etc -->
     </div>
-    <!-- Links etc -->
-</div>
-<!-- bordes -->
-<div class="end">
-    <p>Componentes y Multimedia. AVDA Europa, Parcela 2-5 y 2-6. Polígono industrial Las Salinas, 30840, Alhama
-        de Murcia, Murcia. ESPAÑA.</p>
-</div>
+    <!-- bordes -->
+    <div class="end">
+        <p>Componentes y Multimedia. AVDA Europa, Parcela 2-5 y 2-6. Polígono industrial Las Salinas, 30840, Alhama
+            de Murcia, Murcia. ESPAÑA.</p>
+    </div>
+</footer>

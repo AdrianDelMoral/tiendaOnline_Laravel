@@ -1,8 +1,5 @@
 @extends('catalogo')
 @section('titulo', 'Catalogo de Productos')
-
-@include('partials.head')
-
 @section('cuerpo')
 {{--
     @foreach ($products as $product)
