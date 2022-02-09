@@ -38,15 +38,23 @@ class ProductApiController extends Controller
         $product -> precio_base = $request->get('precio_base');
         $product -> impuestos = $request->get('impuestos');
         $product -> descuento = $request->get('descuento');
-        $path = Storage::putFile('products-imgs', $request->file('prod-img'));
+        //$path = Storage::putFile('products-imgs', $request->file('prod-img'));
         $product->save();
 
+        if($request->hasFile('prod-img')){
+            $archivos = $request->file("prod-img");
+            foreach ($archivos as $archivo){
+                $path = Storage::putFile('products-imgs', $archivo);
+                //return $path;
+                $imgs = new Image();
+                $imgs -> product_id = $product->id;
+                $imgs -> img_path = $path;
+                $imgs->save();
+            }
+            return response()->json($product, 200);
 
-        $imgs = new Image();
+        }
 
-        $imgs -> product_id = $product->id;
-        $imgs -> img_path = $path;
-        $imgs->save();
         //Storage::move("/storage/app/".$imgs->img_path, "/storage/public/".$imgs->img_path);
         return response()->json($product, 200);
     }
