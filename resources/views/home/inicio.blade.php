@@ -1,5 +1,5 @@
-@extends('catalogo')
-@section('titulo', 'Catalogo de Productos')
+@extends('inicio')
+@section('titulo', 'Home')
 @section('cuerpo')
 {{--
     @foreach ($products as $product)
@@ -32,8 +32,7 @@
             <div class="row justify-content-center text-center">
                 <div class="col-md-8 col-lg-6">
                     <div class="header">
-                        {{-- <h2>Electrodomesticos</h2> --}}
-                        <h2>Catalogo productos</h2>
+                        <h2>Pagina Principal</h2>
                     </div>
                 </div>
             </div>
@@ -55,7 +54,7 @@
                             </div>
                             <div class="part-2">
                                 <h1 class="product-title"><a
-                                        href="{{ route('catalogo.show', $product) }}">{{ $product->nombre }} </a></h1>
+                                    href="{{ route('catalogo.show', $product) }}">{{ $product->nombre }} </a></h1>
                                 <h2 class="product-old-price">{{ $product->precio_base }}€</h2>
                                 <h2>{{ $product->precio_base - $product->descuento + $product->impuestos }}€</h2>
                                 <br>
