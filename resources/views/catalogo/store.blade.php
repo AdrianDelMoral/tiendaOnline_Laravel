@@ -15,6 +15,7 @@
             <option value="1" selected>Visible</option>
             <option value="2">Oculto</option>
           </select>
+        <input name="cantidad" id="cantidad" placeholder="cantidad">
         <input name="category_id" id="category_id" placeholder="category_id">
         <input name="precio_base" id="precio_base" placeholder="precio_base">
         <input name="impuestos" id="impuestos" placeholder="impuestos">

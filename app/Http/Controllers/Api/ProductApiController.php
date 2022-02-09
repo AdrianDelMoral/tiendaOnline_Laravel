@@ -34,6 +34,7 @@ class ProductApiController extends Controller
         $product -> nombre = $request->get('nombre');
         $product -> descripcion = $request->get('descripcion');
         $product -> visibilidad = $request->get('visibilidad');
+        $product -> cantidad = $request->get('cantidad');
         $product -> category_id = $request->get('category_id');
         $product -> precio_base = $request->get('precio_base');
         $product -> impuestos = $request->get('impuestos');
@@ -52,7 +53,6 @@ class ProductApiController extends Controller
                 $imgs->save();
             }
             return response()->json($product, 200);
-
         }
 
         //Storage::move("/storage/app/".$imgs->img_path, "/storage/public/".$imgs->img_path);
