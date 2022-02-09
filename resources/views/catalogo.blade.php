@@ -14,8 +14,8 @@
     <script src="https://kit.fontawesome.com/75b8de379c.js" crossorigin="anonymous"></script>
 
     <!-- Link CSS locales-->
-    <link rel="stylesheet" href="{{URL::asset('css/navFooter.css')}}">{{-- Se incluirá el css de public/css/navFooter.css --}}
-    <link rel="stylesheet" href="{{URL::asset('css/catalogo.css')}}">{{-- Se incluirá el css de public/css/catalogo.css --}}
+    <link rel="stylesheet" href="{{URL::asset('css/navFooter.css')}}"><!-- Se incluirá el css de public/css/navFooter.css -->
+    <link rel="stylesheet" href="{{URL::asset('css/catalogo.css')}}"><!-- Se incluirá el css de public/css/catalogo.css -->
 
     <title>@yield('titulo')</title>{{-- Titulo de catalogo --}}
 </head>
