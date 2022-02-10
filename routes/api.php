@@ -18,9 +18,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::apiResource('/direccion', AddressApiController::class)->only("store");
-Route::apiResource('/agregarProducto', ProductApiController::class)->only("store");
+
+// Route::apiResource('/agregarProducto', ProductApiController::class)->only("store");
+// Route::apiResource('/borrarProducto', ProductApiController::class)->only("destroy")->parameters(["borrarProducto"=> "requests"]);
+
+
 Route::apiResource('/agregarCategoria', CategoryApiController::class)->only("store");
-Route::apiResource('/productos', ProductApiController::class);
+Route::put("/productos/deshabilitar/{product}", [ProductApiController::class, "deshabilitar"]);
+Route::apiResource('/productos', ProductApiController::class)->parameters(['productos' => 'product']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

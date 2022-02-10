@@ -15,7 +15,7 @@ class AddCarritoToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             //
-            $table->foreignId("cart_id")->constrained();
+            $table->foreignId("cart_id")->nullable()->constrained();
         });
     }
 
