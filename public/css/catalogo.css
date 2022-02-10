@@ -42,18 +42,7 @@ a, a:hover {
     overflow: hidden;
 }
 
-.part-1::before {
-		position: absolute;
-		content: "";
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		transition: all 0.3s;
-}
-
-.single-product img{
+.single-product img {
     align-items: center;
     width: 70%;
     height: auto;
@@ -76,42 +65,40 @@ a, a:hover {
     background-color: #444444;
 }
 
-.part-1 ul {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: -41px;
-    left: 20px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    opacity: 0;
-    transition: bottom 0.5s, opacity 0.5s;
+.carousel-inner > img {
+    z-index: 0;
 }
 
 .single-product:hover .part-1 ul {
     bottom: 30px;
     opacity: 1;
 }
-
-.part-1 ul li {
-    display: inline-block;
-    margin-right: 4px;
+.icons {
+    margin-left: -2rem!important;
+    max-width: 7rem;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-between;
 }
 
-.part-1 ul li a {
+.icons li {
+    background-color: #000000;
+    color: #fff;
+    padding: .7rem 1rem;
+    margin-right: 1rem;
+}
+
+.icons ul li a {
     display: inline-block;
     padding: 1rem;
     line-height: 40px;
-    background-color: #ffffff;
-    color: #444444;
+    background-color: #000000;
+    color: #fff;
     text-align: center;
     box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
     transition: color 0.2s;
-}
-
-.part-1 ul li a:hover {
-    color: #fe302f;
+    opacity: 50%;
 }
 
 .product-title {
@@ -151,11 +138,11 @@ a, a:hover {
 .heroBackGround {
     background: #fe822f no-repeat center;
     background-size: cover;
-	transition: all 0.3s;
+    transition: all 0.3s;
     box-shadow: inset 0 0 8rem rgb(0, 0, 0);
     border-radius: 2rem;
 }
 
-.mt-5{
-    margin-top: 6rem!important;
+.mt-5 {
+    margin-top: 6rem !important;
 }

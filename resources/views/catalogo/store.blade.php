@@ -39,17 +39,20 @@
 
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Impuestos</label>
-                                    <input type="text" class="form-control" placeholder="Impuestos" name="impuestos" id="impuestos">
+                                    <input type="text" class="form-control" placeholder="Impuestos" name="impuestos"
+                                        id="impuestos">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Precio Base</label>
-                                    <input type="text" class="form-control" placeholder="Precio Base" name="precio_base" id="precio_base">
+                                    <input type="text" class="form-control" placeholder="Precio Base" name="precio_base"
+                                        id="precio_base">
                                 </div>
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Descuento</label>
-                                    <input type="text" class="form-control" placeholder="Descuento" name="descuento" id="descuento">
+                                    <input type="text" class="form-control" placeholder="Descuento" name="descuento"
+                                        id="descuento">
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex flex-column justify-content-center">
@@ -69,9 +72,10 @@
                                     <select class="form-group_ta form-select form-select-sm" name="category_id"
                                         id="category_id" aria-label=".form-select-sm example">
                                         <option disabled selected>Selecciona una categoria</option>
-                                        <option value="1">Electrodomesticos</option>
-                                        {{-- <option value="2">Ordenadores</option>
-                                        <option value="3">Moviles</option> --}}
+                                        @foreach ($categories as $cat)
+                                            <option value="{{ $cat->id }}">{{ $cat->nombre }}</option>
+                                        @endforeach
+                                        {{-- <option value="1">Electrodomesticos</option> --}}
                                     </select>
                                 </div>
                             </div>
@@ -87,7 +91,8 @@
                         <section class="w-100 p-4 d-flex justify-content-center pb-4">
                             <div>
                                 <label for="formFileMultiple" class="form-label">Seleccionar Imagenes</label>
-                                <input class="form-control input_fotos" type="file" name="prod-img[]" id="prod-img" multiple>
+                                <input class="form-control input_fotos" type="file" name="prod-img[]" id="prod-img"
+                                    multiple>
                             </div>
                         </section>
                         <button type="submit" id="enviar" class="btnSubmit btn-light text-dark m-2">Submit</button>
