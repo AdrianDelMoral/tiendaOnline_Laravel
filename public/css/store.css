@@ -1,0 +1,47 @@
+.note {
+    text-align: center;
+    height: 80px;
+    background: linear-gradient(left, #d88500, #80c511);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    line-height: 80px;
+}
+
+.form-content {
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+}
+
+.form-control {
+    border-radius: 1.5rem;
+}
+
+.form-group_ta {
+    border-radius: 2.5rem;
+}
+
+.mTop{
+    margin: 7rem 0 3rem 0;
+}
+
+.btnSubmit {
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    /* background: #242424; */
+    color: #fff;
+    border: 1px solid #f1f1f1f1;
+}
+.btnSubmit:hover {
+    transition: 1s;
+    background: #242424;
+    color: white!important;
+    border: 1px solid #f1f1f1f1;
+}
+
+.input_fotos{
+    width: 23rem
+}

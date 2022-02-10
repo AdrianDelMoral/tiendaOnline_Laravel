@@ -3,16 +3,18 @@
     width: 140px;
     margin-right: 6rem;
 }
+
 .buscadorNav {
     width: 35rem;
     height: 3rem;
-    border-radius: .3rem;
+    border-radius: 1.5REM;
 }
-@media (max-width: 1200px){
+
+@media (max-width: 1200px) {
     .buscadorNav {
         width: auto;
         height: 3rem;
-        border-radius: .3rem;
+        border-radius: 1.5rem;
     }
 
 }
@@ -30,6 +32,7 @@ a:visited {
 .bordes {
     margin: 2rem 1rem 1rem 1rem;
 }
+
 .bordes__ordenar {
     display: flex;
     justify-content: center;
@@ -82,7 +85,7 @@ footer {
 }
 
 /* Medias Queries */
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .bordes__ordenar {
         flex-wrap: wrap;
     }
