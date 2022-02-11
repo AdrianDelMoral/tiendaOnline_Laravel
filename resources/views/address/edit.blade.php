@@ -9,15 +9,16 @@
 <body>
     <form action="/api/direccion" method="POST">
         @csrf
-        @method('put')
-        <input name="calle" id="calle" placeholder="calle">
-        <input name="patio" id="patio" placeholder="patio">
-        <input name="puerta" id="puerta" placeholder="puerta">
-        <input name="numero" id="numero" placeholder="numero">
-        <input name="cod_postal" id="cod_postal" placeholder="cod_postal">
-        <input name="ciudad" id="ciudad" placeholder="ciudad">
-        <input name="provincia" id="provincia" placeholder="provincia">
-        <input name="pais" id="pais" placeholder="pais">
+        @method('POST')
+        <input type="text" value="{{$address->id}}" id="addressId" hidden>
+        <input name="calle" id="calle" placeholder="calle" value="{{ $address->calle }}">
+        <input name="patio" id="patio" placeholder="patio" value="{{ $address->patio }}">
+        <input name="puerta" id="puerta" placeholder="puerta" value="{{ $address->puerta }}">
+        <input name="numero" id="numero" placeholder="numero" value="{{ $address->numero }}">
+        <input name="cod_postal" id="cod_postal" placeholder="cod_postal" value="{{ $address->cod_postal }}">
+        <input name="ciudad" id="ciudad" placeholder="ciudad" value="{{ $address->ciudad }}">
+        <input name="provincia" id="provincia" placeholder="provincia" value="{{ $address->provincia }}">
+        <input name="pais" id="pais" placeholder="pais" value="{{ $address->pais }}">
         <input type="submit" id="enviar">
     </form>
 </body>

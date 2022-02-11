@@ -72,6 +72,7 @@
             <x-jet-input id="nif" type="text" class="mt-1 block w-full" wire:model.defer="state.nif" autocomplete="nif" />
             <x-jet-input-error for="nif" class="mt-2" />
         </div>
+
     </x-slot>
 
     <x-slot name="actions">
