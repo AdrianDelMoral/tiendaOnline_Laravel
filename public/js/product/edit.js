@@ -1,7 +1,11 @@
 let actualizarBtn = document.body.querySelector("#actualizar");
 let prodId = document.body.querySelector("#prodId").value;
 actualizarBtn.onclick = actualizarProd;
+let formulario = document.body.querySelector("#galeria");
 
+//boton de borrar imgs
+
+formulario.onclick = deleteImg;
 
 async function actualizarProd(event) {
     event.preventDefault();
@@ -24,4 +28,27 @@ async function actualizarProd(event) {
     let result = await response.text();
     console.log(result);
     alert("Producto " + result.nombre + " actualizado");
+}
+
+async function deleteImg(event) {
+    if (!event.target.classList.contains('deleteImg')) {
+        return;
+    }
+    event.preventDefault();
+    let imgId = event.target.id;
+    let formulario = event.target.parentElement;
+    console.log(formulario);
+    let formData = new FormData(formulario);
+
+
+
+    console.log(formData);
+    let response = await fetch('/api/image/' + imgId, {
+        method: 'POST',
+        body: formData
+    });
+
+    let contenido = await response.text();
+
+    console.log(contenido);
 }

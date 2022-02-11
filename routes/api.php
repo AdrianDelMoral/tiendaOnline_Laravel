@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AddressApiController;
 use App\Http\Controllers\Api\ProductApiController;
 use App\Http\Controllers\Api\CategoryApiController;
+use App\Http\Controllers\Api\ImageApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,7 @@ Route::apiResource('/direccion', AddressApiController::class)->only("store");
 
 Route::apiResource('/agregarCategoria', CategoryApiController::class)->only("store");
 Route::put("/productos/deshabilitar/{product}", [ProductApiController::class, "deshabilitar"]);
-
+Route::apiResource("/image", ImageApiController::class);
 Route::apiResource('/productos', ProductApiController::class)->parameters(['productos' => 'product']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
