@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Address;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AddressApiController extends Controller
@@ -28,6 +29,7 @@ class AddressApiController extends Controller
     public function store(Request $request)
     {
         $address = new Address();
+        $address -> user_id =  $request->get('userId');
         $address -> calle = $request->get('calle');
         $address -> patio = $request->get('patio');
         $address -> puerta = $request->get('puerta');

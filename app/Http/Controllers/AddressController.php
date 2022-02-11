@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\address;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AddressController extends Controller
 {
@@ -24,7 +25,12 @@ class AddressController extends Controller
      */
     public function create()
     {
-        //
+         //strcmp
+         if(!Auth::user()){
+            abort(404);
+        }
+        $usuario = Auth::user()->id;
+        return view("address.store", compact('usuario'));
     }
 
     /**
@@ -57,7 +63,11 @@ class AddressController extends Controller
      */
     public function edit(address $address)
     {
-        //
+         //strcmp
+         if(!Auth::user()){
+            abort(404);
+        }
+        return view("address.edit", compact('address'));
     }
 
     /**
