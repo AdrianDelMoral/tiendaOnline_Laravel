@@ -84,7 +84,7 @@ class ProductApiController extends Controller
     {
         //
 
-        $product->nombre = $request->input('nombre');
+        $product->nombre = $request->get('nombre');
         $product->descripcion = $request->get('descripcion');
         $product->visibilidad = $request->get('visibilidad');
         $product->cantidad = $request->get('cantidad');
@@ -104,9 +104,10 @@ class ProductApiController extends Controller
             $imgs = new Image();
             $imgs->product_id = $product->id;
             $imgs->img_path = $path;
+            $imgs->save();
         }
 
-        return response()->json($product, 201);
+        return response()->json($request, 201);
     }
 
     public function deshabilitar(Product $product)
@@ -117,6 +118,23 @@ class ProductApiController extends Controller
         return response()->json($product, 204);
     }
 
+    public function editar(Request $request)
+    {
+        // $product->nombre = $request->get('nombre');
+        // $product->descripcion = $request->get('descripcion');
+        // $product->visibilidad = $request->get('visibilidad');
+        // $product->cantidad = $request->get('cantidad');
+        // $product->category_id = $request->get('category_id');
+        // $product->precio_base = $request->get('precio_base');
+        // $product->impuestos = $request->get('impuestos');
+        // $product->descuento = $request->get('descuento');
+        // $product->save();
+        return response()->json("hola", 204);
+        // $product->visibilidad = 0;
+        // $product->save();
+        // return $product;
+        // return response()->json($product, 204);
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -127,7 +145,10 @@ class ProductApiController extends Controller
     public function destroy(Product $product)
     {
         //$product = Product::findOrFail($product->id);
+        $product->visibilidad = 0;
+        $product->save();
 
+        return response()->json($product, 204);
 
     }
 }

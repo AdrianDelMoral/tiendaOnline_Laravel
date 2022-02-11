@@ -25,6 +25,7 @@ Route::apiResource('/direccion', AddressApiController::class)->only("store");
 
 Route::apiResource('/agregarCategoria', CategoryApiController::class)->only("store");
 Route::put("/productos/deshabilitar/{product}", [ProductApiController::class, "deshabilitar"]);
+
 Route::apiResource('/productos', ProductApiController::class)->parameters(['productos' => 'product']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <form action="/api/productos/{{$product->id}}" method="POST" id="editForm" enctype="multipart/form-data">
+    <form  method="POST" id="editForm" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <input type="text" value="{{$product->id}}" id="prodId" hidden>

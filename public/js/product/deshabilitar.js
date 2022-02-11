@@ -5,14 +5,15 @@ borrarBtn.onclick = bajaProducto;
 
 async function bajaProducto() {
 
-    let response = await fetch('/api/productos/deshabilitar/' + idProduct, {
-        method: 'PUT'
+    let response = await fetch('/api/productos/' + idProduct, {
+        method: 'DELETE'
 
     });
     console.log(response.status);
-    if (response.status !== 200) {
-        alert("Ha ocurrido un error al deshabilitar el producto");
-    }
-    let result = await response.json();
+    // if (response.status !== 200) {
+    //     alert("Ha ocurrido un error al deshabilitar el producto");
+    // }
+    let result = await response.text();
+    console.log(result);
     alert("Producto " + result.nombre + " puesto en oculto");
 }

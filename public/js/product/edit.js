@@ -6,25 +6,21 @@ actualizarBtn.onclick = actualizarProd;
 async function actualizarProd(event) {
     event.preventDefault();
     let formulario = document.body.querySelector("#editForm");
-    let formData = new FormData(formulario);
+    // let formData = new FormData(formulario);
 
-    console.log([...formData.entries()]);
+    // console.log([...formData.entries()]);
 
     //conversion a JSON del formulario
-    let object = {};
-    formData.forEach((value, key) => object[key] = value);
-    let json = JSON.stringify(object);
-    console.log(json);
 
+    // let json = JSON.stringify(formData);
+    // console.log(json);
+
+    let formData = new FormData(formulario);
+    console.log([...formData.entries()]);
     let response = await fetch('/api/productos/' + prodId, {
-        method: 'PUT',
-        body: json,
-        headers: {
-            'Content-Type': 'application/json',
-        },
+        method: 'POST',
+        body: formData
     });
-
-    console.log(response);
     let result = await response.text();
     console.log(result);
     alert("Producto " + result.nombre + " actualizado");
