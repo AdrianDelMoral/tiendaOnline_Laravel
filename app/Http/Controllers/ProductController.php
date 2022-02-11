@@ -70,6 +70,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        $categories = Category::get();
+        return view("catalogo.edit", compact("product", "categories"));
     }
 
     /**

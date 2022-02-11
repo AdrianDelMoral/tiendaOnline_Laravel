@@ -83,6 +83,30 @@ class ProductApiController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+
+        $product->nombre = $request->input('nombre');
+        $product->descripcion = $request->get('descripcion');
+        $product->visibilidad = $request->get('visibilidad');
+        $product->cantidad = $request->get('cantidad');
+        $product->category_id = $request->get('category_id');
+        $product->precio_base = $request->get('precio_base');
+        $product->impuestos = $request->get('impuestos');
+        $product->descuento = $request->get('descuento');
+        $product->save();
+        //$path = Storage::putFile('products-imgs', $request->file('prod-img'));
+
+
+        $archivos = $request->file("prod-img");
+
+        foreach ($archivos as $archivo) {
+            $path = Storage::putFile('products-imgs', $archivo);
+            //return $path;
+            $imgs = new Image();
+            $imgs->product_id = $product->id;
+            $imgs->img_path = $path;
+        }
+
+        return response()->json($product, 201);
     }
 
     public function deshabilitar(Product $product)
