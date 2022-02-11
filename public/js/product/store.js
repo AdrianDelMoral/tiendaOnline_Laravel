@@ -17,20 +17,29 @@ async function sendForm(event) {
     let impuestos = document.body.querySelector("#impuestos");
     let descuento = document.body.querySelector("#descuento");
 
+    if (nombre.value === "") {
+        alert("El nombre no está definido");
+        return;
+    }
+
     let formData = new FormData(formulario);
     console.log([...formData.entries()]);
-    let response = await fetch('/api/agregarProducto', {
+    let response = await fetch('/api/productos', {
         method: 'POST',
         body: formData
     });
-
     let result = await response.json();
+
+
+    if (response.status !== 201) {
+        alert("ERROR: "+result.error);
+        return;
+    }
+
     console.log(result);
     console.log(response.status);
-    if (response.status === 200) {
-        alert("El producto: " + result.nombre + " ha sido creado con éxito");
-        console.log(formulario);
-    } else {
-        alert("Ha ocurrido un error, vuelve a intentarlo");
-    }
+
+    alert("El producto: " + result.producto + " ha sido creado con éxito");
+    console.log(formulario);
+
 }

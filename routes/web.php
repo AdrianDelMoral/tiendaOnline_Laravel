@@ -25,7 +25,7 @@ Route::resource('/', InicioController::class)->parameters(["catalogo"=> "product
 
 /* Catalogo */
 Route::resource('/catalogo', ProductController::class)->parameters(["catalogo"=> "product"]);
-Route::resource('/category', CategoryController::class);
+Route::resource('/categorias', CategoryController::class)->parameters(["categorias" => 'category']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
