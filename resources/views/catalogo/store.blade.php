@@ -75,7 +75,6 @@
                                         @foreach ($categories as $cat)
                                             <option value="{{ $cat->id }}">{{ $cat->nombre }}</option>
                                         @endforeach
-                                        {{-- <option value="1">Electrodomesticos</option> --}}
                                     </select>
                                 </div>
                             </div>

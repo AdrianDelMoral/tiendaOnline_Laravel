@@ -1,0 +1,36 @@
+.container:nth-child(2n) {
+    margin: 7rem 0 2rem 0;
+}
+
+.newarrival {
+    background-color: green;
+    max-width: 10rem;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.col-md-7 h2 {
+    color: #555;
+}
+
+.stars {
+    height: 15px;
+    cursor: pointer;
+}
+
+.input_quantity {
+    border: 1px solid #ccc;
+    font-weight: bold;
+    height: 33px;
+    text-align: center;
+    width: 30px;
+}
+
+.cart {
+    background-color: #FE980F;
+    color: #FFF;
+}
+.col-md-7{
+    max-width: 35%;
+}

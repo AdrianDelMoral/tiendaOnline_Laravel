@@ -15,7 +15,7 @@
 
     <!-- Link CSS locales-->
     <link rel="stylesheet" href="{{URL::asset('css/navFooter.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('css/catalogo.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/category.css')}}">
 
     <title>@yield('titulo')</title>{{-- Titulo de catalogo --}}
 </head>
@@ -25,3 +25,4 @@
     @include('partials.footer'){{-- Se incluirá el nav de partials/nav.blade.php --}}
 </body>
 </html>
+

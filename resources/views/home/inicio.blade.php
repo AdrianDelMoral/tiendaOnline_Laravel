@@ -41,7 +41,7 @@
                     <div class="col-md-6 col-lg-4 col-xl-3">
                         <div class="single-product">
                             <div class="part-1 row justify-content-center align-items-center">
-                                <div id="carruselCatalogo" class="carousel slide" data-bs-ride="carousel">
+                                <div id="carruselCatalogo" class="carousel slide" data-interval="false">
                                     <div class="carousel-inner">
                                         @forelse ($product->images as $imagen)
                                             @if ($imagen->id == 1)

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,8 +14,8 @@
     <script src="https://kit.fontawesome.com/75b8de379c.js" crossorigin="anonymous"></script>
 
     <!-- Link CSS locales-->
-    <link rel="stylesheet" href="{{URL::asset('css/navFooter.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('css/catalogo.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/showProduct.css')}}">{{-- Se incluirá el css de public/css/catalogo.css --}}
+    <link rel="stylesheet" href="{{URL::asset('css/navFooter.css')}}">{{-- Se incluirá el css de public/css/navFooter.css --}}
 
     <title>@yield('titulo')</title>{{-- Titulo de catalogo --}}
 </head>
