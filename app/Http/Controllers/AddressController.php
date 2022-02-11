@@ -67,7 +67,8 @@ class AddressController extends Controller
          if(!Auth::user()){
             abort(404);
         }
-        return view("address.edit", compact('address'));
+        $usuario = Auth::user()->id;
+        return view("address.edit", compact('address', 'usuario'));
     }
 
     /**

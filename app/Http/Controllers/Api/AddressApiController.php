@@ -63,7 +63,17 @@ class AddressApiController extends Controller
      */
     public function update(Request $request, Address $address)
     {
-        //
+        $address -> calle = $request->get('calle');
+        $address -> patio = $request->get('patio');
+        $address -> puerta = $request->get('puerta');
+        $address -> numero = $request->get('numero');
+        $address -> cod_postal = $request->get('cod_postal');
+        $address -> ciudad = $request->get('ciudad');
+        $address -> provincia = $request->get('provincia');
+        $address -> pais = $request->get('pais');
+        $address->save();
+
+        return response()->json($address, 201);
     }
 
     /**

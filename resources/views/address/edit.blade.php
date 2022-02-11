@@ -7,10 +7,10 @@
     <title>Editar Dirección</title>
 </head>
 <body>
-    <form action="/api/direccion" method="POST">
+    <form action="/api/direccion/{{$address->id}}" method="POST">
         @csrf
-        @method('POST')
-        <input type="text" value="{{$address->id}}" id="addressId" hidden>
+        @method('PUT')
+
         <input name="calle" id="calle" placeholder="calle" value="{{ $address->calle }}">
         <input name="patio" id="patio" placeholder="patio" value="{{ $address->patio }}">
         <input name="puerta" id="puerta" placeholder="puerta" value="{{ $address->puerta }}">

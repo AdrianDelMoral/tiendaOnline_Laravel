@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('/direccion', AddressApiController::class);
+Route::apiResource('/direccion', AddressApiController::class)->parameters(['direccion' => 'address']);
 Route::apiResource('/agregarProducto', ProductApiController::class)->only("store");
 Route::apiResource('/agregarCategoria', CategoryApiController::class)->only("store");
 Route::apiResource('/productos', ProductApiController::class);
