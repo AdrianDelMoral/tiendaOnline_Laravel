@@ -25,7 +25,7 @@ async function actualizarProd(event) {
         method: 'POST',
         body: formData
     });
-    let result = await response.text();
+    let result = await response.json();
     console.log(result);
     alert("Producto " + result.nombre + " actualizado");
 }
@@ -48,7 +48,7 @@ async function deleteImg(event) {
         body: formData
     });
 
-    let contenido = await response.text();
+    let contenido = await response.json();
 
     console.log(contenido);
 }
