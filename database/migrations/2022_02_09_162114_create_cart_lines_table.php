@@ -15,7 +15,7 @@ class CreateCartLinesTable extends Migration
     {
         Schema::create('cart_lines', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("cart_id")->constrained();
+            $table->foreignId("user_id")->constrained();
             $table->foreignId("product_id")->constrained();
             $table->integer("cantidad");
             $table->timestamps();
