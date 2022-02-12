@@ -15,7 +15,9 @@ class AddressController extends Controller
      */
     public function index()
     {
-        //
+        $usuario = Auth::user()->id;
+        $addresses = address::paginate(4);
+        return view("address.index", compact("addresses", "usuario"));
     }
 
     /**
@@ -52,7 +54,7 @@ class AddressController extends Controller
      */
     public function show(address $address)
     {
-        //
+        return view('address.show', compact('address'));
     }
 
     /**
@@ -67,6 +69,7 @@ class AddressController extends Controller
          if(!Auth::user()){
             abort(404);
         }
+
         $usuario = Auth::user()->id;
         return view("address.edit", compact('address', 'usuario'));
     }
@@ -91,6 +94,7 @@ class AddressController extends Controller
      */
     public function destroy(address $address)
     {
-        //
+        $address->delete();
+        return redirect()->route('direccion.index');
     }
 }

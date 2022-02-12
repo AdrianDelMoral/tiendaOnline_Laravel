@@ -72,9 +72,14 @@
             <x-jet-input id="nif" type="text" class="mt-1 block w-full" wire:model.defer="state.nif" autocomplete="nif" />
             <x-jet-input-error for="nif" class="mt-2" />
         </div>
-
+        <!-- address -->
+        <div class="col-span-6 sm:col-span-4">
+            <a id="address" type="button" href="{{ route('direccion.create') }}" style="background-color: white; border-color: grey;">Create Address</a>
+        </div>
+        <div class="col-span-6 sm:col-span-4">
+            <a id="address" type="button" href="{{ route('direccion.index') }}" style="background-color: white; border-color: grey;">Edit Address</a>
+        </div>
     </x-slot>
-
     <x-slot name="actions">
         <x-jet-action-message class="mr-3" on="saved">
             {{ __('Saved.') }}
@@ -85,3 +90,4 @@
         </x-jet-button>
     </x-slot>
 </x-jet-form-section>
+
