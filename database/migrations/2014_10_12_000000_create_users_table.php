@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('nif');
             $table->string('password');
-            $table->double("address")->default(0);
             $table->string('profile_photo_path', 2048)->nullable();
             $table->string("rol")->default('user');
             //$table->foreignId("cart_id");

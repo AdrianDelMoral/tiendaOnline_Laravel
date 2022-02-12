@@ -3,6 +3,7 @@
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AddressController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,10 @@ Route::resource('/', InicioController::class)->parameters(["catalogo"=> "product
 /* Catalogo */
 Route::resource('/catalogo', ProductController::class)->parameters(["catalogo"=> "product"]);
 Route::resource('/categorias', CategoryController::class)->parameters(["categorias" => 'category']);
-
+Route::resource('/direccion', AddressController::class)->parameters(["direccion"=> "address"]);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+
