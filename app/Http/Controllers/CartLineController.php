@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Category;
-use App\Models\Product;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class CategoryController extends Controller
+use App\Models\CartLine;
+use Illuminate\Http\Request;
+
+class CartLineController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,6 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categorias = Category::get();
-        return view("categorias.index", compact("categorias"));
     }
 
     /**
@@ -27,12 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-
-         //strcmp
-         if(strcmp(Auth::user()->rol, "administrador") === 0){
-            return view("categorias.store");
-        }
-        abort(404);
+        //
     }
 
     /**
@@ -49,22 +41,21 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\CartLine  $cartLine
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(CartLine $cartLine)
     {
         //
-
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\CartLine  $cartLine
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(CartLine $cartLine)
     {
         //
     }
@@ -73,10 +64,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\CartLine  $cartLine
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, CartLine $cartLine)
     {
         //
     }
@@ -84,10 +75,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\CartLine  $cartLine
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(CartLine $cartLine)
     {
         //
     }

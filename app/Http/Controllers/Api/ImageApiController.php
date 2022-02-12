@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Product;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
-class CategoryApiController extends Controller
+class ImageApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,7 @@ class CategoryApiController extends Controller
      */
     public function index()
     {
-        $categories = Category::get();
-        return response()->json($categories, 200);
+        //
     }
 
     /**
@@ -28,37 +26,28 @@ class CategoryApiController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
-        $category -> nombre = $request->get('nombre');
-        $category -> descripcion = $request->get('descripcion');
-
-        $category->save();
-
-        return response()->json($category, 201);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Image $image)
     {
         //
-        $products = Product::all()->where("category_id", $category->id);
-        return response()->json($products);
-
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Image $image)
     {
         //
     }
@@ -66,12 +55,13 @@ class CategoryApiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Image $image)
     {
-        $category->delete();
+        //
+        $image->delete();
         return response()->json(null, 204);
     }
 }

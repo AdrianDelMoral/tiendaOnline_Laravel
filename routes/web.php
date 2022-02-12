@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -23,9 +24,17 @@ use Illuminate\Support\Facades\Route;
 /* Inicio */
 Route::resource('/', InicioController::class)->parameters(["catalogo"=> "product"])->only('index');
 
+/* categorias */
+Route::resource('/categorias', CategoryController::class)->parameters(["categorias" => 'category']);
+
+
 /* Catalogo */
+Route::get("/catalogo/gestionar", [ProductController::class, 'gestionar'])->name("gestionar");
 Route::resource('/catalogo', ProductController::class)->parameters(["catalogo"=> "product"]);
-Route::resource('/category', CategoryController::class);
+
+/* panel de admin */
+Route::resource('/admin', AdminController::class);
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

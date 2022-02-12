@@ -4,6 +4,7 @@
     {{-- <form action="" method="POST" enctype="multipart/form-data" id="subirProd">
         <input name="nombre" id="nombre" placeholder="nombre">
         <input name="descripcion" id="descripcion" placeholder="descripcion">
+        <input name="cantidad" id="cantidad" placeholder="cantidad">
         <select name="visibilidad" id="visibilidad">
             <option value="1" selected>Visible</option>
             <option value="2">Oculto</option>

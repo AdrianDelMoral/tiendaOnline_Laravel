@@ -70,6 +70,8 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
+        $categories = Category::get();
+        return view("catalogo.edit", compact("product", "categories"));
     }
 
     /**
@@ -93,5 +95,10 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+    }
+
+    public function gestionar(){
+        $products = Product::get();
+        return view("catalogo.gestionar", compact("products"));
     }
 }
