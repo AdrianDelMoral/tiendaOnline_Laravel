@@ -1,25 +1,38 @@
 @extends('showProduct')
 @section('titulo', `{{ $product->nombre }}`)
 @section('cuerpo')
+{{--
+    {{ $product->descripcion }}<br>
+    {{ $product->precio_base }}<br>
+    @foreach ($product->images as $imagen)
+        <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100" alt="...">
+    @endforeach
+--}}
     <main class="container">
         <section>
             <div class="row">
                 <div class="col-md-5">
                     <div id="carouselExampleControls" class="carousel slide" data-interval="false">
                         <div class="carousel-inner">
-                            @forelse ($product->images as $imagen)
+                            @foreach ($product->images as $imagen)
+                                <div class="carousel-item active">
+                                    <img src="{{ asset('storage/' . $imagen->img_path) }}" class="d-block w-100"
+                                        alt="hola">
+                                </div>
+                            @endforeach
+                            {{-- @forelse ($product->images as $imagen)
                                 @if ($imagen->id == 1)
                                     <div class="carousel-item active">
-                                        <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100" alt="...">
+                                        <img src="{{ 'storage/'.$imagen->img_path }}" class="d-block w-100" alt="hola">
                                     </div>
                                 @else
                                     <div class="carousel-item">
-                                        <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100" alt="...">
+                                        <img src="{{ 'storage/'.$imagen->img_path }}" class="d-block w-100" alt="...">
                                     </div>
                                 @endif
                             @empty
                                 <p>No hay imagen del Producto</p>
-                            @endforelse
+                            @endforelse --}}
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
                             data-bs-slide="prev">
@@ -42,14 +55,26 @@
                     <p><strong>Availability:</strong> Yes</p>
                     <p><strong>Descripción:</strong>{{ $product->descripcion }}</p>
                     <p><strong>Brand:</strong>New</p>
-                    <label>Quantity:</label>
+                    <label>Cantidad:</label>
                     <input type="text" value="1" class="input_quantity" max="99">
-                    <button type="button" class="btn btn-default cart">Add to cart</button>
-                    {{-- {{ $product->descripcion }}<br>
-                    {{ $product->precio_base }}<br>
-                    @foreach ($product->images as $imagen)
-                        <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100" alt="...">
-                    @endforeach --}}
+                    <button type="button" class="btn btn-danger cart">Add to cart</button>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div>
+                <div class="d-flex justify-content-center row">
+                    <div class="col-md-2">
+                        <form method="post">
+                            @csrf
+                            @method("put")
+                            <input type="button" id="borrar" value="Ocultar Producto" class="btn btn-dark text-light">
+                            <input type="text" id="idProduct" value="{{ $product->id }}" hidden>
+                        </form>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="/catalogo/{{ $product->id }}/edit" class="btn btn-dark text-light">Editar el producto</a>
+                    </div>
                 </div>
             </div>
         </section>

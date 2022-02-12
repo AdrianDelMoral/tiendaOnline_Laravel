@@ -31,11 +31,18 @@
                     </div>
                     <form action="" method="POST" enctype="multipart/form-data" id="subirProd" class="form-content">
                         <div class="row mb-5">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Nombre</label>
                                     <input type="text" name="nombre" id="nombre" class="form-control"
                                         placeholder="Nombre">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group m-2">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Cantidad</label>
+                                    <input type="text" name="cantidad" id="cantidad" class="form-control"
+                                        placeholder="Cantidad">
                                 </div>
 
                                 <div class="form-group m-2">
