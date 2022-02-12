@@ -28,6 +28,9 @@ Route::apiResource('/agregarCategoria', CategoryApiController::class)->only("sto
 Route::put("/productos/deshabilitar/{product}", [ProductApiController::class, "deshabilitar"]);
 Route::apiResource("/image", ImageApiController::class);
 Route::apiResource('/productos', ProductApiController::class)->parameters(['productos' => 'product']);
+Route::apiResource('/categorias', CategoryApiController::class)->parameters(['categorias' => 'category']);
+
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

@@ -129,6 +129,6 @@ class ProductApiController extends Controller
     public function destroy(Product $product)
     {
         //$product = Product::findOrFail($product->id);
-
+        $product->delete();
     }
 }

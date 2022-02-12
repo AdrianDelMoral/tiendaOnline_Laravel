@@ -14,11 +14,13 @@
         <input type="button" id="borrar" value="Ocultar Producto"><br>
         <input type="text" id="idProduct" value="{{$product->id}}" hidden>
     </form>
+
+    <a href="/catalogo/{{$product->id}}/edit">Editar el producto</a><br>
     {{$product->nombre}}<br>
     {{$product->descripcion}}<br>
     {{$product->precio_base}}<br>
     @foreach ($product->images as $imagen)
-        <img src="{{asset("images/products-imgs/".$imagen->img_path)}}">
+        <img src="{{asset("storage/".$imagen->img_path)}}">
     @endforeach
 
 </body>

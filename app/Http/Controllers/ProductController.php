@@ -96,4 +96,9 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function gestionar(){
+        $products = Product::get();
+        return view("catalogo.gestionar", compact("products"));
+    }
 }
