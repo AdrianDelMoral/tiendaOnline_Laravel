@@ -15,6 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        $categorias = Category::get();
+        return view("categorias.index", compact("categorias"));
     }
 
     /**
@@ -27,7 +29,7 @@ class CategoryController extends Controller
 
          //strcmp
          if(strcmp(Auth::user()->rol, "administrador") === 0){
-            return view("category.store");
+            return view("categorias.store");
         }
         abort(404);
     }

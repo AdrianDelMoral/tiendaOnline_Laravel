@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('showProduct')
 @section('titulo', `{{ $product->nombre }}`)
 @section('cuerpo')
@@ -29,7 +30,7 @@
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span">Next</span>
+                            <span>Next</span>
                         </button>
                     </div>
                 </div>
@@ -56,3 +57,34 @@
     </main>
 
 @endsection
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="{{asset("js/product/deshabilitar.js")}}" defer></script>
+</head>
+<body>
+    <form method="post">
+        @csrf
+        @method("put")
+        <input type="button" id="borrar" value="Ocultar Producto"><br>
+        <input type="text" id="idProduct" value="{{$product->id}}" hidden>
+    </form>
+    {{$product->nombre}}<br>
+    {{$product->descripcion}}<br>
+    {{$product->precio_base}}<br>
+    @foreach ($product->images as $imagen)
+        <img src="{{asset("images/products-imgs/".$imagen->img_path)}}">
+    @endforeach
+
+</body>
+</html>
+
+
+
+
+>>>>>>> d501e7a508dca3df30a7e254232f5e776c5dced8

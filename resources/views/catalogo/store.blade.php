@@ -1,9 +1,25 @@
+<<<<<<< HEAD
 @extends('addarticle')
 @section('titulo', 'Crear Articulo')
 @section('cuerpo')
     {{-- <form action="" method="POST" enctype="multipart/form-data" id="subirProd">
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crear Producto</title>
+    <script src="{{asset("js/product/store.js")}}" defer></script>
+</head>
+<body>
+    <form action="" method="POST" enctype="multipart/form-data" id="subirProd">
+        @csrf
+>>>>>>> d501e7a508dca3df30a7e254232f5e776c5dced8
         <input name="nombre" id="nombre" placeholder="nombre">
         <input name="descripcion" id="descripcion" placeholder="descripcion">
+        <input name="cantidad" id="cantidad" placeholder="cantidad">
         <select name="visibilidad" id="visibilidad">
             <option value="1" selected>Visible</option>
             <option value="2">Oculto</option>
