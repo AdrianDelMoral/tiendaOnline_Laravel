@@ -27,14 +27,19 @@ Route::resource('/', InicioController::class)->parameters(["catalogo"=> "product
 /* categorias */
 Route::resource('/categorias', CategoryController::class)->parameters(["categorias" => 'category']);
 
+/* Usuarios */
+//Route::get("/users")
 
 /* Catalogo */
 Route::get("/catalogo/gestionar", [ProductController::class, 'gestionar'])->name("gestionar");
 Route::resource('/catalogo', ProductController::class)->parameters(["catalogo"=> "product"]);
 
 /* panel de admin */
-Route::resource('/admin', AdminController::class);
+//Route::middleware(['auth:sanctum', 'verified'])->resource('/admin', AdminController::class);
 
+Route::group(['prefix' => '/admin'], function () {
+    Voyager::routes();
+});
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
