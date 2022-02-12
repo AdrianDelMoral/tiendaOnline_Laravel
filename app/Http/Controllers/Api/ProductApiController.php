@@ -30,33 +30,36 @@ class ProductApiController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product();
-        $product -> nombre = $request->get('nombre');
-        $product -> descripcion = $request->get('descripcion');
-        $product -> visibilidad = $request->get('visibilidad');
-        $product -> category_id = $request->get('category_id');
-        $product -> precio_base = $request->get('precio_base');
-        $product -> impuestos = $request->get('impuestos');
-        $product -> descuento = $request->get('descuento');
-        //$path = Storage::putFile('products-imgs', $request->file('prod-img'));
-        $product->save();
+        if (!$request->hasFile('prod-img')) {
+            return response()->json(["error" => 'No hay imagen'], 400);
+        } else {
 
-        if($request->hasFile('prod-img')){
+
+
+            $product = new Product();
+            $product->nombre = $request->get('nombre');
+            $product->descripcion = $request->get('descripcion');
+            $product->visibilidad = $request->get('visibilidad');
+            $product->cantidad = $request->get('cantidad');
+            $product->category_id = $request->get('category_id');
+            $product->precio_base = $request->get('precio_base');
+            $product->impuestos = $request->get('impuestos');
+            $product->descuento = $request->get('descuento');
+            //$path = Storage::putFile('products-imgs', $request->file('prod-img'));
+            $product->save();
+
             $archivos = $request->file("prod-img");
-            foreach ($archivos as $archivo){
+            foreach ($archivos as $archivo) {
                 $path = Storage::putFile('products-imgs', $archivo);
                 //return $path;
                 $imgs = new Image();
-                $imgs -> product_id = $product->id;
-                $imgs -> img_path = $path;
+                $imgs->product_id = $product->id;
+                $imgs->img_path = $path;
                 $imgs->save();
             }
-            return response()->json($product, 200);
 
+            return response()->json(['producto' => $product->nombre], 201);
         }
-
-        //Storage::move("/storage/app/".$imgs->img_path, "/storage/public/".$imgs->img_path);
-        return response()->json($product, 200);
     }
 
     /**
@@ -80,6 +83,37 @@ class ProductApiController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+
+        $product->nombre = $request->get('nombre');
+        $product->descripcion = $request->get('descripcion');
+        $product->visibilidad = $request->get('visibilidad');
+        $product->cantidad = $request->get('cantidad');
+        $product->category_id = $request->get('category_id');
+        $product->precio_base = $request->get('precio_base');
+        $product->impuestos = $request->get('impuestos');
+        $product->descuento = $request->get('descuento');
+        $product->save();
+
+        $archivos = $request->file("prod-img");
+
+        foreach ($archivos as $archivo) {
+            $path = Storage::putFile('products-imgs', $archivo);
+            //return $path;
+            $imgs = new Image();
+            $imgs->product_id = $product->id;
+            $imgs->img_path = $path;
+            $imgs->save();
+        }
+
+        return response()->json($request, 201);
+    }
+
+    public function deshabilitar(Product $product)
+    {
+        $product->visibilidad = 0;
+        $product->save();
+        return $product;
+        return response()->json($product, 204);
     }
 
     /**
@@ -90,7 +124,7 @@ class ProductApiController extends Controller
      */
     public function destroy(Product $product)
     {
-        $product->delete();
-        return response()->json(null, 204);
+        //$product = Product::findOrFail($product->id);
+
     }
 }

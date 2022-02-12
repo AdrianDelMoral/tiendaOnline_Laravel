@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Product;
-use App\Models\Category;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class ProductController extends Controller
+use App\Models\CartLine;
+use Illuminate\Http\Request;
+
+class CartLineController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,6 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::where("visibilidad",1)->orderBy("created_at", 'desc')->get();
-        return view("catalogo.inicio", compact("products"));
     }
 
     /**
@@ -27,16 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::get();
-        //strcmp
-        if(!Auth::user()){
-            abort(404);
-        }
-        if(strcmp(Auth::user()->rol, "administrador") === 0){
-            return view("catalogo.store", compact('categories'));
-        }
-        abort(404);
-        //lo optimo seria redirigir al index
+        //
     }
 
     /**
@@ -53,35 +41,33 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\CartLine  $cartLine
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(CartLine $cartLine)
     {
-        return view("catalogo.show", compact("product"));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\CartLine  $cartLine
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(CartLine $cartLine)
     {
         //
-        $categories = Category::get();
-        return view("catalogo.edit", compact("product", "categories"));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\CartLine  $cartLine
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, CartLine $cartLine)
     {
         //
     }
@@ -89,10 +75,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\CartLine  $cartLine
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(CartLine $cartLine)
     {
         //
     }
