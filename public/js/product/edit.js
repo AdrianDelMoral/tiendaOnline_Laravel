@@ -3,8 +3,12 @@ let prodId = document.body.querySelector("#prodId").value;
 actualizarBtn.onclick = actualizarProd;
 let formulario = document.body.querySelector("#galeria");
 
-//boton de borrar imgs
+//boton de eliminar el producto
+let eliminarProdBtn = document.body.querySelector("#eliminarProd")
+eliminarProdBtn.onclick = deleteProd;
 
+
+//boton de borrar imgs
 formulario.onclick = deleteImg;
 
 async function actualizarProd(event) {
@@ -51,4 +55,28 @@ async function deleteImg(event) {
     let contenido = await response.json();
 
     console.log(contenido);
+}
+
+async function deleteProd(event) {
+    event.preventDefault();
+    await deleteAllImgs();
+    let formulario = document.body.querySelector("#deleteProdForm");
+    let formData = new FormData(formulario);
+    let response = await fetch('/api/productos/' + prodId, {
+        method: 'POST',
+        body: formData
+    });
+
+    alert("Producto Eliminado");
+}
+
+async function deleteAllImgs(){
+    let imgs = document.body.querySelectorAll(".deleteImg");
+    for (let img of imgs){
+        let response = await fetch('/api/image/' + img.id, {
+            method: 'POST',
+            body: new FormData(img.parentElement)
+        });
+    }
+
 }

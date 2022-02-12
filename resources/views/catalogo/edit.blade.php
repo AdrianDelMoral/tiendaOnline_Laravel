@@ -50,6 +50,11 @@
         <br><br>
         <input type="submit" id="actualizar" value="Actualizar Producto">
     </form>
+    <form id="deleteProdForm" method="post">
+        @csrf
+        @method('DELETE')
+        <button id="eliminarProd">Eliminar Producto</button>
+    </form>
     <div id="galeria">
         @foreach ($product->images as $imagen)
             <form method="POST">
