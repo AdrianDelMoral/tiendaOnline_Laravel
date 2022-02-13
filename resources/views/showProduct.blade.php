@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,16 +10,12 @@
     <!-- Bootstrap Link JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    {{-- Script para agregar productos al carro --}}
-    <script src="{{asset("js/carrito/store.js")}}" defer></script>
-
-
     <!-- Iconos Online -->
     <script src="https://kit.fontawesome.com/75b8de379c.js" crossorigin="anonymous"></script>
 
     <!-- Link CSS locales-->
-    <link rel="stylesheet" href="{{URL::asset('css/navFooter.css')}}">
-    <link rel="stylesheet" href="{{URL::asset('css/catalogo.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('css/showProduct.css')}}">{{-- Se incluirá el css de public/css/catalogo.css --}}
+    <link rel="stylesheet" href="{{URL::asset('css/navFooter.css')}}">{{-- Se incluirá el css de public/css/navFooter.css --}}
 
     <title>@yield('titulo')</title>{{-- Titulo de catalogo --}}
 </head>
