@@ -50,7 +50,7 @@
                                             @method('POST')
                                             <input type="text" name="user_id" value="{{$user_id}}" hidden>
                                             <input type="text" id="product_id" name="product_id" value="{{$product->id}}" hidden>
-                                            <a><i class="fas fa-shopping-cart"></i></a>
+                                            <a href="#"><i class="fas fa-shopping-cart"></i></a>
                                         </form></li>
                                     <li><a href="{{ route('catalogo.show', $product)}}"><i class="fas fa-eye"></i></a></li>
                                 </ul>
