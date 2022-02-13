@@ -47,7 +47,7 @@
 
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Impuestos</label>
-                                    <input type="text" class="form-control" placeholder="Impuestos" name="impuestos"
+                                    <input type="text" class="form-control" value="21" placeholder="Impuestos" name="impuestos"
                                         id="impuestos">
                                 </div>
                             </div>
