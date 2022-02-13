@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Cart;
+use App\Http\Controllers\Controller;
+use App\Models\CartLine;
 use Illuminate\Http\Request;
 
-class CartController extends Controller
+class CartLineApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,16 +14,6 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
     {
         //
     }
@@ -36,26 +27,21 @@ class CartController extends Controller
     public function store(Request $request)
     {
         //
+        $cartline = new CartLine();
+        $cartline-> user_id = $request->get("user_id");
+        $cartline -> product_id = $request->get("product_id");
+        $cartline -> cantidad = 1;
+        $cartline->save();
+        return response()->json($cartline, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Cart  $cart
+     * @param  \App\Models\CartLine  $cartLine
      * @return \Illuminate\Http\Response
      */
-    public function show(Cart $cart)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cart $cart)
+    public function show(CartLine $cartLine)
     {
         //
     }
@@ -64,10 +50,10 @@ class CartController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Cart  $cart
+     * @param  \App\Models\CartLine  $cartLine
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cart $cart)
+    public function update(Request $request, CartLine $cartLine)
     {
         //
     }
@@ -75,10 +61,10 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Cart  $cart
+     * @param  \App\Models\CartLine  $cartLine
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy(CartLine $cartLine)
     {
         //
     }

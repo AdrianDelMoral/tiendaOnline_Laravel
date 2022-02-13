@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartLineController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -24,8 +26,7 @@ use Illuminate\Support\Facades\Route;
 /* Inicio */
 Route::resource('/', InicioController::class)->parameters(["catalogo"=> "product"])->only('index');
 
-/* Catalogo */
-Route::resource('/catalogo', ProductController::class)->parameters(["catalogo"=> "product"]);
+/* categorias */
 Route::resource('/categorias', CategoryController::class)->parameters(["categorias" => 'category']);
 Route::resource('/direccion', AddressController::class)->parameters(["direccion"=> "address"]);
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

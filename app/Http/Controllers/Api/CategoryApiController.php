@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryApiController extends Controller
@@ -45,6 +46,9 @@ class CategoryApiController extends Controller
     public function show(Category $category)
     {
         //
+        $products = Product::where("category_id", $category->id)->paginate(20);
+        return response()->json($products);
+
     }
 
     /**

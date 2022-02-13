@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CartLine;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class CartLineController extends Controller
@@ -15,6 +16,12 @@ class CartLineController extends Controller
     public function index()
     {
         //
+        $usuario = 0;
+        if (Auth::user()) {
+            $usuario = Auth::user()->id;
+        }
+        $cartLines = CartLine::where("user_id", $usuario)->get();
+        return view("carrito.index", compact("cartLines"));
     }
 
     /**

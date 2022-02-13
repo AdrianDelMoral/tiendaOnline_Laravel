@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Api\AddressApiController;
+use App\Http\Controllers\Api\CartLineApiController;
 use App\Http\Controllers\Api\ProductApiController;
 use App\Http\Controllers\Api\CategoryApiController;
 use App\Http\Controllers\Api\ImageApiController;
+use App\Models\CartLine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +30,9 @@ Route::apiResource('/agregarCategoria', CategoryApiController::class)->only("sto
 Route::put("/productos/deshabilitar/{product}", [ProductApiController::class, "deshabilitar"]);
 Route::apiResource("/image", ImageApiController::class);
 Route::apiResource('/productos', ProductApiController::class)->parameters(['productos' => 'product']);
+Route::apiResource('/categorias', CategoryApiController::class)->parameters(['categorias' => 'category']);
+Route::apiResource("/carrito", CartLineApiController::class)->parameters(['carrito' => 'cartline']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });

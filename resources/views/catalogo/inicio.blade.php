@@ -41,33 +41,30 @@
                     <div class="col-md-6 col-lg-4 col-xl-3">
                         <div class="single-product">
                             <div class="part-1 row justify-content-center align-items-center">
-                                <div id="carruselCatalogo" class="carousel slide" data-interval="false">
-                                    <div class="carousel-inner">
-                                        @forelse ($product->images as $imagen)
-                                            @if ($imagen->id == 1)
+                                @forelse ($product->images as $imagen)
+                                    <div id="{{$product->nombre}}" class="carousel slide" data-interval="false">
+                                        <div class="carousel-inner">
+                                            @if ($loop->first)
                                                 <div class="carousel-item active">
                                                     <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100"
                                                         alt="...">
                                                 </div>
-                                            @else
-                                                <div class="carousel-item">
-                                                    <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100"
-                                                        alt="...">
-                                                </div>
                                             @endif
-                                        @empty
-                                            <p>No hay imagen del Producto</p>
-                                        @endforelse
+                                            <div class="carousel-item">
+                                                <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100"
+                                                    alt="...">
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#{{$product->nombre}}" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#{{$product->nombre}}" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        </button>
                                     </div>
-                                    <button class="carousel-control-prev" type="button" data-bs-target="#carruselCatalogo" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Previous</span>
-                                    </button>
-                                    <button class="carousel-control-next" type="button" data-bs-target="#carruselCatalogo" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        <span class="visually-hidden">Next</span>
-                                    </button>
-                                </div>
+                                @empty
+                                    <p>No hay imagen del Producto</p>
+                                @endforelse
                             </div>
                             <div class="part-2">
                                 <h1 class="product-title">
@@ -97,4 +94,3 @@
         </div>
     </main>
 @endsection
-

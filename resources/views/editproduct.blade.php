@@ -19,11 +19,12 @@
 
     <!-- Link CSS locales-->
     <link rel="stylesheet" href="{{ URL::asset('css/navFooter.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('css/store.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/editproduct.css') }}">
 
-    <script src="{{ asset('js/product/store.js') }}" defer></script>
+    <script src="{{ asset('js/product/edit.js') }}" defer></script>
 
     <title>@yield('titulo')</title><!-- Titulo de catalogo -->
+    <title>Editar Producto - {{ $product->nombre }}</title>
 </head>
 
 <body>
