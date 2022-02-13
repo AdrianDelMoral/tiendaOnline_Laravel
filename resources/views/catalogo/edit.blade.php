@@ -158,12 +158,16 @@
                                                 @if ($loop->first)
                                                     <div class="carousel-item active">
                                                         <img src="{{ asset('storage/' . $imagen->img_path) }}" class="d-block w-100" alt="{{ $product->nombre }}">
-                                                        <button id="{{ $imagen->id }}" class="btnArrDer btn btn-danger deleteImg">x</button>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button id="{{ $imagen->id }}" class="btnArrDer btn btn-danger deleteImg">x</button>
+                                                        </div>
                                                     </div>
                                                 @endif
                                                     <div class="carousel-item">
                                                         <img src="{{ asset('storage/' . $imagen->img_path) }}" class="d-block w-100" alt="{{ $product->nombre }}">
-                                                        <button id="{{ $imagen->id }}" class="btnArrDer btn btn-danger deleteImg">x</button>
+                                                        <div class="d-flex justify-content-center">
+                                                            <button id="{{ $imagen->id }}" class="btnArrDer btn btn-danger deleteImg">x</button>
+                                                        </div>
                                                     </div>
                                             </form>
                                         @endforeach
