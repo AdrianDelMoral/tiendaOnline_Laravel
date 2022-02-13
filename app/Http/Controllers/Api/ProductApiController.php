@@ -7,7 +7,7 @@ use App\Models\Product;
 use App\Models\Image;
 
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 
 class ProductApiController extends Controller
 {
@@ -28,38 +28,34 @@ class ProductApiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
-        if (!$request->hasFile('prod-img')) {
-            return response()->json(["error" => 'No hay imagen'], 400);
-        } else {
+        $request->validated();
+        $product = new Product();
+        $product->nombre = $request->get('nombre');
+        $product->descripcion = $request->get('descripcion');
+        $product->visibilidad = $request->get('visibilidad');
+        $product->cantidad = $request->get('cantidad');
+        $product->category_id = $request->get('category_id');
+        $product->precio_base = $request->get('precio_base');
+        $product->impuestos = $request->get('impuestos');
+        $product->descuento = $request->get('descuento');
+        //$path = Storage::putFile('products-imgs', $request->file('prod-img'));
+        $product->save();
 
-
-
-            $product = new Product();
-            $product->nombre = $request->get('nombre');
-            $product->descripcion = $request->get('descripcion');
-            $product->visibilidad = $request->get('visibilidad');
-            $product->cantidad = $request->get('cantidad');
-            $product->category_id = $request->get('category_id');
-            $product->precio_base = $request->get('precio_base');
-            $product->impuestos = $request->get('impuestos');
-            $product->descuento = $request->get('descuento');
-            //$path = Storage::putFile('products-imgs', $request->file('prod-img'));
-            $product->save();
-
-            $archivos = $request->file("prod-img");
-            foreach ($archivos as $archivo) {
-                $path = Storage::putFile('products-imgs', $archivo);
-                //return $path;
-                $imgs = new Image();
-                $imgs->product_id = $product->id;
-                $imgs->img_path = $path;
-                $imgs->save();
-            }
-
-            return response()->json(['producto' => $product->nombre], 201);
+        $archivos = $request->file("prod-img");
+        foreach ($archivos as $archivo) {
+            $path = Storage::putFile('products-imgs', $archivo);
+            //return $path;
+            $imgs = new Image();
+            $imgs->product_id = $product->id;
+            $imgs->img_path = $path;
+            $imgs->save();
         }
+
+        return response()->json(['producto' => $product->nombre], 201);
+
+
     }
 
     /**
@@ -80,7 +76,7 @@ class ProductApiController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
         //
 

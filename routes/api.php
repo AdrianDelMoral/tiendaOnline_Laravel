@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('/direccion', AddressApiController::class)->only("store");
 
-// Route::apiResource('/agregarProducto', ProductApiController::class)->only("store");
+//Route::apiResource('/agregarProducto', ProductApiController::class);
 // Route::apiResource('/borrarProducto', ProductApiController::class)->only("destroy")->parameters(["borrarProducto"=> "requests"]);
 
 
