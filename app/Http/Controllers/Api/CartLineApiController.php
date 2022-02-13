@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\CartLine;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class CartLineController extends Controller
+class CartLineApiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,22 +14,6 @@ class CartLineController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-        $usuario = 0;
-        if (Auth::user()) {
-            $usuario = Auth::user()->id;
-        }
-        $cartLines = CartLine::where("user_id", $usuario)->get();
-        return view("carrito.index", compact("cartLines"));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
     {
         //
     }
@@ -43,6 +27,12 @@ class CartLineController extends Controller
     public function store(Request $request)
     {
         //
+        $cartline = new CartLine();
+        $cartline-> user_id = $request->get("user_id");
+        $cartline -> product_id = $request->get("product_id");
+        $cartline -> cantidad = 1;
+        $cartline->save();
+        return response()->json($cartline, 201);
     }
 
     /**
@@ -52,17 +42,6 @@ class CartLineController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(CartLine $cartLine)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\CartLine  $cartLine
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(CartLine $cartLine)
     {
         //
     }

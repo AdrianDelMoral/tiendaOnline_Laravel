@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartLineController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Models\CartLine;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +37,8 @@ Route::resource('/catalogo', ProductController::class)->parameters(["catalogo"=>
 /* panel de admin */
 Route::resource('/admin', AdminController::class);
 
+/* Carrito */
+Route::resource('/carrito', CartLineController::class)->parameters(['carrito' => 'cartline']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
