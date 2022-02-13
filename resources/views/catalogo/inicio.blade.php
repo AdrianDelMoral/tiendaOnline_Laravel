@@ -47,12 +47,12 @@
                                             @if ($loop->first)
                                                 <div class="carousel-item active">
                                                     <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100"
-                                                        alt="...">
+                                                        alt="{{$product->nombre}}">
                                                 </div>
                                             @endif
                                             <div class="carousel-item">
                                                 <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100"
-                                                    alt="...">
+                                                    alt="{{$product->nombre}}">
                                             </div>
                                         </div>
                                         <button class="carousel-control-prev" type="button" data-bs-target="#{{$product->nombre}}" data-bs-slide="prev">
