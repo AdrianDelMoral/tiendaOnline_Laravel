@@ -16,7 +16,8 @@ class ImageApiController extends Controller
     public function index()
     {
         //
-
+        $images = Image::get();
+        return response()->json($images);
     }
 
     /**

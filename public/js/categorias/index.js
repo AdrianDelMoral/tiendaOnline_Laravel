@@ -55,7 +55,7 @@ async function loadMore(event) {
     });
 
     let results = await response.json();
-    if(results.current_page == results.last_page){
+    if (results.current_page == results.last_page) {
         cargarMas.hidden = true;
     }
     printProducts(results.data);
@@ -66,6 +66,14 @@ async function loadMore(event) {
 async function printProducts(products) {
     let contenido = document.body.querySelector("#contenido");
     for (let product of products) {
-        contenido.innerHTML += product.nombre +"<br>";
+        let enlace = document.createElement("a");
+        enlace.href = "/catalogo/" + product.id;
+        enlace.textContent = product.nombre;
+        let br = document.createElement("br");
+
+        contenido.append(enlace);
+        contenido.append(br)
+
+
     }
 }
