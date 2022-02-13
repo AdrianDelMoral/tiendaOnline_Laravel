@@ -5,6 +5,7 @@ productHandler.onclick = storeProduct;
 
 async function storeProduct(event) {
     if (event.target.classList.contains('fa-shopping-cart')) {
+        event.preventDefault();
         let cantidad = await checkCantidad(event);
         if (cantidad === 0) {
             return;
