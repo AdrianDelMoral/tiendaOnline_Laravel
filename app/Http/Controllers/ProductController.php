@@ -16,8 +16,9 @@ class ProductController extends Controller
     public function index()
     {
         //
+        $user_id = Auth::user()->id;
         $products = Product::where("visibilidad",1)->orderBy("created_at", 'desc')->get();
-        return view("catalogo.inicio", compact("products"));
+        return view("catalogo.inicio", compact("products", "user_id"));
     }
 
     /**
