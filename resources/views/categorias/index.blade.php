@@ -21,6 +21,9 @@
         @endforeach
     </div>
     <div id="contenido"></div>
+    <button id="cargarMas" hidden>Cargar mas productos</button>
+    <input type="text" id="currentpage" hidden>
+    <input type="text" id="categoryId" hidden>
 
 </body>
 
