@@ -16,9 +16,12 @@ class CartLineController extends Controller
     public function index()
     {
         //
-        $usuario = Auth::user()->id;
+        $usuario = 0;
+        if (Auth::user()) {
+            $usuario = Auth::user()->id;
+        }
         $cartLines = CartLine::where("user_id", $usuario)->get();
-        return view ("carrito.index", compact("cartLines"));
+        return view("carrito.index", compact("cartLines"));
     }
 
     /**
