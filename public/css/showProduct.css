@@ -35,3 +35,12 @@
 .col-md-7{
     max-width: 35%;
 }
+.carousel img {
+    box-shadow: inset 0px 0px 29px 9px rgba(0,0,0,1);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: .6rem;
+}
+

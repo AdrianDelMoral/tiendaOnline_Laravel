@@ -1,48 +1,37 @@
 @extends('showProduct')
 @section('titulo', `{{ $product->nombre }}`)
 @section('cuerpo')
-{{--
-    {{ $product->descripcion }}<br>
+    {{-- {{ $product->descripcion }}<br>
     {{ $product->precio_base }}<br>
     @foreach ($product->images as $imagen)
         <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100" alt="...">
-    @endforeach
---}}
+    @endforeach --}}
     <main class="container">
         <section>
             <div class="row">
                 <div class="col-md-5">
-                    <div id="carouselExampleControls" class="carousel slide" data-interval="false">
+                    <div id="{{ $product->nombre }}" class="carousel slide" data-interval="false">
                         <div class="carousel-inner">
                             @foreach ($product->images as $imagen)
-                                <div class="carousel-item active">
-                                    <img src="{{ asset('storage/' . $imagen->img_path) }}" class="d-block w-100"
-                                        alt="hola">
-                                </div>
-                            @endforeach
-                            {{-- @forelse ($product->images as $imagen)
-                                @if ($imagen->id == 1)
+                                @if ($loop->first)
                                     <div class="carousel-item active">
-                                        <img src="{{ 'storage/'.$imagen->img_path }}" class="d-block w-100" alt="hola">
-                                    </div>
-                                @else
-                                    <div class="carousel-item">
-                                        <img src="{{ 'storage/'.$imagen->img_path }}" class="d-block w-100" alt="...">
+                                        <img src="{{ asset('storage/' . $imagen->img_path) }}" class="d-block w-100"
+                                            alt="{{ $product->nombre }}">
                                     </div>
                                 @endif
-                            @empty
-                                <p>No hay imagen del Producto</p>
-                            @endforelse --}}
+                                <div class="carousel-item">
+                                    <img src="{{ asset('storage/' . $imagen->img_path) }}" class="d-block w-100"
+                                        alt="{{ $product->nombre }}">
+                                </div>
+                            @endforeach
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        <button class="carousel-control-prev" type="button" data-bs-target="#{{ $product->nombre }}"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span>Previous</span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        <button class="carousel-control-next" type="button" data-bs-target="#{{ $product->nombre }}"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span">Next</span>
                         </button>
                     </div>
                 </div>
@@ -73,7 +62,8 @@
                         </form>
                     </div>
                     <div class="col-md-2">
-                        <a href="/catalogo/{{ $product->id }}/edit" class="btn btn-dark text-light">Editar el producto</a>
+                        <a href="/catalogo/{{ $product->id }}/edit" class="btn btn-dark text-light">Editar el
+                            producto</a>
                     </div>
                 </div>
             </div>
