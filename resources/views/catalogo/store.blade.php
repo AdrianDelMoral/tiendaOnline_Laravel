@@ -1,5 +1,5 @@
 @extends('addarticle')
-@section('titulo', 'Crear Articulo')
+@section('titulo', 'Crear Producto')
 @section('cuerpo')
     {{-- <form action="" method="POST" enctype="multipart/form-data" id="subirProd">
         <input name="nombre" id="nombre" placeholder="nombre">
@@ -27,7 +27,7 @@
                 <div class="form">
                     <div class="note">
                         <!--  sm, md, lg, xl, and xxl -->
-                        <h1 class="p-3 text-light">Nuevo Producto</h1>
+                        <h1 class="p-3 text-center text-light">Nuevo Producto</h1>
                     </div>
                     <form action="" method="POST" enctype="multipart/form-data" id="subirProd" class="form-content">
                         <div class="row mb-5">
