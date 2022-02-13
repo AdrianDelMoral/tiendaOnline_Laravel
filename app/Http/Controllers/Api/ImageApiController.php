@@ -16,6 +16,7 @@ class ImageApiController extends Controller
     public function index()
     {
         //
+
     }
 
     /**
