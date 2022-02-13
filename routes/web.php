@@ -28,10 +28,20 @@ Route::resource('/', InicioController::class)->parameters(["catalogo"=> "product
 
 /* categorias */
 Route::resource('/categorias', CategoryController::class)->parameters(["categorias" => 'category']);
+
+/* direcciones */
 Route::resource('/direccion', AddressController::class)->parameters(["direccion"=> "address"]);
+
+/* Catalogo */
+Route::get("/catalogo/gestionar", [ProductController::class, 'gestionar'])->name("gestionar");
+Route::resource('/catalogo', ProductController::class)->parameters(["catalogo"=> "product"]);
+
+/* panel de admin */
+Route::resource('/admin', AdminController::class);
+
+/* Carrito */
+Route::resource('/carrito', CartLineController::class)->parameters(['carrito' => 'cartline']);
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-
-
-

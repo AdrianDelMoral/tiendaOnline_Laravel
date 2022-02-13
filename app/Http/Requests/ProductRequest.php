@@ -3,10 +3,10 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Http\Requests\JsonResponse;
-use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Http\JsonResponse;
+/* use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Validation\ValidationException;
-use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\Exceptions\HttpResponseException; */
 
 class ProductRequest extends FormRequest
 {
@@ -62,7 +62,7 @@ class ProductRequest extends FormRequest
             response()->json(['errors' => $errors], JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
         );
     } */
-    /* public function response(array $errors)
+    public function response(array $errors)
     {
         if ($this->expectsJson()) {
             return new JsonResponse($errors, 422);
@@ -70,5 +70,5 @@ class ProductRequest extends FormRequest
         return $this->redirector->to($this->getRedirectUrl())
             ->withInput($this->except($this->dontFlash))
             ->withErrors($errors, $this->errorBag);
-    } */
+    }
 }

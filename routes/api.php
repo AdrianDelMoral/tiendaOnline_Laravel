@@ -5,7 +5,6 @@ use App\Http\Controllers\Api\CartLineApiController;
 use App\Http\Controllers\Api\ProductApiController;
 use App\Http\Controllers\Api\CategoryApiController;
 use App\Http\Controllers\Api\ImageApiController;
-use App\Models\CartLine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::apiResource('/direccion', AddressApiController::class)->only("store");
+Route::apiResource('/direccion', AddressApiController::class);
 
-//Route::apiResource('/agregarProducto', ProductApiController::class);
+// Route::apiResource('/agregarProducto', ProductApiController::class)->only("store");
 // Route::apiResource('/borrarProducto', ProductApiController::class)->only("destroy")->parameters(["borrarProducto"=> "requests"]);
 
 

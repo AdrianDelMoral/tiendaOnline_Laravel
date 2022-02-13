@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Image;
-
+/* use Illuminate\Support\Facades\Validator; */
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\ProductRequest;
 
@@ -30,7 +30,6 @@ class ProductApiController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $request->validated();
         $product = new Product();
         $product->nombre = $request->get('nombre');
         $product->descripcion = $request->get('descripcion');
@@ -54,6 +53,8 @@ class ProductApiController extends Controller
         }
 
         return response()->json(['producto' => $product->nombre], 201);
+
+        /* return response()->json(['Producto' => Product::create($request->validated())]); */
 
 
     }
