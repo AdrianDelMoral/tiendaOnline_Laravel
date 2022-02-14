@@ -5,12 +5,8 @@ use App\Http\Controllers\CartLineController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
-<<<<<<< HEAD
 use App\Http\Controllers\AddressController;
-=======
 use App\Http\Controllers\UserController;
-use App\Models\CartLine;
->>>>>>> b2e9b1ba521af4dccc94e1c8988a435ff34399f7
 use Illuminate\Support\Facades\Route;
 
 /*
