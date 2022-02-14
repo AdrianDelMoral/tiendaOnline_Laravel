@@ -44,6 +44,7 @@ class CartLineApiController extends Controller
     public function show(CartLine $cartLine)
     {
         //
+        return response($cartLine);
     }
 
     /**
@@ -67,5 +68,7 @@ class CartLineApiController extends Controller
     public function destroy(CartLine $cartLine)
     {
         //
+        $cartLine->delete();
+        return response()->json(null, 204);
     }
 }

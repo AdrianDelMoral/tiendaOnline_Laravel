@@ -33,8 +33,6 @@
         <label for="descuento">Descuento:</label>
         <input name="descuento" id="descuento" type="text" value="{{ $product->descuento }}">
 
-
-
         <input type="file" name="prod-img[]" id="prod-img" multiple>
 
 
@@ -63,7 +61,7 @@
                         <!--  sm, md, lg, xl, and xxl -->
                         <h1 class="p-3 text-center text-light">Editar Producto</h1>
                     </div>
-                    <form action="" method="POST" enctype="multipart/form-data" id="subirProd" class="form-content">
+                    <form action="" method="POST" enctype="multipart/form-data" id="editForm" class="form-content">
                         @csrf
                         @method('PUT')
                         <div class="row mb-5">
@@ -133,11 +131,11 @@
                         <section class="w-100 p-4 d-flex justify-content-center pb-4">
                             <div>
                                 <label for="formFileMultiple" class="form-label">Seleccionar Imagenes</label>
-                                <input class="form-control input_fotos" type="file" name="prod-img[]" id="prod-img" multiple
-                                    required>
+                                <input class="form-control input_fotos" type="file" name="prod-img[]" id="prod-img"
+                                    multiple>
                             </div>
                         </section>
-                        <button type="submit" id="enviar" class="btnSubmit btn-light text-dark m-2">Submit</button>
+                        <button type="submit" id="actualizar" class="btnSubmit btn-light text-dark m-2">Submit</button>
                     </form>
                     <div class="form-group m-6">
                         <form id="deleteProdForm" method="post">
@@ -146,39 +144,34 @@
                             <button class="btn btn-danger" id="eliminarProd">Eliminar Producto</button>
                         </form>
                     </div>
-                    <div class="col-md-12 d-flex justify-content-center">
-                        <div class="col-md-6">
-                            <div id="{{ $product->nombre }}" class="carousel slide" data-interval="false">
-                                <div class="carousel-inner">
-                                    <div id="galeria">
-                                        @foreach ($product->images as $imagen)
-                                            <form method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                @if ($loop->first)
-                                                    <div class="carousel-item active">
-                                                        <img src="{{ asset('storage/' . $imagen->img_path) }}" class="d-block w-100" alt="{{ $product->nombre }}">
-                                                        <button id="{{ $imagen->id }}" class="btnArrDer btn btn-danger deleteImg">x</button>
-                                                    </div>
-                                                @endif
-                                                    <div class="carousel-item">
-                                                        <img src="{{ asset('storage/' . $imagen->img_path) }}" class="d-block w-100" alt="{{ $product->nombre }}">
-                                                        <button id="{{ $imagen->id }}" class="btnArrDer btn btn-danger deleteImg">x</button>
-                                                    </div>
-                                            </form>
-                                        @endforeach
+                    <div class="row">
+                        @foreach ($product->images as $imagen)
+                            <!-- Single Image -->
+                            <div class="col-md-6 col-lg-4 col-xl-3">
+                                <form method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <div class="single-product m-3">
+                                        <div
+                                            class=" border border-secondary rounded part-1 row justify-content-center align-items-center">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <a href="{{ route('catalogo.show', $product) }}">
+                                                        {{-- <img src="{{ '/storage/' . $imagen->img_path }}"> --}}
+                                                        <img src="{{ '/storage/' . $imagen->img_path }}"
+                                                            class="d-block w-100" alt="...">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="part-2">
+                                            <button id="{{ $imagen->id }}" class="btn btn-danger deleteImg">Borrar
+                                                Imagen</button>
+                                        </div>
                                     </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button"
-                                    data-bs-target="#{{ $product->nombre }}" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button"
-                                    data-bs-target="#{{ $product->nombre }}" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                </button>
+                                </form>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                     {{-- <div id="galeria">
                         @foreach ($product->images as $imagen)

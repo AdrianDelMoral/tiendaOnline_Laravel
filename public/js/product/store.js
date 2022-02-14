@@ -18,17 +18,17 @@ async function sendForm(event) {
     let descuento = document.body.querySelector("#descuento");
 
     if (nombre.value === "") {
-        alert("El nombre no está definido");
-        return;
+        //alert("El nombre no está definido");
+        //return;
     }
 
     let formData = new FormData(formulario);
-    console.log([...formData.entries()]);
+    //console.log([...formData.entries()]);
     let response = await fetch('/api/productos', {
         method: 'POST',
         body: formData
     });
-    let result = await response.json();
+    let result = await response.text();//.json();
 
 
     if (response.status !== 201) {
@@ -43,3 +43,4 @@ async function sendForm(event) {
     console.log(formulario);
 
 }
+

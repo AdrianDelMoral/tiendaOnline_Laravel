@@ -7,7 +7,7 @@ use App\Models\Product;
 use App\Models\Image;
 /* use Illuminate\Support\Facades\Validator; */
 use Illuminate\Support\Facades\Storage;
-use App\Http\Requests\ProductRequest;
+use Illuminate\Http\Request;
 
 class ProductApiController extends Controller
 {
@@ -28,8 +28,13 @@ class ProductApiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
+        print_r($request->all());
+      $this->validate($request,[
+         'nombre'=>'required|max:8'
+      ]);
+        /*
         $product = new Product();
         $product->nombre = $request->get('nombre');
         $product->descripcion = $request->get('descripcion');
@@ -52,7 +57,7 @@ class ProductApiController extends Controller
             $imgs->save();
         }
 
-        return response()->json(['producto' => $product->nombre], 201);
+        return response()->json(['producto' => $product->nombre], 201); */
 
         /* return response()->json(['Producto' => Product::create($request->validated())]); */
 
@@ -77,7 +82,7 @@ class ProductApiController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, Product $product)
+    public function update(Request $request, Product $product)
     {
         //
 

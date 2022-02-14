@@ -36,6 +36,7 @@ a:visited {
 .bordes__ordenar {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .bordes__ordenar li {
