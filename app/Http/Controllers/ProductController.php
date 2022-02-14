@@ -62,7 +62,11 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view("catalogo.show", compact("product"));
+        $user_id = 0;
+        if(Auth::user()){
+            $user_id = Auth::user()->id;
+        }
+        return view("catalogo.show", compact("product", "user_id"));
     }
 
     /**

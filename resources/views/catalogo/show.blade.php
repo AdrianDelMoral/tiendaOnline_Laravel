@@ -44,9 +44,15 @@
                     <p><strong>Availability:</strong> Yes</p>
                     <p><strong>Descripción:</strong>{{ $product->descripcion }}</p>
                     <p><strong>Brand:</strong>New</p>
-                    <label>Cantidad:</label>
-                    <input type="text" value="1" class="input_quantity" max="99">
-                    <button type="button" class="btn btn-danger cart">Add to cart</button>
+                    <form method="post" id="addCartForm">
+                        @csrf
+                        @method('post')
+                        <input name="user_id" value="{{$user_id}}" hidden>
+                        <input name="product_id" value="{{$product->id}}" hidden>
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="text" id="cantidad" name="cantidad" value="1" class="input_quantity" max="99">
+                        <button type="button" id="addBtn" class="btn btn-danger cart">Add to cart</button>
+                    </form>
                 </div>
             </div>
         </section>
