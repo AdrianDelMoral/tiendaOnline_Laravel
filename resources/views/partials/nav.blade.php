@@ -2,22 +2,20 @@
     <div class="container container-fluid py-3 d-flex justify-content-center">
         <div class="mb-2 mb-lg-0 logoPagina">
             <a href="/" class="navbar-brand d-flex align-items-center">
-                <img src="{{asset('images/logo-componentesPC.svg')}}" class="max-width">
+                <img src="{{ asset('images/logo-componentesPC.svg') }}" class="max-width">
             </a>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-            aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBarMain" aria-controls="navBarMain" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <div class="collapse navbar-collapse" id="navBarMain">
             <form class="d-flex ml-auto tamanyoInput">
                 <input class="form-control me-2 buscadorNav" type="search" placeholder="Buscar..." aria-label="Search">
             </form>
             <ul class="navbar-nav me-auto mb-2 ml-lg-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" id="navbarScrollingDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{asset('images/icon/perfil.png')}}" alt="">
+                    <a class="nav-link active dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ asset('images/icon/perfil.png') }}" alt="">
                         Mi cuenta
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -26,14 +24,16 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('carrito.index') }}" id="navbarScrollingDropdown" role="button" aria-expanded="false">
-                        <img src="{{asset('images/icon/carrito.png')}}">
+                    <a class="nav-link active" href="{{ route('carrito.index') }}" id="navbarScrollingDropdown"
+                        role="button" aria-expanded="false">
+                        <img src="{{ asset('images/icon/carrito.png') }}">
                         Carrito
                         <div class="circulo">
                             <span class="circulo__inside">1</span>
                         </div>
                     </a>
                 </li>
+            </ul>
         </div>
     </div>
 </nav>
