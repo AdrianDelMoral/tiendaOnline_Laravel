@@ -40,7 +40,7 @@
                     <p class="newarrival text-center"></p>
                     <h2>{{ $product->nombre }}</h2>
                     <p class="newarrival text-center">Codigo: 23123-12312-123</p>
-                    <i class="fa-solid fa-star stars"></i>
+                    <span class="fa-solid fa-star stars"></span>
                     <p class="price">{{ $product->precio_base }}€</p>
                     <p><strong>Availability:</strong> Yes</p>
                     <p><strong>Descripción:</strong>{{ $product->descripcion }}</p>

@@ -54,7 +54,7 @@ El carrito está vacío
                                     @csrf
                                     @method('DELETE')
                                     <input type="text" id="cartId" value="{{$cartline->id}}" hidden>
-                                    <button type="submit" id="deletebtn" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    <button type="submit" id="deletebtn" class="btn btn-danger"><span class="fa fa-trash"></span></button>
                                 </form>
                             </td>
                         </tr>
@@ -79,7 +79,7 @@ El carrito está vacío
         </div>
         <form class="mb-4" method="POST" id="vaciarCesta">
             <button type="submit" class="btn btn-success">Realizar Pedido</button>
-            <a class="btn btn-danger"><i class="fa fa-trash"></i> Vaciar cesta</a>
+            <a class="btn btn-danger"><span class="fa fa-trash"></span> Vaciar cesta</a>
         </form>
     </div>
     </div>

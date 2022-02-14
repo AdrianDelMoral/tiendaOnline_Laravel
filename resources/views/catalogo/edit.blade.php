@@ -95,7 +95,7 @@
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Descuento</label>
                                     <input type="text" class="form-control" placeholder="Descuento" name="descuento"
-                                        id="descuento" required>
+                                        id="descuento"  value="{{ $product->descuento }}" required>
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex flex-column justify-content-center">

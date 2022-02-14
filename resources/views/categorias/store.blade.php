@@ -23,7 +23,7 @@
 
                 <!-- Checkbox -->
                 <div class="form-check d-flex justify-content-center mb-4">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form5Example3" checked />
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form5Example3" checked>
                     <label class="form-check-label" for="form5Example3">Estoy de acuerdo con crear una Categoria</label>
                 </div>
 

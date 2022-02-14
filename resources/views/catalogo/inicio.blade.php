@@ -1,5 +1,5 @@
 @extends('catalogo')
-@section('titulo', 'Catalogo de Productos')
+@section('titulo', 'Inicio - ComponentesPC')
 @section('cuerpo')
     {{-- @foreach ($products as $product)
         <a href="{{route('catalogo.show', $product)}}">{{$product->nombre}} </a>
@@ -68,12 +68,11 @@
                                             <input type="text" name="user_id" value="{{ $user_id }}" hidden>
                                             <input type="text" id="product_id" name="product_id"
                                                 value="{{ $product->id }}" hidden>
-                                            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                                            <a href="#"><span class="fas fa-shopping-cart"></span></a>
                                         </form>
                                     </li>
                                     <li class="icons_bg">
-                                        <a href="{{ route('catalogo.show', $product) }}"><i
-                                                class="fas fa-eye"></i></a>
+                                        <a href="{{ route('catalogo.show', $product) }}"><span class="fas fa-eye"></span></a>
                                     </li>
                                 </ul>
                                 <h2 class="product-old-price">{{ $product->precio_base }}€</h2>
