@@ -144,7 +144,7 @@
                             <button class="btn btn-danger" id="eliminarProd">Eliminar Producto</button>
                         </form>
                     </div>
-                    <div class="row">
+                    <div class="row" id="galeria">
                         @foreach ($product->images as $imagen)
                             <!-- Single Image -->
                             <div class="col-md-6 col-lg-4 col-xl-3">

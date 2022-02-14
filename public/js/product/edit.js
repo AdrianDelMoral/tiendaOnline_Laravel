@@ -40,11 +40,9 @@ async function deleteImg(event) {
     }
     event.preventDefault();
     let imgId = event.target.id;
-    let formulario = event.target.parentElement;
+    let formulario = event.target.closest("form");
     console.log(formulario);
     let formData = new FormData(formulario);
-
-
 
     console.log(formData);
     let response = await fetch('/api/image/' + imgId, {
@@ -52,9 +50,12 @@ async function deleteImg(event) {
         body: formData
     });
 
-    let contenido = await response.json();
+    if(response.status !==204){
+        alert("Ha ocurrido un error desconocido");
+        return;
+    }
 
-    console.log(contenido);
+    formulario.parentElement.remove();
 }
 
 async function deleteProd(event) {
@@ -68,6 +69,7 @@ async function deleteProd(event) {
     });
 
     alert("Producto Eliminado");
+    window.location.href = "/";
 }
 
 async function deleteAllImgs(){
@@ -75,7 +77,7 @@ async function deleteAllImgs(){
     for (let img of imgs){
         let response = await fetch('/api/image/' + img.id, {
             method: 'POST',
-            body: new FormData(img.parentElement)
+            body: new FormData(img.closest("form"))
         });
     }
 
