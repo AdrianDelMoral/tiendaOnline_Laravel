@@ -26,7 +26,7 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link active" href="#" id="navbarScrollingDropdown" role="button"
+                    <a class="nav-link active" href="{{ route('carrito.index') }}" id="navbarScrollingDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{asset('images/icon/carrito.png')}}">
                         Carrito
