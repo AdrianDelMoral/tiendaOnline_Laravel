@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\address;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AddressController extends Controller
 {
@@ -14,7 +15,9 @@ class AddressController extends Controller
      */
     public function index()
     {
-        //
+        $usuario = Auth::user()->id;
+        $addresses = address::paginate(4);
+        return view("address.index", compact("addresses", "usuario"));
     }
 
     /**
@@ -24,7 +27,12 @@ class AddressController extends Controller
      */
     public function create()
     {
-        //
+         //strcmp
+         if(!Auth::user()){
+            abort(404);
+        }
+        $usuario = Auth::user()->id;
+        return view("address.store", compact('usuario'));
     }
 
     /**
@@ -46,7 +54,7 @@ class AddressController extends Controller
      */
     public function show(address $address)
     {
-        //
+        return view('address.show', compact('address'));
     }
 
     /**
@@ -57,7 +65,13 @@ class AddressController extends Controller
      */
     public function edit(address $address)
     {
-        //
+         //strcmp
+         if(!Auth::user()){
+            abort(404);
+        }
+
+        $usuario = Auth::user()->id;
+        return view("address.edit", compact('address', 'usuario'));
     }
 
     /**
@@ -80,6 +94,7 @@ class AddressController extends Controller
      */
     public function destroy(address $address)
     {
-        //
+        $address->delete();
+        return redirect()->route('direccion.index');
     }
 }
