@@ -39,30 +39,18 @@
                 <!-- Single Product -->
                 @foreach ($products as $product)
                     <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div class="single-product">
-                            <div class="part-1 row justify-content-center align-items-center">
+                        <div class="single-product m-3">
+                            <div class=" border border-secondary rounded part-1 row justify-content-center align-items-center">
                                 @forelse ($product->images as $imagen)
-                                    <div id="{{ $product->nombre }}" class="carousel slide" data-interval="false">
-                                        <div class="carousel-inner">
-                                            @if ($loop->first)
-                                                <div class="carousel-item active">
+                                    <div class="carousel-inner">
+                                        @if ($loop->first)
+                                            <div class="carousel-item active">
+                                                <a href="{{ route('catalogo.show', $product) }}">
                                                     <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100"
                                                         alt="...">
-                                                </div>
-                                            @endif
-                                            <div class="carousel-item">
-                                                <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100"
-                                                    alt="...">
+                                                </a>
                                             </div>
-                                        </div>
-                                        <button class="carousel-control-prev" type="button"
-                                            data-bs-target="#{{ $product->nombre }}" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button"
-                                            data-bs-target="#{{ $product->nombre }}" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                        </button>
+                                        @endif
                                     </div>
                                 @empty
                                     <p>No hay imagen del Producto</p>
