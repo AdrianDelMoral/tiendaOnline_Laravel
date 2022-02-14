@@ -63,7 +63,7 @@
                         <!--  sm, md, lg, xl, and xxl -->
                         <h1 class="p-3 text-center text-light">Editar Producto</h1>
                     </div>
-                    <form action="" method="POST" enctype="multipart/form-data" id="subirProd" class="form-content">
+                    <form action="" method="POST" enctype="multipart/form-data" id="editForm" class="form-content">
                         @csrf
                         @method('PUT')
                         <div class="row mb-5">
@@ -134,10 +134,10 @@
                             <div>
                                 <label for="formFileMultiple" class="form-label">Seleccionar Imagenes</label>
                                 <input class="form-control input_fotos" type="file" name="prod-img[]" id="prod-img" multiple
-                                    required>
+                                    >
                             </div>
                         </section>
-                        <button type="submit" id="enviar" class="btnSubmit btn-light text-dark m-2">Submit</button>
+                        <button type="submit" id="actualizar" class="btnSubmit btn-light text-dark m-2">Submit</button>
                     </form>
                     <div class="form-group m-6">
                         <form id="deleteProdForm" method="post">
