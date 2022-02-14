@@ -36,7 +36,9 @@ async function loadCategories(event) {
     //     }
     // }
     printProducts(results.data);
-
+    if(results.last_page === 1){
+        return;
+    }
     //boton de cargar mas
     let cargarMas = document.body.querySelector("#cargarMas");
     cargarMas.hidden = false;
@@ -66,6 +68,10 @@ async function loadMore(event) {
 async function printProducts(products) {
     let contenido = document.body.querySelector("#contenido");
     for (let product of products) {
+        let img = document.createElement("img");
+        img.src = "/storage/"+product.images[0].img_path;
+        contenido.append(img);
+
         let enlace = document.createElement("a");
         enlace.href = "/catalogo/" + product.id;
         enlace.textContent = product.nombre;

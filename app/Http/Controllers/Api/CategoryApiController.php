@@ -46,7 +46,7 @@ class CategoryApiController extends Controller
     public function show(Category $category)
     {
         //
-        $products = Product::where("category_id", $category->id)->paginate(20);
+        $products = Product::where("category_id", $category->id)->with('images')->paginate(20);
         return response()->json($products);
 
     }
