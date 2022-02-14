@@ -75,11 +75,8 @@ async function printProducts(products) {
         let enlace = document.createElement("a");
         enlace.href = "/catalogo/" + product.id;
         enlace.textContent = product.nombre;
-        let br = document.createElement("br");
 
         contenido.append(enlace);
-        contenido.append(br)
-
 
     }
 }
