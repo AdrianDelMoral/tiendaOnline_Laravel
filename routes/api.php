@@ -31,7 +31,7 @@ Route::put("/productos/deshabilitar/{product}", [ProductApiController::class, "d
 Route::apiResource("/image", ImageApiController::class);
 Route::apiResource('/productos', ProductApiController::class)->parameters(['productos' => 'product']);
 Route::apiResource('/categorias', CategoryApiController::class)->parameters(['categorias' => 'category']);
-Route::apiResource("/carrito", CartLineApiController::class)->parameters(['carrito' => 'cartline']);
+Route::apiResource("/carrito", CartLineApiController::class)->parameters(['carrito' => 'cartLine']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

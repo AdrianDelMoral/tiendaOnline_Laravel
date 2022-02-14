@@ -51,7 +51,10 @@ El carrito está vacío
                             </td>
                             <td class="text-center">
                                 <form method="POST" class="mt-5">
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="text" id="cartId" value="{{$cartline->id}}" hidden>
+                                    <button type="submit" id="deletebtn" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
