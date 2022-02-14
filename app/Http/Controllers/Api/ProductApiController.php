@@ -84,8 +84,6 @@ class ProductApiController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
-
         $product->nombre = $request->get('nombre');
         $product->descripcion = $request->get('descripcion');
         $product->visibilidad = $request->get('visibilidad');
