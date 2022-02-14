@@ -26,7 +26,7 @@
                                         @endforeach
                                     </div>
                                 </td>
-                                <td>{{ $product->category_id }}</td>
+                                <td>{{ $product->category->nombre }}</td>
                                 <td>{{ $product->nombre }}</td>
                                 <td class=" class="text-center"">
                                     <a class="btn btn-success" href="{{ route('catalogo.edit', $product->id) }}">
