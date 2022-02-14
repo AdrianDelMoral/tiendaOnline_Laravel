@@ -18,6 +18,7 @@
                                         <img src="{{ asset('storage/' . $imagen->img_path) }}" class="d-block w-100"
                                             alt="{{ $product->nombre }}">
                                     </div>
+                                    @continue
                                 @endif
                                 <div class="carousel-item">
                                     <img src="{{ asset('storage/' . $imagen->img_path) }}" class="d-block w-100"
