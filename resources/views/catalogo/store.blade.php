@@ -29,11 +29,16 @@
                         <!--  sm, md, lg, xl, and xxl -->
                         <h1 class="p-3 text-center text-light">Nuevo Producto</h1>
                     </div>
-                    <br>
-                    @error('nombre')
-                        {{$message}}
-                    @enderror
-                    <form action="" method="POST" enctype="multipart/form-data" id="subirProd" class="form-content">
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                    <form action="/api/productos" method="POST" enctype="multipart/form-data" id="subirProd" class="form-content">
                         <div class="row mb-5">
                             <div class="col-md-12">
                                 <div class="form-group m-2">

@@ -32,9 +32,9 @@ class ProductApiController extends Controller
     {
         print_r($request->all());
       $this->validate($request,[
-         'nombre'=>'required|max:8'
+         'nombre'=>'required'
       ]);
-        /*
+
         $product = new Product();
         $product->nombre = $request->get('nombre');
         $product->descripcion = $request->get('descripcion');
@@ -57,7 +57,7 @@ class ProductApiController extends Controller
             $imgs->save();
         }
 
-        return response()->json(['producto' => $product->nombre], 201); */
+        return response()->json(['producto' => $product->nombre], 201);
 
         /* return response()->json(['Producto' => Product::create($request->validated())]); */
 

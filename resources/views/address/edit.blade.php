@@ -10,7 +10,6 @@
     <form action="/api/direccion/{{$address->id}}" method="POST">
         @csrf
         @method('PUT')
-
         <input name="calle" id="calle" placeholder="calle" value="{{ $address->calle }}">
         <input name="patio" id="patio" placeholder="patio" value="{{ $address->patio }}">
         <input name="puerta" id="puerta" placeholder="puerta" value="{{ $address->puerta }}">
