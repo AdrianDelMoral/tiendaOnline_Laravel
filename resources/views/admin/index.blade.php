@@ -8,7 +8,7 @@
 </head>
 <body>
 <a href="{{route("gestionar")}}">Gestion de productos<a>
-<a href="">Gestion de usuarios<a>
+<a href="{{route("gestionar-user")}}">Gestion de usuarios<a>
 <a href="">Gestion de stock y ventas<a>
 
 </body>
