@@ -18,6 +18,9 @@ async function clearProduct(event) {
 
         let result = await response.text();
         console.log(result);
+
+        contenido = event.target.closest("tr");
+        contenido.remove();
     }
 }
 
@@ -36,6 +39,11 @@ async function clearCart(event){
 
             let result = await response.text();
             console.log(result);
+
+            contenido = deleteform.closest("tr");
+            contenido.remove();
+
+
         }
     }
 }
