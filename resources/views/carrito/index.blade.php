@@ -77,7 +77,7 @@ El carrito está vacío
                 </div>
             </div>
         </div>
-        <form class="mb-4" method="POST">
+        <form class="mb-4" method="POST" id="vaciarCesta">
             <button type="submit" class="btn btn-success">Realizar Pedido</button>
             <a class="btn btn-danger"><i class="fa fa-trash"></i> Vaciar cesta</a>
         </form>
