@@ -42,7 +42,7 @@
                         <div class="single-product">
                             <div class="part-1 row justify-content-center align-items-center">
                                 @forelse ($product->images as $imagen)
-                                    <div id="{{$product->nombre}}" class="carousel slide" data-interval="false">
+                                    <div id="{{ $product->nombre }}" class="carousel slide" data-interval="false">
                                         <div class="carousel-inner">
                                             @if ($loop->first)
                                                 <div class="carousel-item active">
@@ -55,10 +55,12 @@
                                                     alt="...">
                                             </div>
                                         </div>
-                                        <button class="carousel-control-prev" type="button" data-bs-target="#{{$product->nombre}}" data-bs-slide="prev">
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#{{ $product->nombre }}" data-bs-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         </button>
-                                        <button class="carousel-control-next" type="button" data-bs-target="#{{$product->nombre}}" data-bs-slide="next">
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#{{ $product->nombre }}" data-bs-slide="next">
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         </button>
                                     </div>
@@ -71,15 +73,19 @@
                                     <a href="{{ route('catalogo.show', $product) }}">{{ $product->nombre }}</a>
                                 </h1>
                                 <ul class="icons">
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-shopping-cart"></i>
-                                        </a>
+                                    <li class="icons_bg">
+                                        <form action="POST">
+                                            @csrf
+                                            @method('POST')
+                                            <input type="text" name="user_id" value="{{ $user_id }}" hidden>
+                                            <input type="text" id="product_id" name="product_id"
+                                                value="{{ $product->id }}" hidden>
+                                            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+                                        </form>
                                     </li>
-                                    <li>
-                                        <a href="{{ route('catalogo.show', $product) }}">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
+                                    <li class="icons_bg">
+                                        <a href="{{ route('catalogo.show', $product) }}"><i
+                                                class="fas fa-eye"></i></a>
                                     </li>
                                 </ul>
                                 <h2 class="product-old-price">{{ $product->precio_base }}€</h2>
