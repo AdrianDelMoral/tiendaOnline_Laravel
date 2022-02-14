@@ -1,0 +1,15 @@
+.imgProduct {
+    max-width: 106px;
+    max-height: 106px;
+}
+
+@media (max-width: 648px) {
+    .autoMargin {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.mt-7 p {
+    margin-top: 3rem !important;
+}
