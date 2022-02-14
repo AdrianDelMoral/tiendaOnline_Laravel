@@ -16,6 +16,8 @@
     <!-- Link CSS locales-->
     <link rel="stylesheet" href="{{URL::asset('css/showProduct.css')}}">{{-- Se incluirá el css de public/css/catalogo.css --}}
     <link rel="stylesheet" href="{{URL::asset('css/navFooter.css')}}">{{-- Se incluirá el css de public/css/navFooter.css --}}
+    <script src="{{asset("js/product/deshabilitar.js")}}" defer></script>
+    <script src="{{asset("js/carrito/store-producto.js")}}" defer></script>
 
     <title>@yield('titulo')</title>{{-- Titulo de catalogo --}}
 </head>

@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="{{ URL::asset('css/navFooter.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/carrito.css') }}">
 
-    <script src="{{ asset('js/product/store.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/product/store.js') }}" defer></script> --}}
+    <script src="{{ asset('js/carrito/destroy.js') }}" defer></script>
+
 
     <title>@yield('titulo')</title><!-- Titulo de catalogo -->
 </head>

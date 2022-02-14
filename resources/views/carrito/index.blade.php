@@ -31,7 +31,7 @@ El carrito está vacío
                             <td class="text-center">
                                 <div>
                                     {{-- img de la imagen aquí recibiendola de la bbdd --}}
-                                    <img src="https://thumb.pccomponentes.com/w-220-220/articles/43/433721/1498-original-oricombi188nfw-essential-frigorifico-combi-f-blanco-comprar.jpg"
+                                    <img src="/storage/{{$cartline->product->images[0]->img_path}}"
                                         alt="{{$cartline->product->nombre}}" class="imgProduct">
                                     <p>{{$cartline->product->nombre}}</p>
                                     {{-- {{producto.nombre}} --}}
@@ -42,7 +42,7 @@ El carrito está vacío
                                 {{-- {{producto.precio}} --}}
                             </td>
                             <td class="text-center mt-7">
-                                <p>{{$cartline->product->cantidad}} <strong>Uds</strong></p>
+                                <p>{{$cartline->cantidad}} <strong>Uds</strong></p>
                                 {{-- {{producto.cantidad}} --}}
                             </td>
                             <td class="text-center mt-7">
@@ -51,7 +51,10 @@ El carrito está vacío
                             </td>
                             <td class="text-center">
                                 <form method="POST" class="mt-5">
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="text" id="cartId" value="{{$cartline->id}}" hidden>
+                                    <button type="submit" id="deletebtn" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
@@ -74,7 +77,7 @@ El carrito está vacío
                 </div>
             </div>
         </div>
-        <form class="mb-4" method="POST">
+        <form class="mb-4" method="POST" id="vaciarCesta">
             <button type="submit" class="btn btn-success">Realizar Pedido</button>
             <a class="btn btn-danger"><i class="fa fa-trash"></i> Vaciar cesta</a>
         </form>
