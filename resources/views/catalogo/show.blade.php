@@ -54,7 +54,7 @@
             <div>
                 <div class="d-flex justify-content-center row">
                     <div class="col-md-2">
-                        <form method="post">
+                        <form method="post" id="formDisable">
                             @csrf
                             @method("put")
                             <input type="button" id="borrar" value="Ocultar Producto" class="btn btn-dark text-light">
