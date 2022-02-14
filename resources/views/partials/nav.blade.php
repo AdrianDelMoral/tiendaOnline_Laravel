@@ -17,12 +17,27 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link active dropdown-toggle" id="navbarScrollingDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{asset('images/icon/perfil.png')}}" alt="">
+                        <img src="{{ asset('images/icon/perfil.png') }}" alt="">
                         Mi cuenta
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="{{ route('login') }}">Iniciar Sesión</a></li>
-                        <li><a class="dropdown-item" href="{{ route('register') }}">Registrarse</a></li>
+                        @auth
+                            <li><a class="dropdown-item" href="{{ route('profile.show') }}">Perfil</a></li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                                        Cerrar Sesión
+                                    </a>
+                                </li>
+
+                            </form>
+                        @else
+                            <li><a class="dropdown-item" href="{{ route('login') }}">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" href="{{ route('register') }}">Registrarse</a></li>
+                        @endauth
+
                     </ul>
                 </li>
                 <li class="nav-item">
