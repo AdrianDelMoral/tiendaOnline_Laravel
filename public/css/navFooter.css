@@ -4,6 +4,11 @@
     margin-right: 6rem;
 }
 
+.max-width {
+    overflow: hidden;
+    border: 1px solid #a5a5a5;
+}
+
 .buscadorNav {
     width: 35rem;
     height: 3rem;
@@ -17,6 +22,25 @@
         border-radius: 1.5rem;
     }
 
+}
+
+.circulo {
+    position: fixed;
+    /* margin-left: 7rem;
+    padding: 1rem; */
+}
+
+.circulo__inside {
+    background-color: #ba7903;
+    border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    line-height: 1.4em;
+    text-align: center;
+    width: 2.4em;
+    /* font-weight: bold; */
+    /* margin-right: 15px; */
+    /* font-size: 46px; */
 }
 
 /* Footer  */
