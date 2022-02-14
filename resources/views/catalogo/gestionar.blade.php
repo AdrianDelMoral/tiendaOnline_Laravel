@@ -28,9 +28,6 @@
                                 </td>
                                 <td>{{ $product->category_id }}</td>
                                 <td>{{ $product->nombre }}</td>
-                                {{-- <td class="text-center">
-                                        <button type="submit" id="deletebtn" class="btn btn-danger"><i class="fa fa-trash"></i></button>
-                                </td> --}}
                                 <td class=" class="text-center"">
                                     <a class="btn btn-success" href="{{ route('catalogo.edit', $product->id) }}">
                                         <span class="fa-solid fa-pen-to-square"></span>
