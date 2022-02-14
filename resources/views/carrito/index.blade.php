@@ -31,7 +31,7 @@ El carrito está vacío
                             <td class="text-center">
                                 <div>
                                     {{-- img de la imagen aquí recibiendola de la bbdd --}}
-                                    <img src="https://thumb.pccomponentes.com/w-220-220/articles/43/433721/1498-original-oricombi188nfw-essential-frigorifico-combi-f-blanco-comprar.jpg"
+                                    <img src="/storage/{{$cartline->product->images[0]->img_path}}"
                                         alt="{{$cartline->product->nombre}}" class="imgProduct">
                                     <p>{{$cartline->product->nombre}}</p>
                                     {{-- {{producto.nombre}} --}}
@@ -42,7 +42,7 @@ El carrito está vacío
                                 {{-- {{producto.precio}} --}}
                             </td>
                             <td class="text-center mt-7">
-                                <p>{{$cartline->product->cantidad}} <strong>Uds</strong></p>
+                                <p>{{$cartline->cantidad}} <strong>Uds</strong></p>
                                 {{-- {{producto.cantidad}} --}}
                             </td>
                             <td class="text-center mt-7">
