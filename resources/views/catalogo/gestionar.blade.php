@@ -1,5 +1,5 @@
 @extends('gestionar')
-@section('titulo', 'Editar Producto')
+@section('titulo', 'Gestionar Producto')
 @section('cuerpo')
     <main class="container mt-5">
         <section class="row">
