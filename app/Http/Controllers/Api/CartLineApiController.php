@@ -35,19 +35,25 @@ class CartLineApiController extends Controller
 
         if($linea){
             $this->updateCantidad($request->get("cantidad") ? $request->get("cantidad") : 1, $linea);
-            return response()->json($linea, 201);
+            return response()->json($this->updateNums($request->get("user_id")), 201);
         }
         $cartline = new CartLine();
         $cartline-> user_id = $request->get("user_id");
         $cartline -> product_id = $request->get("product_id");
         $cartline -> cantidad = $request->get("cantidad") ? $request->get("cantidad") : 1;
         $cartline->save();
-        return response()->json($cartline, 201);
+
+        return response()->json($this->updateNums($request->get("user_id")), 201);
     }
 
     public function updateCantidad(int $cantidadNum, CartLine $cartLine){
         $cartLine -> cantidad += $cantidadNum;
         $cartLine->save();
+    }
+
+    public function updateNums(int $id_usu){
+        $carrito = CartLine::where("user_id", $id_usu)->get();
+        return $carrito;
     }
 
     /**
