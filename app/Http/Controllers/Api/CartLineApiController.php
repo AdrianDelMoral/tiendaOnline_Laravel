@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\CartLine;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class CartLineApiController extends Controller
@@ -27,12 +28,24 @@ class CartLineApiController extends Controller
     public function store(Request $request)
     {
         //
+
+        $linea = CartLine::where("product_id", $request->get("product_id"))->where("user_id", $request->get("user_id"))->first();
+
+        if($linea){
+            $this->updateCantidad($request->get("cantidad") ? $request->get("cantidad") : 1, $linea);
+            return response()->json($linea, 201);
+        }
         $cartline = new CartLine();
         $cartline-> user_id = $request->get("user_id");
         $cartline -> product_id = $request->get("product_id");
         $cartline -> cantidad = 1;
         $cartline->save();
         return response()->json($cartline, 201);
+    }
+
+    public function updateCantidad(int $cantidadNum, CartLine $cartLine){
+        $cartLine -> cantidad += $cantidadNum;
+        $cartLine->save();
     }
 
     /**
