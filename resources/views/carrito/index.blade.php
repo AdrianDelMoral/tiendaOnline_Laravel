@@ -46,7 +46,7 @@ El carrito está vacío
                                 {{-- {{producto.cantidad}} --}}
                             </td>
                             <td class="text-center mt-7">
-                                <p>precioTotal</p>
+                                <p>{{($cartline->product->precio_base)*($cartline->cantidad)." €"}}</p>
                                 {{-- {{producto.total}} --}}
                             </td>
                             <td class="text-center">
@@ -72,7 +72,19 @@ El carrito está vacío
                         <p class="h3">Total Pedido: </p>
                     </div>
                     <div class="col-lg-2 col-xs-1">
-                        <p class="h3">1.007,98€</p>
+                        @php
+                            $cantidad = 0;
+                        @endphp
+                        @forelse ($cartLines as $cartline)
+                        @php
+                            $cantidad += ($cartline->product->precio_base)*($cartline->cantidad)
+                        @endphp
+                        @empty
+                        @endforelse
+                        @php
+                            echo '<p class="h3">'.$cantidad.'€</p>';
+                        @endphp
+                        {{-- <p class="h3">1.007,98€</p> --}}
                     </div>
                 </div>
             </div>
