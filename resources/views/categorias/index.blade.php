@@ -32,7 +32,6 @@
             </div>
             <div class="row">
                 <div id="contenido">
-
                 </div>
                 <button id="cargarMas" hidden>Cargar mas productos</button>
                 <input type="text" id="currentpage" hidden>
