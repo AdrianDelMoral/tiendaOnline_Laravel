@@ -1,4 +1,4 @@
-/* //codigo JS la API de crear producto.
+//codigo JS la API de crear producto.
 
 let envioBtn = document.body.querySelector("#enviar");
 
@@ -44,4 +44,3 @@ async function sendForm(event) {
 
 }
 
- */

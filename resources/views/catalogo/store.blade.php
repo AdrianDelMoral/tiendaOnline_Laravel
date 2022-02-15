@@ -29,54 +29,48 @@
                         <!--  sm, md, lg, xl, and xxl -->
                         <h1 class="p-3 text-center text-light">Nuevo Producto</h1>
                     </div>
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+                    {{$errors}}
                     <form action="/api/productos" method="POST" enctype="multipart/form-data" id="subirProd" class="form-content">
+                        @csrf
+                        @method('POST')
                         <div class="row mb-5">
                             <div class="col-md-12">
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Nombre</label>
                                     <input type="text" name="nombre" id="nombre" class="form-control"
-                                        placeholder="Nombre" required>
+                                        placeholder="Nombre" value="{{old('nombre')}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Cantidad</label>
                                     <input type="text" name="cantidad" id="cantidad" class="form-control"
-                                        placeholder="Cantidad" required>
+                                        placeholder="Cantidad" value="{{old('cantidad')}}" >
                                 </div>
 
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Impuestos</label>
-                                    <input type="text" class="form-control" value="21" placeholder="Impuestos" name="impuestos"
-                                        id="impuestos" required>
+                                    <input type="text" class="form-control" value="{{old('impuestos')}}" placeholder="Impuestos" name="impuestos"
+                                        id="impuestos">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Precio Base</label>
                                     <input type="text" class="form-control" placeholder="Precio Base" name="precio_base"
-                                        id="precio_base" required>
+                                        id="precio_base" value="{{old('precio_base')}}">
                                 </div>
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Descuento</label>
                                     <input type="text" class="form-control" placeholder="Descuento" name="descuento"
-                                        id="descuento" required>
+                                        id="descuento" value="{{old('descuentos')}}">
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex flex-column justify-content-center">
                                 <label for="exampleFormControlTextarea1" class="form-label">Visibilidad</label>
                                 <div class="m-2">
                                     <select class="form-group_ta form-select form-select-sm" name="visibilidad"
-                                        id="visibilidad" aria-label=".form-select-sm example" required>
+                                        id="visibilidad" aria-label=".form-select-sm example" value="{{old('visibilidad')}}">
                                         <option disabled selected>Selecciona la Visibilidad del producto</option>
                                         <option value="1">Visible</option>
                                         <option value="2">Oculto</option>
@@ -87,7 +81,7 @@
                                 <label for="exampleFormControlTextarea1" class="form-label">Categoria</label>
                                 <div class="m-2">
                                     <select class="form-group_ta form-select form-select-sm" name="category_id"
-                                        id="category_id" aria-label=".form-select-sm example" required>
+                                        id="category_id" aria-label=".form-select-sm example" value="{{old('category_id')}}">
                                         <option disabled selected>Selecciona una categoria</option>
                                         @foreach ($categories as $cat)
                                             <option value="{{ $cat->id }}">{{ $cat->nombre }}</option>
@@ -100,15 +94,15 @@
                                     <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
                                     <textarea class="form-control" name="descripcion"
                                         placeholder="Añade una descripción del articulo detallada" id="descripcion"
-                                        rows="5" required></textarea>
+                                        rows="5" value="{{old('descripcion')}}"></textarea>
                                 </div>
                             </div>
                         </div>
                         <section class="w-100 p-4 d-flex justify-content-center pb-4">
                             <div>
                                 <label for="formFileMultiple" class="form-label">Seleccionar Imagenes</label>
-                                <input class="form-control input_fotos" type="file" name="prod-img[]" id="prod-img"
-                                    multiple required>
+                                <input class="form-control input_fotos" type="file" name="prod-img[]" id="prod-img" value="{{old('prod-img[]')}}"
+                                    multiple>
                             </div>
                         </section>
                         <button type="submit" id="enviar" class="btnSubmit btn-light text-dark m-2">Submit</button>

@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Image;
-/* use Illuminate\Support\Facades\Validator; */
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+
+
 
 class ProductApiController extends Controller
 {
@@ -30,38 +32,46 @@ class ProductApiController extends Controller
      */
     public function store(Request $request)
     {
-        print_r($request->all());
-      $this->validate($request,[
-         'nombre'=>'required'
-      ]);
+        $validator = Validator::make($request->all(), [
+            'nombre' => 'required',
+           'descripcion' => 'required',
+            'visibilidad' => 'required',
+            'cantidad' => 'required',
+            'category_id' => 'required',
+            'precio_base' => 'required',
+            'impuestos' => 'required',
+            'descuento' => 'required',
+            'prod-img' => 'required',
+        ]);
 
-        $product = new Product();
-        $product->nombre = $request->get('nombre');
-        $product->descripcion = $request->get('descripcion');
-        $product->visibilidad = $request->get('visibilidad');
-        $product->cantidad = $request->get('cantidad');
-        $product->category_id = $request->get('category_id');
-        $product->precio_base = $request->get('precio_base');
-        $product->impuestos = $request->get('impuestos');
-        $product->descuento = $request->get('descuento');
-        //$path = Storage::putFile('products-imgs', $request->file('prod-img'));
-        $product->save();
+        if ($validator->fails()){
+            return response()->json(['errors' => $validator->errors()], 404);
+        }else{
 
-        $archivos = $request->file("prod-img");
-        foreach ($archivos as $archivo) {
-            $path = Storage::putFile('products-imgs', $archivo);
-            //return $path;
-            $imgs = new Image();
-            $imgs->product_id = $product->id;
-            $imgs->img_path = $path;
-            $imgs->save();
+            $product = new Product();
+            $product->nombre = $request->get('nombre');
+            $product->descripcion = $request->get('descripcion');
+            $product->visibilidad = $request->get('visibilidad');
+            $product->cantidad = $request->get('cantidad');
+            $product->category_id = $request->get('category_id');
+            $product->precio_base = $request->get('precio_base');
+            $product->impuestos = $request->get('impuestos');
+            $product->descuento = $request->get('descuento');
+            //$path = Storage::putFile('products-imgs', $request->file('prod-img'));
+            $product->save();
+
+            $archivos = $request->file("prod-img");
+            foreach ($archivos as $archivo) {
+                $path = Storage::putFile('products-imgs', $archivo);
+                //return $path;
+                $imgs = new Image();
+                $imgs->product_id = $product->id;
+                $imgs->img_path = $path;
+                $imgs->save();
+            }
+
+            return response()->json(['producto' => $product->nombre], 201);
         }
-
-        return response()->json(['producto' => $product->nombre], 201);
-
-        /* return response()->json(['Producto' => Product::create($request->validated())]); */
-
-
     }
 
     /**

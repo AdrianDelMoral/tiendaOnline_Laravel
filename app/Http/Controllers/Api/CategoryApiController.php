@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryApiController extends Controller
 {
@@ -28,13 +29,23 @@ class CategoryApiController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
-        $category -> nombre = $request->get('nombre');
-        $category -> descripcion = $request->get('descripcion');
+        $validator = Validator::make($request->all(), [
+            'nombre' => 'required',
+            'descripcion' => 'required',
+        ]);
 
-        $category->save();
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 404);
+        } else {
+            $category = new Category();
+            $category -> nombre = $request->get('nombre');
+            $category -> descripcion = $request->get('descripcion');
 
-        return response()->json($category, 201);
+            $category->save();
+
+            return response()->json(['Categoria' => $category->nombre], 201);
+        }
+
     }
 
     /**

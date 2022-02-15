@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Address;
 use App\Models\User;
 use Illuminate\Http\Request;
+/* use App\Http\Requests\AddressApiRequest; */
+use Illuminate\Support\Facades\Validator;
+/* use Illuminate\Http\Response;
+use Exception; */
 
 class AddressApiController extends Controller
 {
@@ -28,19 +32,34 @@ class AddressApiController extends Controller
      */
     public function store(Request $request)
     {
-        $address = new Address();
-        $address -> user_id =  $request->get('userId');
-        $address -> calle = $request->get('calle');
-        $address -> patio = $request->get('patio');
-        $address -> puerta = $request->get('puerta');
-        $address -> numero = $request->get('numero');
-        $address -> cod_postal = $request->get('cod_postal');
-        $address -> ciudad = $request->get('ciudad');
-        $address -> provincia = $request->get('provincia');
-        $address -> pais = $request->get('pais');
-        $address->save();
 
-        return response()->json($address, 201);
+        $validator = Validator::make($request->all(), [
+            'calle' => 'required',
+            'patio' => 'required',
+            'puerta' => 'required',
+            'numero' => 'required',
+            'cod_postal' => 'required',
+            'ciudad' => 'required',
+            'provincia' => 'required',
+            'pais' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 404);
+        } else {
+            $address = new Address();
+            $address->user_id =  $request->get('userId');
+            $address->calle = $request->get('calle');
+            $address->patio = $request->get('patio');
+            $address->puerta = $request->get('puerta');
+            $address->numero = $request->get('numero');
+            $address->cod_postal = $request->get('cod_postal');
+            $address->ciudad = $request->get('ciudad');
+            $address->provincia = $request->get('provincia');
+            $address->pais = $request->get('pais');
+            $address->save();
+            return response()->json(['Direccion' => $address->calle], 201);
+        }
     }
 
     /**
@@ -63,17 +82,31 @@ class AddressApiController extends Controller
      */
     public function update(Request $request, Address $address)
     {
-        $address -> calle = $request->get('calle');
-        $address -> patio = $request->get('patio');
-        $address -> puerta = $request->get('puerta');
-        $address -> numero = $request->get('numero');
-        $address -> cod_postal = $request->get('cod_postal');
-        $address -> ciudad = $request->get('ciudad');
-        $address -> provincia = $request->get('provincia');
-        $address -> pais = $request->get('pais');
-        $address->save();
+        $validator = Validator::make($request->all(), [
+            'calle' => 'required',
+            'patio' => 'required',
+            'puerta' => 'required',
+            'numero' => 'required',
+            'cod_postal' => 'required',
+            'ciudad' => 'required',
+            'provincia' => 'required',
+            'pais' => 'required',
+        ]);
 
-        return response()->json($address, 201);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 404);
+        } else {
+            $address->calle = $request->get('calle');
+            $address->patio = $request->get('patio');
+            $address->puerta = $request->get('puerta');
+            $address->numero = $request->get('numero');
+            $address->cod_postal = $request->get('cod_postal');
+            $address->ciudad = $request->get('ciudad');
+            $address->provincia = $request->get('provincia');
+            $address->pais = $request->get('pais');
+            $address->save();
+            return response()->json(['Direccion' => $address->calle], 201);
+        }
     }
 
     /**
