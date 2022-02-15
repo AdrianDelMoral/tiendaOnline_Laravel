@@ -29,6 +29,9 @@ class CategoryController extends Controller
     {
 
          //strcmp
+         if(!Auth::user()){
+             abort(404);
+         }
          if(strcmp(Auth::user()->rol, "administrador") === 0){
             return view("categorias.store");
         }
