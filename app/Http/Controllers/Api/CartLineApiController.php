@@ -17,6 +17,8 @@ class CartLineApiController extends Controller
     public function index()
     {
         //
+        $carrito = CartLine::get();
+        return response()->json($carrito);
     }
 
     /**

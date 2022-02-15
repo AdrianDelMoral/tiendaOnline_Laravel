@@ -29,7 +29,7 @@
                         <img src="{{ asset('images/icon/carrito.png') }}">
                         Carrito
                         <div class="circulo">
-                            <span class="circulo__inside">1</span>
+                            <span class="circulo__inside">0</span>
                         </div>
                     </a>
                 </li>
