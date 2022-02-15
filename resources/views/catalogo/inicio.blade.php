@@ -46,8 +46,7 @@
                                         @if ($loop->first)
                                             <div class="carousel-item active">
                                                 <a href="{{ route('catalogo.show', $product) }}">
-                                                    <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100"
-                                                        alt="...">
+                                                    <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100" alt="...">
                                                 </a>
                                             </div>
                                         @endif
