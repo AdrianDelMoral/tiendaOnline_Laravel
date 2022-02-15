@@ -12,64 +12,26 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-
-                <div id="formularios">
-                    @foreach ($categorias as $categoria)
-                        <form method="post" class="categoriesSelector">
-                            @csrf
-                            @method('get')
-                            <button id="{{ $categoria->id }}">{{ $categoria->nombre }}</button>
-                        </form>
-                    @endforeach
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3">
-                    <div class="single-product m-3">
-                        <div id="contenido">
-                            {{-- Recrear el insertar imagen <3 --}}
-                            {{--
-                                <div class="border border-secondary rounded part-1 row justify-content-center align-items-center">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <a href="{{ route('catalogo.show', $product) }}">
-                                                <!-- IMAGEN -->
-                                                <img src="{{ 'storage/' . $imagen->img_path }}" class="d-block w-100" alt="...">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            --}}
-
-                            {{-- PARTE 2 DE LA CARD --}}
-                            {{--
-                                <div class="part-2">
-                                    <h1 class="product-title">
-                                        <a href="{{ route('catalogo.show', $product) }}">{{ $product->nombre }}</a>
-                                    </h1>
-                                    <ul class="icons">
-                                        <li class="icons_bg">
-                                            <form action="POST">
-                                                @csrf
-                                                @method('POST')
-                                                <input type="text" name="user_id" value="{{ $user_id }}" hidden>
-                                                <input type="text" id="product_id" name="product_id"
-                                                    value="{{ $product->id }}" hidden>
-                                                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                                            </form>
-                                        </li>
-                                        <li class="icons_bg">
-                                            <a href="{{ route('catalogo.show', $product) }}"><i
-                                                    class="fas fa-eye"></i></a>
-                                        </li>
-                                    </ul>
-                                    <h2 class="product-old-price">{{ $product->precio_base }}€</h2>
-                                    <h2>{{ $product->precio_base - $product->descuento + $product->impuestos }}€</h2>
-                                    <br>
-                                    <h2 class="product-info">{{ $product->category->nombre }}</h2>
-                                </div>
-                            --}}
-                        </div>
+            <div id="formularios">
+                <div class="d-flex w-100 flex-nowrap">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Seleccionar Categoria
+                        </button>
+                        <ul class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton1">
+                            @foreach ($categorias as $categoria)
+                                <form method="post" class="categoriesSelector">
+                                    @csrf
+                                    @method('get')
+                                    <button class="btn my-2 w-100 btn-danger" id="{{ $categoria->id }}">{{ $categoria->nombre }}</button>
+                                </form>
+                            @endforeach
+                        </ul>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div id="contenido">
                 </div>
                 <button id="cargarMas" hidden>Cargar mas productos</button>
                 <input type="text" id="currentpage" hidden>
