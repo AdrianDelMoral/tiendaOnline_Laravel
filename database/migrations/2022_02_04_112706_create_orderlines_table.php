@@ -20,6 +20,7 @@ class CreateOrderlinesTable extends Migration
             $table->integer("cantidad");
             $table->double("precio");
             $table->double("descuento");
+            $table->timestamps();
         });
     }
 

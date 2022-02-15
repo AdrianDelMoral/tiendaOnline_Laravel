@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
 use App\Models\CartLine;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,6 +44,9 @@ Route::resource('/admin', AdminController::class);
 Route::resource('/carrito', CartLineController::class)->parameters(['carrito' => 'cartline']);
 
 Route::get("/user/gestionar", [UserController::class, 'gestionar'])->name('gestionar-user');
+
+/* Pedido */
+Route::resource('/pedido', OrderController::class)->parameters(['pedido' => 'Order']);
 
 Route::resource('/categorias', CategoryController::class)->parameters(["categorias" => 'category']);
 Route::resource('/direccion', AddressController::class)->parameters(["direccion"=> "address"]);
