@@ -62,7 +62,7 @@ class OrderController extends Controller
             $lineaPedido -> order_id = $order->id;
             $lineaPedido -> cantidad = $producto['cantidad'];
             $lineaPedido -> product_id = $producto['product_id'];
-            $lineaPedido -> precio = 4;
+            $lineaPedido -> precio = Product::where("id", $producto['product_id'])->first()->precio_base;
             $lineaPedido ->descuento  = 0;
             $lineaPedido->save();
 
