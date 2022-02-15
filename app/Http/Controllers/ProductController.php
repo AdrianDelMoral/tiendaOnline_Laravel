@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -17,10 +18,10 @@ class ProductController extends Controller
     {
         //
         $user_id = 0;
-        if(Auth::user()){
+        if (Auth::user()) {
             $user_id = Auth::user()->id;
         }
-        $products = Product::where("visibilidad",1)->orderBy("created_at", 'desc')->get();
+        $products = Product::where("visibilidad", 1)->orderBy("created_at", 'desc')->get();
         return view("catalogo.inicio", compact("products", "user_id"));
     }
 
@@ -33,10 +34,10 @@ class ProductController extends Controller
     {
         $categories = Category::get();
         //strcmp
-        if(!Auth::user()){
+        if (!Auth::user()) {
             abort(404);
         }
-        if(strcmp(Auth::user()->rol, "administrador") === 0){
+        if (strcmp(Auth::user()->rol, "administrador") === 0) {
             return view("catalogo.store", compact('categories'));
         }
         abort(404);
@@ -63,7 +64,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $user_id = 0;
-        if(Auth::user()){
+        if (Auth::user()) {
             $user_id = Auth::user()->id;
         }
         return view("catalogo.show", compact("product", "user_id"));
@@ -105,8 +106,16 @@ class ProductController extends Controller
         //
     }
 
-    public function gestionar(){
-        $products = Product::get();
-        return view("catalogo.gestionar", compact("products"));
+    public function gestionar()
+    {
+        if (!Auth::user()) {
+            abort(404);
+        }
+        if (Auth::user()->rol !== "administrador") {
+            abort(404);
+        } else {
+            $products = Product::get();
+            return view("catalogo.gestionar", compact("products"));
+        }
     }
 }
