@@ -30,6 +30,9 @@
                     <p>En está sección no se que poner porque no se que va xd. </p>
                     <p><a class="btn btn-primary" href="{{ route('gestionar-user') }}" role="button">Acceder</a></p>
                 </div>
+                <a href="{{route("gestionar-user")}}">user
+                </a>
+                <a href="{{route("categorias.create")}}">cate</a>
                 <hr>
         </article>
         </div>

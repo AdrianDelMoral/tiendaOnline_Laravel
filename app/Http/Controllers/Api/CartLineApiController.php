@@ -17,6 +17,8 @@ class CartLineApiController extends Controller
     public function index()
     {
         //
+        $carrito = CartLine::get();
+        return response()->json($carrito);
     }
 
     /**
@@ -38,7 +40,7 @@ class CartLineApiController extends Controller
         $cartline = new CartLine();
         $cartline-> user_id = $request->get("user_id");
         $cartline -> product_id = $request->get("product_id");
-        $cartline -> cantidad = 1;
+        $cartline -> cantidad = $request->get("cantidad") ? $request->get("cantidad") : 1;
         $cartline->save();
         return response()->json($cartline, 201);
     }

@@ -21,6 +21,8 @@ async function storeProduct(event) {
             return;
         }
         let result = await response.json();
+        let cartNum = document.body.querySelector(".circulo__inside");
+
     }
 
     //let response = fetch
