@@ -21,14 +21,13 @@
                                         @foreach ($product->images as $image)
                                             @if ($loop->first)
                                                 <img src="{{ '/storage/' . $image->img_path }}" alt="product" class="imgProduct">
-                                                {{-- <img src="/storage/{{$cartline->product->images[0]->img_path}}" alt="{{$cartline->product->nombre}}" class="imgProduct"> --}}
                                             @endif
                                         @endforeach
                                     </div>
                                 </td>
                                 <td>{{ $product->category->nombre }}</td>
                                 <td>{{ $product->nombre }}</td>
-                                <td class=" class="text-center"">
+                                <td>
                                     <a class="btn btn-success" href="{{ route('catalogo.edit', $product->id) }}">
                                         <span class="fa-solid fa-pen-to-square"></span>
                                     </a>

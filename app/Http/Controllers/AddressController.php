@@ -54,7 +54,7 @@ class AddressController extends Controller
      */
     public function show(address $address)
     {
-        return view('address.show', compact('address'));
+        /* return view('address.show', compact('address')); */
     }
 
     /**
