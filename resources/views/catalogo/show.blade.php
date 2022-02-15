@@ -48,8 +48,8 @@
                     <form method="post" id="addCartForm">
                         @csrf
                         @method('post')
-                        <input name="user_id" value="{{$user_id}}" hidden>
-                        <input name="product_id" value="{{$product->id}}" hidden>
+                        <input name="user_id" value="{{ $user_id }}" hidden>
+                        <input name="product_id" value="{{ $product->id }}" hidden>
                         <label for="cantidad">Cantidad:</label>
                         <input type="text" id="cantidad" name="cantidad" value="1" class="input_quantity" max="99">
                         <button type="button" id="addBtn" class="btn btn-danger cart">Add to cart</button>
@@ -60,18 +60,26 @@
         <section>
             <div>
                 <div class="d-flex justify-content-center row">
-                    <div class="col-md-2">
-                        <form method="post" id="formDisable">
-                            @csrf
-                            @method("put")
-                            <input type="button" id="borrar" value="Ocultar Producto" class="btn btn-dark text-light">
-                            <input type="text" id="idProduct" value="{{ $product->id }}" hidden>
-                        </form>
-                    </div>
-                    <div class="col-md-2">
-                        <a href="/catalogo/{{ $product->id }}/edit" class="btn btn-dark text-light">Editar el
-                            producto</a>
-                    </div>
+                    @if (Auth::user())
+                        @if (Auth::user()->rol === 'administrador')
+                            <div class="col-md-2">
+
+                                <form method="post" id="formDisable">
+                                    @csrf
+                                    @method("put")
+                                    <input type="button" id="borrar" value="Ocultar Producto"
+                                        class="btn btn-dark text-light">
+                                    <input type="text" id="idProduct" value="{{ $product->id }}" hidden>
+                                </form>
+
+                            </div>
+                            <div class="col-md-2">
+                                <a href="/catalogo/{{ $product->id }}/edit" class="btn btn-dark text-light">Editar el
+                                    producto</a>
+                            </div>
+                        @endif
+                    @endif
+
                 </div>
             </div>
         </section>
