@@ -5,7 +5,8 @@
                 <img src="{{ asset('images/logo-componentesPC.svg') }}" class="max-width">
             </a>
         </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBarMain" aria-controls="navBarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBarMain"
+            aria-controls="navBarMain" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navBarMain">
@@ -14,7 +15,8 @@
             </form>
             <ul class="navbar-nav me-auto mb-2 ml-lg-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link active dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{{ asset('images/icon/perfil.png') }}" alt="">
                         Mi cuenta
                     </a>
@@ -24,13 +26,12 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('carrito.index') }}" id="navbarScrollingDropdown"
-                        role="button" aria-expanded="false">
-                        <img src="{{ asset('images/icon/carrito.png') }}">
+                    <div class="circulo">
+                        <span class="circulo__inside">0</span>
+                    </div>
+                    <a class="nav-link active" href="http://tiendaonline.test/carrito" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+                        <img src="http://tiendaonline.test/images/icon/carrito.png">
                         Carrito
-                        <div class="circulo">
-                            <span class="circulo__inside">0</span>
-                        </div>
                     </a>
                 </li>
             </ul>

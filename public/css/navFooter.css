@@ -26,8 +26,7 @@
 
 .circulo {
     position: fixed;
-    /* margin-left: 7rem;
-    padding: 1rem; */
+    margin: 2.2rem 0 0 1.2rem;
 }
 
 .circulo__inside {

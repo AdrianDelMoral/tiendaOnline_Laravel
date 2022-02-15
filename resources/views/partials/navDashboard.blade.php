@@ -11,7 +11,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Opciones de Inicio</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown01">
                         <li><a class="dropdown-item" href="/"><span class="fa-solid fa-house"></span> Página Principal</a></li>
-                        <li><a class="dropdown-item" href="#"><span class="fa-solid fa-house-user"></span> Dashboard</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.index') }}"><span class="fa-solid fa-house-user"></span> Dashboard</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -21,8 +21,14 @@
                     <a class="nav-link" href="{{ route('gestionar-user') }}"><span class="fa-solid fa-address-book"></span> Gestionar usuarios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="fa-solid fa-chart-line"></span> Gestion de stock y ventas</a>
+                    <a class="nav-link" href="{{ route('catalogo.create') }}"><span class="fa-solid fa-folder-plus"></span> Crear Productos</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('categorias.create') }}"><span class="fa-solid fa-layer-group"></span> Crear Categorias</a>
+                </li>
+                {{-- <li class="nav-item">
+                    <a class="nav-link" href="#"><span class="fa-solid fa-chart-line"></span> Gestion de stock y ventas</a>
+                </li> --}}
             </ul>
         </div>
     </div>
