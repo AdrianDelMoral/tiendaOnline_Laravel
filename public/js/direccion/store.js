@@ -37,6 +37,7 @@ async function sendForm(event) {
         return;
     }
 
+
     console.log(result);
     console.log(response.status);
 

@@ -45,7 +45,7 @@ class AddressApiController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 404);
+            return response()->json(['errors' => $validator->errors()], 400);
         } else {
             $address = new Address();
             $address->user_id =  $request->get('userId');

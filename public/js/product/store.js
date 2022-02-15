@@ -33,6 +33,7 @@ async function sendForm(event) {
 
     if (response.status !== 201) {
         alert("ERROR: "+result.error);
+        console.log(response.status);
         return;
     }
 

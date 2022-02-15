@@ -29,8 +29,7 @@
                         <!--  sm, md, lg, xl, and xxl -->
                         <h1 class="p-3 text-center text-light">Nuevo Producto</h1>
                     </div>
-                    {{$errors}}
-                    <form action="/api/productos" method="POST" enctype="multipart/form-data" id="subirProd" class="form-content">
+                    <form {{-- action="/api/productos" --}} method="POST" enctype="multipart/form-data" id="subirProd" class="form-content">
                         @csrf
                         @method('POST')
                         <div class="row mb-5">

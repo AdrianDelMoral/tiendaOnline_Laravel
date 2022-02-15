@@ -35,7 +35,7 @@ class CategoryApiController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 404);
+            return response()->json(['errors' => $validator->errors()], 400);
         } else {
             $category = new Category();
             $category -> nombre = $request->get('nombre');
