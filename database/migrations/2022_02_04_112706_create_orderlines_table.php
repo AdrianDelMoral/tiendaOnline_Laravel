@@ -17,6 +17,7 @@ class CreateOrderlinesTable extends Migration
             $table->id();
             $table->foreignId("order_id")->constrained();
             $table->foreignId("product_id")->constrained();
+            $table->integer("cantidad");
             $table->double("precio");
             $table->double("descuento");
         });
