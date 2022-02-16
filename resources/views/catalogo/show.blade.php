@@ -10,8 +10,8 @@
         <section>
             <div class="row">
                 <div class="col-md-5">
-                    {{$replaced = Str::of($product->nombre)->replace(' ', '_'); }}
-                    <div id="{{ $replaced }}" class="carousel slide" data-interval="false">
+
+                    <div id="{{$replaced = Str::of($product->nombre)->replace(' ', '_'); }}" class="carousel slide" data-interval="false">
                         <div class="carousel-inner">
                             @foreach ($product->images as $imagen)
                                 @if ($loop->first)
