@@ -57,7 +57,13 @@ class OrderController extends Controller
         // foreach ($productos as $producto) {
         //     return dd($producto['id']);
         // }
+
+
         foreach ($productos as $producto) {
+            $product = Product::where("id", $producto["product_id"])->first();
+            if($product->cantidad < $producto['cantidad']){
+                return response("No hay suficientes unidades del producto ".$product->nombre,201);
+            }
             $lineaPedido = new Orderline();
             $lineaPedido -> order_id = $order->id;
             $lineaPedido -> cantidad = $producto['cantidad'];
