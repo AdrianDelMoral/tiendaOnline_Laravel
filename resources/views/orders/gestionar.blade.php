@@ -1,5 +1,3 @@
-
-
 <form action="{{route("ordenarfecha", $orders[0]->user_id)}}" method="get">
     @csrf
     @method('post')
