@@ -67,6 +67,11 @@ class OrderController extends Controller
             $lineaPedido->save();
 
         }
+
+        $cartLines = CartLine::where("user_id", Auth::user()->id)->get();
+        foreach($cartLines as $cartLine){
+            $cartLine->delete();
+        }
         return view("orders.confirmacion", compact("order"));
 
     }
