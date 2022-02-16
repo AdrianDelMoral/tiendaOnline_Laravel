@@ -21,9 +21,13 @@ class OrderController extends Controller
     public function index()
     {
         //
+        if(!Auth::user()){
+            return "No estas registrado, registate o iniciar session para completar el pedido";
+        }else{
+            $direcciones = Address::where("user_id", Auth::user()->id)->get();
+            return view("orders.index", compact("direcciones"));
+        }
 
-        $direcciones = Address::where("user_id", Auth::user()->id)->get();
-        return view("orders.index", compact("direcciones"));
     }
 
     /**
