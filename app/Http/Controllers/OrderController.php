@@ -11,6 +11,8 @@ use App\Models\Orderline;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use function PHPUnit\Framework\at;
+
 class OrderController extends Controller
 {
     /**
@@ -137,11 +139,17 @@ class OrderController extends Controller
     }
 
     public function gestionar(User $user){
+        if(!Auth::user() || Auth::user()->rol !== "administrador"){
+            abort(404);
+        }
         $orders = Order::where('user_id', $user->id)->get();
         return view("orders.gestionar", compact("orders"));
     }
 
     public function ordenarPrecio($user){
+        if(!Auth::user() || Auth::user()->rol !== "administrador"){
+            abort(404);
+        }
         $user_id = $user;//$request->get('user_id');
         $orders = Order::where("user_id", $user_id)->orderBy("created_at", 'desc')->get();
         return view("orders.gestionar", compact("orders"));
