@@ -98,6 +98,8 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         //
+        //$orders = Order::where("id", $order->id)->with("orderlines")->get();
+        return view("orders.show", compact("order"));
     }
 
     /**
