@@ -141,5 +141,8 @@ class OrderController extends Controller
         return view("orders.gestionar", compact("orders"));
     }
 
-
+    public function ordenarPrecio(int $user_id){
+        $orders = Order::where("user_id", $user_id);
+        return view("orders.gestionar", compact("orders"));
+    }
 }
