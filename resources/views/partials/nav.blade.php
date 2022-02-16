@@ -26,7 +26,8 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
-                                <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                                <li><a class="dropdown-item" id="logout" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); this.closest('form').submit(); localStorage.removeItem('cantidad');">
                                         Cerrar Sesión
                                     </a>
                                 </li>
@@ -41,7 +42,12 @@
                     <div class="circulo">
                         <span class="circulo__inside">0</span>
                     </div>
+<<<<<<< .merge_file_a25936
                     <a class="nav-link active" href="{{ route('carrito.index') }}" id="navbarScrollingDropdown" role="button" aria-expanded="false">
+=======
+                    <a class="nav-link active" href="http://tiendaonline.test/carrito" id="navbarScrollingDropdown"
+                        role="button" aria-expanded="false">
+>>>>>>> .merge_file_a25200
                         <img src="http://tiendaonline.test/images/icon/carrito.png">
                         Carrito
                     </a>

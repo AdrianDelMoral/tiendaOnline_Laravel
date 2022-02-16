@@ -1,7 +1,11 @@
 let productHandler = document.body.querySelector(".section-products");
 productHandler.onclick = storeProduct;
 
-
+setCartNum();
+function setCartNum() {
+    let cartNum = document.body.querySelector(".circulo__inside");
+    cartNum.textContent = localStorage.getItem("cantidad");
+}
 
 async function storeProduct(event) {
     if (event.target.classList.contains('fa-shopping-cart')) {
@@ -22,6 +26,9 @@ async function storeProduct(event) {
         }
         let result = await response.json();
         let cartNum = document.body.querySelector(".circulo__inside");
+        console.log(result);
+        cartNum.textContent = result.length;
+        localStorage.setItem("cantidad", cartNum.textContent);
 
     }
 

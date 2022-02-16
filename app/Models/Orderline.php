@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Orderline extends Model
 {
     use HasFactory;
-    public function orders(){
-        return $this->hasMany(Order::class);
+    public function order(){
+        return $this->belongsTo(Order::class);
     }
+
+    public function product(){
+        return $this->belongsTo(Product::class);
+    }
+
 }
