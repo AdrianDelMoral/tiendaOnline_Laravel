@@ -22,7 +22,7 @@
                     <div class="note">
                         <h1 class="p-3 text-center text-light">Nueva Dirección</h1>
                     </div>
-                    <form {{-- action="/api/direccion" --}}  method="POST" enctype="multipart/form-data" id="subirAddress">
+                    <form action="/api/direccion"  method="POST" enctype="multipart/form-data" id="subirAddress">
                         @csrf
                         @method('post')
                         <input type="text" class="form-control" name="userId" value="{{ $usuario }}" hidden>
