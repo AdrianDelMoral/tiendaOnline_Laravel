@@ -1,3 +1,4 @@
+<script src="{{asset("js/carrito/clearCart.js")}}" defer></script>
 <form action="{{route('pedido.store')}}" method="POST">
     @csrf
     @method('POST')
@@ -8,6 +9,6 @@
             ." Ciudad ".$direccion->ciudad ." Provincia: ".$direccion->provincia." Pais: ".$direccion->pais}}</option>
         @endforeach
     </select><br>
-    <input type="submit">
+    <input type="submit" id="enviar">
 </form>
 
