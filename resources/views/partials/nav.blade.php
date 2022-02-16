@@ -42,9 +42,11 @@
                     <div class="circulo">
                         <span class="circulo__inside">0</span>
                     </div>
+
                     <a class="nav-link active" href="{{ route('carrito.index') }}" id="navbarScrollingDropdown"
                         role="button" aria-expanded="false">
                         <img src="/images/icon/carrito.png">
+
                         Carrito
                     </a>
                 </li>
