@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"> </script>
 
     <!-- Link CSS locales-->
-    <link rel="stylesheet" href="{{ URL::asset('css/navFooter.css') }}">{{-- Se incluirá el css de public/css/navFooter.css --}}
+    <link rel="stylesheet" href="{{ URL::asset('css/navFooter.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/adresses.css') }}">
 
     <!-- Iconos Online -->
@@ -21,14 +21,13 @@
 
     <script src="{{ asset('js/direccion/store.js') }}" defer></script>
 
-    <title>@yield('titulo')</title>{{-- Titulo de Dashboard - Inicio --}}
-    {{-- <title>Crear Dirección</title> --}}
+    <title>@yield('titulo')</title>
 </head>
 
 <body>
-    @include('partials.nav'){{-- Se incluirá el nav de partials/nav.blade.php --}}
+    @include('partials.nav')
     @yield('cuerpo')
-    @include('partials.footer'){{-- Se incluirá el nav de partials/nav.blade.php --}}
+    @include('partials.footer')
 </body>
 
 </html>
