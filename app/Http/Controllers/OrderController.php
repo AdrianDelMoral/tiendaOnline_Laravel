@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\address;
 use App\Models\CartLine;
 use App\Models\Product;
-
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Orderline;
 use Illuminate\Http\Request;
@@ -21,9 +21,13 @@ class OrderController extends Controller
     public function index()
     {
         //
+        if(!Auth::user()){
+            return "No estas registrado, registate o iniciar session para completar el pedido";
+        }else{
+            $direcciones = Address::where("user_id", Auth::user()->id)->get();
+            return view("orders.index", compact("direcciones"));
+        }
 
-        $direcciones = Address::where("user_id", Auth::user()->id)->get();
-        return view("orders.index", compact("direcciones"));
     }
 
     /**
@@ -94,6 +98,8 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         //
+        //$orders = Order::where("id", $order->id)->with("orderlines")->get();
+        return view("orders.show", compact("order"));
     }
 
     /**
@@ -128,5 +134,15 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function gestionar(){
+        $orders = Order::get();
+        return view("orders.gestionar", compact("orders"));
+    }
+
+    public function ordenarPrecio(int $user_id){
+        $orders = Order::where("user_id", $user_id);
+        return view("orders.gestionar", compact("orders"));
     }
 }

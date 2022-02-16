@@ -42,9 +42,11 @@
                     <div class="circulo">
                         <span class="circulo__inside">0</span>
                     </div>
-                    <a class="nav-link active" href="http://tiendaonline.test/carrito" id="navbarScrollingDropdown"
+
+                    <a class="nav-link active" href="{{ route('carrito.index') }}" id="navbarScrollingDropdown"
                         role="button" aria-expanded="false">
-                        <span class="fas fa-shopping-cart"></span>
+                        <img src="/images/icon/carrito.png">
+
                         Carrito
                     </a>
                 </li>
