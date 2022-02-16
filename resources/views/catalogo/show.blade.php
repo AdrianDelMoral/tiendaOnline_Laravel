@@ -10,7 +10,8 @@
         <section>
             <div class="row">
                 <div class="col-md-5">
-                    <div id="{{ $product->nombre }}" class="carousel slide" data-interval="false">
+                    {{$replaced = Str::of($product->nombre)->replace(' ', '_'); }}
+                    <div id="{{ $replaced }}" class="carousel slide" data-interval="false">
                         <div class="carousel-inner">
                             @foreach ($product->images as $imagen)
                                 @if ($loop->first)
@@ -26,11 +27,11 @@
                                 </div>
                             @endforeach
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#{{ $product->nombre }}"
+                        <button class="carousel-control-prev" type="button" data-bs-target="#{{ $replaced }}"
                             data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#{{ $product->nombre }}"
+                        <button class="carousel-control-next" type="button" data-bs-target="#{{ $replaced }}"
                             data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         </button>
