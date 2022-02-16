@@ -25,7 +25,7 @@
                             <tr>
                                 <td class="text-center">
                                     <div>
-                                        <img src="{{ $user->profile_photo_path? '/storage/' . $user->profile_photo_path: 'https://cdn.pixabay.com/photo/2022/01/25/16/01/sky-6966721_1280.jpg' }}"
+                                        <img src="{{ $user->profile_photo_path? '/storage/' . $user->profile_photo_path: 'https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png' }}"
                                             alt="image profile" class="imgProduct">
                                     </div>
                                 </td>
