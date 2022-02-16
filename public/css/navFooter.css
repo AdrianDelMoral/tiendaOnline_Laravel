@@ -37,11 +37,13 @@
     line-height: 1.4em;
     text-align: center;
     width: 2.4em;
-    /* font-weight: bold; */
-    /* margin-right: 15px; */
-    /* font-size: 46px; */
 }
-
+@media (max-width: 988px){
+    .circulo {
+        position: fixed;
+        margin: 0.5rem 0 0 5.2rem;
+    }
+}
 /* Footer  */
 a {
     text-decoration: none;
