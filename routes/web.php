@@ -47,7 +47,7 @@ Route::get("/user/gestionar", [UserController::class, 'gestionar'])->name('gesti
 
 /* Pedido */
 Route::get("pedidos/gestionar/fecha/{user}", [OrderController::class, "ordenarPrecio"])->name("ordenarfecha");
-Route::get("pedidos/gestionar/{user}", [OrderController::class, "gestionar"]);
+Route::get("pedidos/gestionar/{user}", [OrderController::class, "gestionar"])->name("gestionarpedido");
 Route::resource('/pedido', OrderController::class)->parameters(['pedido' => 'order']);
 
 Route::resource('/categorias', CategoryController::class)->parameters(["categorias" => 'category']);
