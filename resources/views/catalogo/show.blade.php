@@ -79,7 +79,6 @@
                             </div>
                         @endif
                     @endif
-
                 </div>
             </div>
         </section>

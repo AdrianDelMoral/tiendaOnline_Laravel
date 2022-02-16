@@ -17,7 +17,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link active dropdown-toggle" id="navbarScrollingDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ asset('images/icon/perfil.png') }}" alt="Foto de perfil">
+                        <span class="fa-solid fa-user"></span>
                         Mi cuenta
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -42,15 +42,30 @@
                     <div class="circulo">
                         <span class="circulo__inside">0</span>
                     </div>
-<<<<<<< .merge_file_a25936
-                    <a class="nav-link active" href="{{ route('carrito.index') }}" id="navbarScrollingDropdown" role="button" aria-expanded="false">
-=======
                     <a class="nav-link active" href="http://tiendaonline.test/carrito" id="navbarScrollingDropdown"
                         role="button" aria-expanded="false">
->>>>>>> .merge_file_a25200
-                        <img src="http://tiendaonline.test/images/icon/carrito.png">
+                        <span class="fas fa-shopping-cart"></span>
                         Carrito
                     </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="fa-solid fa-bars"></span>
+                        Secciones
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('categorias.index') }}">Categorias</a>
+                        </li>
+                        @if (Auth::user())
+                        @if (Auth::user()->rol === 'administrador')
+                            <li>
+                                <a class="dropdown-item" href="{{ route('admin.index') }}">Dashboard</a>
+                            </li>
+                            @endif
+                        @endif
+                    </ul>
                 </li>
             </ul>
         </div>
