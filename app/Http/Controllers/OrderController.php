@@ -136,13 +136,14 @@ class OrderController extends Controller
         //
     }
 
-    public function gestionar(){
-        $orders = Order::get();
+    public function gestionar(User $user){
+        $orders = Order::where('user_id', $user->id)->get();
         return view("orders.gestionar", compact("orders"));
     }
 
-    public function ordenarPrecio(int $user_id){
-        $orders = Order::where("user_id", $user_id);
+    public function ordenarPrecio($user){
+        $user_id = $user;//$request->get('user_id');
+        $orders = Order::where("user_id", $user_id)->orderBy("created_at", 'desc')->get();
         return view("orders.gestionar", compact("orders"));
     }
 }
