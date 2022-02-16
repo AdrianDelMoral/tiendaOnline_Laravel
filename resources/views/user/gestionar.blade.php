@@ -25,13 +25,14 @@
                             <tr>
                                 <td class="text-center">
                                     <div>
-                                        <img src="{{ $user->profile_photo_path? '/storage/' . $user->profile_photo_path: 'https://cdn.icon-icons.com/icons2/2406/PNG/512/user_account_icon_145918.png' }}"
+                                        <img src="{{ $user->profile_photo_path? '/storage/' . $user->profile_photo_path: 'http://cdn.onlinewebfonts.com/svg/img_574534.png' }}"
                                             alt="image profile" class="imgProduct">
                                     </div>
                                 </td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->rol }}</td>
                                 <td>{{ $user->email }}</td>
+                                <td><a href="{{route('gestionarpedido', $user->id)}}">Ver Pedidos</a></td>
                             </tr>
                         @endforeach
                     </tbody>
