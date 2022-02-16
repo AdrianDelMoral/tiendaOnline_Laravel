@@ -25,9 +25,8 @@
 </head>
 
 <body>
-    @include('partials.nav'){{-- Se incluirá el nav de partials/nav.blade.php --}}
+    @include('partials.navDashboard'){{-- Se incluirá el nav de partials/nav.blade.php --}}
     @yield('cuerpo')
-    @include('partials.footer'){{-- Se incluirá el nav de partials/nav.blade.php --}}
 </body>
 
 </html>

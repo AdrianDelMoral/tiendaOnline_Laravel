@@ -2,13 +2,13 @@
 @section('titulo', 'Crear Categoria')
 @section('cuerpo')
     <section class="container">
-        <article>
+        <article class="border borde_rounded bg-dark">
             {{-- <form action="/api/agregarCategoria" method="POST">
                 <input name="nombre" id="nombre" placeholder="nombre">
                 <input name="descripcion" id="descripcion" placeholder="descripcion">
                 <input type="submit" id="enviar">
             </form> --}}
-            <form action="/api/agregarCategoria" method="POST">
+            <form action="/api/agregarCategoria" method="POST" class="text-light m-5">
                 <!-- Name input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="Nombre">Nombre:</label>

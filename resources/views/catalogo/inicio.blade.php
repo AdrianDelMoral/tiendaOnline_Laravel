@@ -15,11 +15,9 @@
     @endforeach --}}
     <section class="mt-5 py-5 text-center container">
         <div class="heroBackGround row py-lg-5">
-            <div class="col-lg-6 col-md-8 mx-auto">
-                <h1 class="fw-dark">Titulo</h1>
-                <p class="lead text-dark">Something short and leading about the collection below—its contents, the creator,
-                    etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
-                <a href="#" class="btn btn-dark my-2 text-light">Main call to action</a>
+            <div class="col-lg-6 col-md-8 mx-auto my-5">
+                <h1 class="fw-dark">Componentes PC</h1>
+                <p class="h5 text-dark">Tienda especializada en componentes de pc, electrodomésticos y otro tipo de productos tecnológicos. <br> Envíos a toda la peninsula y Canarias</p>
                 </p>
             </div>
         </div>

@@ -109,11 +109,10 @@
                             <div class="col-md-6 d-flex flex-column justify-content-center">
                                 <label for="exampleFormControlTextarea1" class="form-label">Categoria</label>
                                 <div class="m-2">
-                                    <select class="form-group_ta form-select form-select-sm" name="category_id"
-                                        id="category_id" aria-label=".form-select-sm example" required>
+                                    <select class="form-group_ta form-select form-select-sm" name="category_id" id="category_id" aria-label=".form-select-sm example" required>
                                         <option disabled selected>Selecciona una categoria</option>
                                         @foreach ($categories as $cat)
-                                            <option value="{{ $cat->id }}">{{ $cat->nombre }}</option>
+                                            <option value="{{ $cat->id }}" {{$cat->id == $product->category_id?'selected':''}}>{{ $cat->nombre }}</option>
                                         @endforeach
                                     </select>
                                 </div>
