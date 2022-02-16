@@ -157,7 +157,7 @@
                         @foreach ($product->images as $imagen)
                             <!-- Single Image -->
                             <div class="col-md-6 col-lg-4 col-xl-3">
-                                <form method="POST" id="delPhoto">
+                                <form method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <div class="single-product m-3">
