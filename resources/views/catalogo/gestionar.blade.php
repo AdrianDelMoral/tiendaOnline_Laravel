@@ -10,6 +10,7 @@
                             <th scope="col">Imagen</th>
                             <th scope="col">Categoria</th>
                             <th scope="col">Nombre</th>
+                            <th scope="col">Stock</th>
                             <th scope="col">Editar</th>
                         </tr>
                     </thead>
@@ -27,6 +28,7 @@
                                 </td>
                                 <td>{{ $product->category->nombre }}</td>
                                 <td>{{ $product->nombre }}</td>
+                                <td>{{ $product->cantidad }}</td>
                                 <td>
                                     <a class="btn btn-success" href="{{ route('catalogo.edit', $product->id) }}">
                                         <span class="fa-solid fa-pen-to-square"></span>
