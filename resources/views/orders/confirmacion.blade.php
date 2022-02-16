@@ -12,3 +12,4 @@ Con los siguientes articulos:
 <br>
 
 Ha sido creado con exito
+<script src="{{asset("js/carrito/clearSesionStorage.js")}}"></script>
