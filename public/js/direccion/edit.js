@@ -43,7 +43,7 @@ async function sendForm(event) {
         for (let err of Object.entries(errores)) {
             switch (err[0]) {
                 case "calle":
-                    if ((calle === "") || (calle === null) || (pais.length > 10) || (pais.length < 5))
+                    if ((calle === "") || (calle === null) || (calle.length > 10) || (calle.length < 5))
                         hid_calle.innerHTML = "*" + err[1] + "<br>";
                     break;
                 case "patio":
@@ -76,7 +76,7 @@ async function sendForm(event) {
 
                     break;
             }
-            setTimeout(displayP, 3000);
+            setTimeout(displayError, 3000);
             /* if ((calle === "") && (err[0] === "calle")){
                 hid_calle.textContent = "*"+err[1];
             }
@@ -128,7 +128,7 @@ async function sendForm(event) {
         div.remove();
     } */
 
-    function displayP() {
+    function displayError() {
         let p = formulario.querySelectorAll("p");
         for (let node of p) {
             node.textContent = "";

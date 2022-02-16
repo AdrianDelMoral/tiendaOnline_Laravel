@@ -36,14 +36,15 @@ class ProductApiController extends Controller
             return response()->json("No tienes permisos", 401);
         } */
         $validator = Validator::make($request->all(), [
-            'nombre' => 'required',
-           'descripcion' => 'required',
+            'nombre' => 'string|required|max:10|min:5',
+            'descripcion' => 'max:255|min:10|required',
             'visibilidad' => 'required',
-            'cantidad' => 'required',
-            'category_id' => 'required',
-            'precio_base' => 'required',
-            'impuestos' => 'required',
-            'descuento' => 'required',
+            'cantidad' => 'integer|min:0|required',
+            'category_id' => 'integer|required',
+            'precio_base' => 'integer|required|min:0',
+            'impuestos' => 'integer|required|min:0',
+            'descuento' => 'integer|required|min:0',
+            'prod-img' => 'required|min:1'
         ]);
 
         if ($validator->fails()){

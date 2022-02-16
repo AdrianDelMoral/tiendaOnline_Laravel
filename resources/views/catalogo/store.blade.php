@@ -38,6 +38,7 @@
                                     <label for="exampleFormControlTextarea1" class="form-label">Nombre</label>
                                     <input type="text" name="nombre" id="nombre" class="form-control"
                                         placeholder="Nombre" value="{{old('nombre')}}">
+                                        <p style="font-size: 12px; color: red;" id="hid_nombre"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -45,12 +46,14 @@
                                     <label for="exampleFormControlTextarea1" class="form-label">Cantidad</label>
                                     <input type="text" name="cantidad" id="cantidad" class="form-control"
                                         placeholder="Cantidad" value="{{old('cantidad')}}" >
+                                        <p style="font-size: 12px; color: red;" id="hid_cantidad"></p>
                                 </div>
 
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Impuestos</label>
                                     <input type="text" class="form-control" value="{{old('impuestos')}}" placeholder="Impuestos" name="impuestos"
                                         id="impuestos">
+                                        <p style="font-size: 12px; color: red;" id="hid_impuestos"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -58,11 +61,13 @@
                                     <label for="exampleFormControlTextarea1" class="form-label">Precio Base</label>
                                     <input type="text" class="form-control" placeholder="Precio Base" name="precio_base"
                                         id="precio_base" value="{{old('precio_base')}}">
+                                        <p style="font-size: 12px; color: red;" id="hid_precio_base"></p>
                                 </div>
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Descuento</label>
                                     <input type="text" class="form-control" placeholder="Descuento" name="descuento"
                                         id="descuento" value="{{old('descuentos')}}">
+                                        <p style="font-size: 12px; color: red;" id="hid_descuento"></p>
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex flex-column justify-content-center">
@@ -74,7 +79,9 @@
                                         <option value="1">Visible</option>
                                         <option value="2">Oculto</option>
                                     </select>
+                                    <p style="font-size: 12px; color: red;" id="hid_visibilidad"></p>
                                 </div>
+
                             </div>
                             <div class="col-md-6 d-flex flex-column justify-content-center">
                                 <label for="exampleFormControlTextarea1" class="form-label">Categoria</label>
@@ -87,6 +94,7 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <p style="font-size: 12px; color: red;" id="hid_category_id"></p>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group m-2">
@@ -94,6 +102,7 @@
                                     <textarea class="form-control" name="descripcion"
                                         placeholder="Añade una descripción del articulo detallada" id="descripcion"
                                         rows="5" value="{{old('descripcion')}}"></textarea>
+                                        <p style="font-size: 12px; color: red;" id="hid_descripcion"></p>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +110,8 @@
                             <div>
                                 <label for="formFileMultiple" class="form-label">Seleccionar Imagenes</label>
                                 <input class="form-control input_fotos" type="file" name="prod-img[]" id="prod-img" value="{{old('prod-img[]')}}"
-                                    multiple>
+                                    multiple required>
+                                    <p style="font-size: 12px; color: red;" id="hid_prod_img"></p>
                             </div>
                         </section>
                         <button type="submit" id="enviar" class="btnSubmit btn-light text-dark m-2">Submit</button>

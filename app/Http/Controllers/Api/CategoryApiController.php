@@ -37,8 +37,8 @@ class CategoryApiController extends Controller
             return response()->json("No tienes permisos", 401);
         } */
         $validator = Validator::make($request->all(), [
-            'nombre' => 'required',
-            'descripcion' => 'required',
+            'nombre' => 'string|required|max:10|min:5',
+            'descripcion' => 'max:255|min:10|required',
         ]);
 
         if ($validator->fails()) {
