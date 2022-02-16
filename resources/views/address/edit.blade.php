@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Editar Dirección</title>
-    <script src="{{ asset('js/direccion/update.js') }}" defer></script>
+    <script src="{{ asset('js/direccion/edit.js') }}" defer></script>
     <style>
         p {
             font-size: 11px;
@@ -14,9 +14,10 @@
     </style>
 </head>
 <body>
-    <form action="/api/direccion/{{$address->id}}" method="POST" enctype="multipart/form-data" id="subirAddress">
+    <form {{-- action="/api/direccion/{{$address->id}}" --}} method="POST" enctype="multipart/form-data" id="subirAddress">
         @csrf
         @method('PUT')
+        <input type="text" value="{{$address->id}}" id="addressId" hidden>
         <div>Calle</div>
         <input name="calle" id="calle" placeholder="calle" value="{{ $address->calle }}">
         <p id="hid-calle"></p>

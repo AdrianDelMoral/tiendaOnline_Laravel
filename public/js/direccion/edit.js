@@ -1,6 +1,7 @@
 //codigo JS la API de crear direccion.
 
 let envioBtn = document.body.querySelector("#enviar");
+let addressId = document.body.querySelector("#addressId").value;
 
 envioBtn.onclick = sendForm;
 
@@ -31,8 +32,8 @@ async function sendForm(event) {
 
     let formData = new FormData(formulario);
     //console.log([...formData.entries()]);
-    let response = await fetch('/api/direccion', {
-        method: 'PUT',
+    let response = await fetch('/api/direccion/'+ addressId, {
+        method: 'POST',
         body: formData
     });
     let result = await response.json();
@@ -137,8 +138,8 @@ async function sendForm(event) {
 
     //RESPUESTA CORRECTA
     if (response.status === 201) {
-        alert("La dirección: " + result.Direccion + " ha sido creada con éxito");
-        window.location.href = "/user/profile";
+        alert("La dirección: " + result.Direccion + " ha sido editada con éxito");
+        window.location.href = "/direccion";
     }
 
 
