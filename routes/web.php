@@ -43,9 +43,10 @@ Route::resource('/admin', AdminController::class);
 /* Carrito */
 Route::resource('/carrito', CartLineController::class)->parameters(['carrito' => 'cartline']);
 
-Route::get("/user/gestionar", [UserController::class, 'gestionar'])->name('gestionar-user');
+Route::get("/user/gestionar", [OrderController::class, 'gestionar'])->name('gestionar-user');
 
 /* Pedido */
+Route::get("pedidos/gestionar", [OrderController::class, "gestionar"]);
 Route::resource('/pedido', OrderController::class)->parameters(['pedido' => 'order']);
 
 Route::resource('/categorias', CategoryController::class)->parameters(["categorias" => 'category']);

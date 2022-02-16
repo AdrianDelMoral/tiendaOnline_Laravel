@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\address;
 use App\Models\CartLine;
 use App\Models\Product;
-
+use App\Models\User;
 use App\Models\Order;
 use App\Models\Orderline;
 use Illuminate\Http\Request;
@@ -135,4 +135,11 @@ class OrderController extends Controller
     {
         //
     }
+
+    public function gestionar(){
+        $orders = Order::get();
+        return view("orders.gestionar", compact("orders"));
+    }
+
+
 }
