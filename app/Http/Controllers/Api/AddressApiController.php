@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Address;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 /* use App\Http\Requests\AddressApiRequest; */
 use Illuminate\Support\Facades\Validator;
 /* use Illuminate\Http\Response;
@@ -20,6 +21,7 @@ class AddressApiController extends Controller
      */
     public function index()
     {
+
         $addresses = Address::get();
         return response()->json($addresses, 200);
     }
@@ -32,20 +34,25 @@ class AddressApiController extends Controller
      */
     public function store(Request $request)
     {
-
-        $validator = Validator::make($request->all(), [
-            'calle' => 'required',
-            'patio' => 'required',
-            'puerta' => 'required',
-            'numero' => 'required',
-            'cod_postal' => 'required',
-            'ciudad' => 'required',
-            'provincia' => 'required',
-            'pais' => 'required',
+/*         if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
+       /*  $messages = [
+            'calle.required' => 'La :attribute se requiere',
+        ]; */
+        $validator = Validator::make($request->all(), /* $messages, */ [
+            'calle' => 'string|required|max:10|min:5',
+            'patio' => 'integer|required|min:0|max:100',
+            'puerta' => 'integer|required|min:0|max:100',
+            'numero' => 'integer|required|min:0|max:100',
+            'cod_postal' => 'integer|required|min:0|max:50000',
+            'ciudad' => 'string|required|max:10|min:5',
+            'provincia' => 'string|required|max:20|min:5',
+            'pais' => 'string|required|max:20|min:5',
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
+            return response()->json(['errors' => $validator->errors()], 401);
         } else {
             $address = new Address();
             $address->user_id =  $request->get('userId');
@@ -82,19 +89,22 @@ class AddressApiController extends Controller
      */
     public function update(Request $request, Address $address)
     {
-        $validator = Validator::make($request->all(), [
-            'calle' => 'required',
-            'patio' => 'required',
-            'puerta' => 'required',
-            'numero' => 'required',
-            'cod_postal' => 'required',
-            'ciudad' => 'required',
-            'provincia' => 'required',
-            'pais' => 'required',
+/*         if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
+        $validator = Validator::make($request->all(), /* $messages, */ [
+            'calle' => 'string|required|max:10|min:5',
+            'patio' => 'integer|required|min:0|max:100',
+            'puerta' => 'integer|required|min:0|max:100',
+            'numero' => 'integer|required|min:0|max:100',
+            'cod_postal' => 'integer|required|min:0|max:50000',
+            'ciudad' => 'string|required|max:10|min:5',
+            'provincia' => 'string|required|max:20|min:5',
+            'pais' => 'string|required|max:20|min:5',
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 404);
+            return response()->json(['errors' => $validator->errors()], 401);
         } else {
             $address->calle = $request->get('calle');
             $address->patio = $request->get('patio');

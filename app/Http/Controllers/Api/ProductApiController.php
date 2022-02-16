@@ -8,7 +8,7 @@ use App\Models\Image;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class ProductApiController extends Controller
@@ -32,6 +32,9 @@ class ProductApiController extends Controller
      */
     public function store(Request $request)
     {
+     /*    if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
         $validator = Validator::make($request->all(), [
             'nombre' => 'required',
            'descripcion' => 'required',
@@ -41,11 +44,10 @@ class ProductApiController extends Controller
             'precio_base' => 'required',
             'impuestos' => 'required',
             'descuento' => 'required',
-            'prod-img' => 'required',
         ]);
 
         if ($validator->fails()){
-            return response()->json(['errors' => $validator->errors()], 400);
+            return response()->json(['errors' => $validator->errors()], 401);
         }else{
 
             $product = new Product();
@@ -94,6 +96,9 @@ class ProductApiController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        /* if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
         $product->nombre = $request->get('nombre');
         $product->descripcion = $request->get('descripcion');
         $product->visibilidad = $request->get('visibilidad');
@@ -124,6 +129,9 @@ class ProductApiController extends Controller
 
     public function deshabilitar(Product $product)
     {
+        /* if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
         $product->visibilidad = 0;
         $product->save();
         return $product;
@@ -138,6 +146,9 @@ class ProductApiController extends Controller
      */
     public function destroy(Product $product)
     {
+       /*  if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
         //$product = Product::findOrFail($product->id);
         $product->delete();
     }

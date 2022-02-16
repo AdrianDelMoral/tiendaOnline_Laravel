@@ -32,7 +32,7 @@ async function sendForm(event) {
     let formData = new FormData(formulario);
     //console.log([...formData.entries()]);
     let response = await fetch('/api/direccion', {
-        method: 'POST',
+        method: 'PUT',
         body: formData
     });
     let result = await response.json();

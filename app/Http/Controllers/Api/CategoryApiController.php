@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryApiController extends Controller
 {
@@ -17,8 +18,11 @@ class CategoryApiController extends Controller
      */
     public function index()
     {
+       /*  if (!Auth::user() === "administrador") {
+            return response()->json("No tienes permisos", 401);
+        } */
         $categories = Category::get();
-        return response()->json($categories, 200);
+        return response()->json($categories, 201);
     }
 
     /**
@@ -29,13 +33,16 @@ class CategoryApiController extends Controller
      */
     public function store(Request $request)
     {
+        /* if (Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
         $validator = Validator::make($request->all(), [
             'nombre' => 'required',
             'descripcion' => 'required',
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
+            return response()->json(['errors' => $validator->errors()], 401);
         } else {
             $category = new Category();
             $category -> nombre = $request->get('nombre');
@@ -56,7 +63,9 @@ class CategoryApiController extends Controller
      */
     public function show(Category $category)
     {
-        //
+    /*     if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
         $products = Product::where("category_id", $category->id)->with('images')->paginate(20);
         return response()->json($products);
 
@@ -82,6 +91,9 @@ class CategoryApiController extends Controller
      */
     public function destroy(Category $category)
     {
+/*         if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
         $category->delete();
         return response()->json(null, 204);
     }
