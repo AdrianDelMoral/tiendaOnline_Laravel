@@ -71,6 +71,7 @@
                                     <label for="nombre" class="form-label">Nombre</label>
                                     <input type="text" value="{{ $product->nombre }}" name="nombre" id="nombre"
                                         class="form-control" placeholder="Nombre" required>
+                                        <p style="font-size: 12px; color: red;" id="hid_nombre"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -78,12 +79,14 @@
                                     <label for="exampleFormControlTextarea1" class="form-label">Cantidad</label>
                                     <input type="text" name="cantidad" id="cantidad" class="form-control"
                                         placeholder="Cantidad" value="{{ $product->cantidad }}" required>
+                                        <p style="font-size: 12px; color: red;" id="hid_cantidad"></p>
                                 </div>
 
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Impuestos</label>
                                     <input type="text" class="form-control" value="21" placeholder="Impuestos"
-                                        name="impuestos" id="impuestos" required>
+                                        name="impuestos" id="impuestos" value="{{ $product->impuestos }}" required>
+                                        <p style="font-size: 12px; color: red;" id="hid_impuestos"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -91,11 +94,13 @@
                                     <label for="exampleFormControlTextarea1" class="form-label">Precio Base</label>
                                     <input type="text" class="form-control" placeholder="Precio Base" name="precio_base"
                                         id="precio_base" value="{{ $product->precio_base }}" required>
+                                        <p style="font-size: 12px; color: red;" id="hid_precio_base"></p>
                                 </div>
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Descuento</label>
                                     <input type="text" class="form-control" placeholder="Descuento" name="descuento"
-                                        id="descuento" required>
+                                        id="descuento" value="{{ $product->descuento }}" required>
+                                        <p style="font-size: 12px; color: red;" id="hid_descuento"></p>
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex flex-column justify-content-center">
@@ -104,6 +109,7 @@
                                         Oculto:</label>
                                     <input type="number" class="form-control" name="visibilidad" id="visibilidad"
                                         value="{{ $product->visibilidad }}">
+                                        <p style="font-size: 12px; color: red;" id="hid_visibilidad"></p>
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex flex-column justify-content-center">
@@ -113,9 +119,10 @@
                                         id="category_id" aria-label=".form-select-sm example" required>
                                         <option disabled selected>Selecciona una categoria</option>
                                         @foreach ($categories as $cat)
-                                            <option value="{{ $cat->id }}">{{ $cat->nombre }}</option>
+                                            <option value="{{ $cat->id }}" selected>{{ $cat->nombre }}</option>
                                         @endforeach
                                     </select>
+                                    <p style="font-size: 12px; color: red;" id="hid_categoria"></p>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -124,6 +131,7 @@
                                     <textarea class="form-control" name="descripcion"
                                         placeholder="Añade una descripción del articulo detallada" id="descripcion" rows="5"
                                         required>{{ $product->descripcion }}</textarea>
+                                        <p style="font-size: 12px; color: red;" id="hid_descripcion"></p>
                                 </div>
 
                             </div>
@@ -133,6 +141,7 @@
                                 <label for="formFileMultiple" class="form-label">Seleccionar Imagenes</label>
                                 <input class="form-control input_fotos" type="file" name="prod-img[]" id="prod-img"
                                     multiple>
+                                    <p style="font-size: 12px; color: red;" id="hid_prod_img"></p>
                             </div>
                         </section>
                         <button type="submit" id="actualizar" class="btnSubmit btn-light text-dark m-2">Submit</button>
@@ -144,11 +153,11 @@
                             <button class="btn btn-danger" id="eliminarProd">Eliminar Producto</button>
                         </form>
                     </div>
-                    <div class="row">
+                    <div class="row" id="galeria">
                         @foreach ($product->images as $imagen)
                             <!-- Single Image -->
                             <div class="col-md-6 col-lg-4 col-xl-3">
-                                <form method="POST">
+                                <form method="POST" id="delPhoto">
                                     @csrf
                                     @method('DELETE')
                                     <div class="single-product m-3">
