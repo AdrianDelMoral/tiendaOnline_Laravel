@@ -1,12 +1,19 @@
-<form action="{{route("ordenarfecha", $orders[0]->user_id)}}" method="get">
-    @csrf
-    @method('post')
-    <input type="submit" value="Ordenar por fecha de pedido">
-</form>
+@if($orders->isNotEmpty())
+    <form action="{{route("ordenarfecha", $orders[0]->user_id)}}" method="get">
+        @csrf
+        @method('post')
+        <input type="submit" value="Ordenar por fecha de pedido">
+    </form>
+@endif
 
-@foreach ($orders as $order)
+
+
+
+@forelse ($orders as $order)
     @if($loop->first)
         USUARIO {{$order->user->name}}<br>
     @endif
     <a href="{{route("pedido.show", $order)}}">Pedido del dia: {{$order->created_at}}</a><br>
-@endforeach
+    @empty
+    No hay datos
+@endforelse
