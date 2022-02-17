@@ -41,18 +41,18 @@ class AddressApiController extends Controller
             'calle.required' => 'La :attribute se requiere',
         ]; */
         $validator = Validator::make($request->all(), /* $messages, */ [
-            'calle' => 'string|required|max:10|min:5',
-            // 'patio' => 'integer|required|min:0|max:100',
-            // 'puerta' => 'integer|required|min:0|max:100',
-            'numero' => 'integer|required|min:0|max:100',
+            'calle' => 'string|required|max:50|min:4',
+            'patio' => 'integer|min:0',
+            'puerta' => 'integer|min:0',
+            'numero' => 'integer|required|min:0',
             'cod_postal' => 'integer|required|min:0|max:50000',
-            'ciudad' => 'string|required|max:10|min:5',
-            'provincia' => 'string|required|max:20|min:5',
-            'pais' => 'string|required|max:20|min:5',
+            'ciudad' => 'string|required|max:50|min:3',
+            'provincia' => 'string|required|max:50|min:3',
+            'pais' => 'string|required|max:50|min:3',
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 401);
+            return response()->json(['errors' => $validator->errors()], 400);
         } else {
             $address = new Address();
             $address->user_id =  $request->get('userId');
@@ -93,18 +93,18 @@ class AddressApiController extends Controller
             return response()->json("No tienes permisos", 401);
         } */
         $validator = Validator::make($request->all(), /* $messages, */ [
-            'calle' => 'string|required|max:10|min:5',
-            // 'patio' => 'integer|required|min:0|max:100',
-            // 'puerta' => 'integer|required|min:0|max:100',
-            'numero' => 'integer|required|min:0|max:100',
+            'calle' => 'string|required|max:50|min:4',
+            'patio' => 'integer|min:0',
+            'puerta' => 'integer|min:0',
+            'numero' => 'integer|required|min:0',
             'cod_postal' => 'integer|required|min:0|max:50000',
-            'ciudad' => 'string|required|max:10|min:5',
-            'provincia' => 'string|required|max:20|min:5',
-            'pais' => 'string|required|max:20|min:5',
+            'ciudad' => 'string|required|max:50|min:3',
+            'provincia' => 'string|required|max:50|min:3',
+            'pais' => 'string|required|max:50|min:3',
         ]);
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 401);
+            return response()->json(['errors' => $validator->errors()], 400);
         } else {
             $address->calle = $request->get('calle');
             $address->patio = $request->get('patio');
