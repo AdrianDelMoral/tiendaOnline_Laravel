@@ -42,8 +42,8 @@ class AddressApiController extends Controller
         ]; */
         $validator = Validator::make($request->all(), /* $messages, */ [
             'calle' => 'string|required|max:50|min:4',
-            'patio' => 'integer|min:0',
-            'puerta' => 'integer|min:0',
+            'patio' => 'nullable|integer|min:0',
+            'puerta' => 'nullable|integer|min:0',
             'numero' => 'integer|required|min:0',
             'cod_postal' => 'integer|required|min:0|max:50000',
             'ciudad' => 'string|required|max:50|min:3',
@@ -94,8 +94,8 @@ class AddressApiController extends Controller
         } */
         $validator = Validator::make($request->all(), /* $messages, */ [
             'calle' => 'string|required|max:50|min:4',
-            'patio' => 'integer|min:0',
-            'puerta' => 'integer|min:0',
+            'patio' => 'nullable|integer|min:0',
+            'puerta' => 'nullable|integer|min:0',
             'numero' => 'integer|required|min:0',
             'cod_postal' => 'integer|required|min:0|max:50000',
             'ciudad' => 'string|required|max:50|min:3',
