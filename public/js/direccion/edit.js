@@ -35,25 +35,22 @@ async function sendForm(event) {
             hid_calle.innerHTML = "* The calle field is required, less than 50 and more than 5." + "<br>";
             cont = true;
         }
-        if(patio !== ""){
-            if ((patio === "") && (!Number.isInteger(patio)) || (patio < 0)){
-                hid_patio.innerHTML = "* The patio field is optional, integer and more than 0." + "<br>";
-                cont = true;
-            }
+
+        if ((patio === "") && (!Number.isInteger(patio)) || (Math.sign(patio) === -1)){
+            hid_patio.innerHTML = "* The patio field is optional, integer and more than 0." + "<br>";
+            cont = true;
         }
 
-        if (puerta !== ""){
-            if ( (puerta === "") && (!Number.isInteger(puerta))  || (puerta < 0)){
-                hid_puerta.innerHTML = "* The puerta field is optional, integer and more than 0." +  "<br>";
-                cont = true;
-            }
+        if ( (puerta === "") && (!Number.isInteger(puerta))  || (Math.sign(puerta) === -1)){
+            hid_puerta.innerHTML = "* The puerta field is optional, integer and more than 0." +  "<br>";
+            cont = true;
         }
 
-        if ((numero === "") && (!Number.isInteger(numero)) || (numero < 0)){
+        if ((numero === "") && (!Number.isInteger(numero)) || (Math.sign(numero) === -1)){
             hid_numero.innerHTML = "* The numero id field is required, integer and more than 0." + "<br>";
             cont = true;
         }
-        if ((cod_postal === "") && (!Number.isInteger(cod_postal)) || (cod_postal.length < 0) || (cod_postal.length > 50000)){
+        if ((cod_postal === "") && (!Number.isInteger(cod_postal)) || (Math.sign(cod_postal) === -1) || (cod_postal.length > 50000)){
             hid_cp.innerHTML = "* The cod_postal base field is required, integer, less than 50000 and more than 0." + "<br>";
             cont = true;
         }

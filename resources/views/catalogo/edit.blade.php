@@ -77,14 +77,14 @@
                             <div class="col-md-6">
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Cantidad</label>
-                                    <input type="text" name="cantidad" id="cantidad" class="form-control"
+                                    <input type="number" name="cantidad" id="cantidad" class="form-control"
                                         placeholder="Cantidad" value="{{ $product->cantidad }}" required>
                                         <p style="font-size: 12px; color: red;" id="hid_cantidad"></p>
                                 </div>
 
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Impuestos</label>
-                                    <input type="text" class="form-control" value="21" placeholder="Impuestos"
+                                    <input type="number" class="form-control" value="21" placeholder="Impuestos"
                                         name="impuestos" id="impuestos" value="{{ $product->impuestos }}" required>
                                         <p style="font-size: 12px; color: red;" id="hid_impuestos"></p>
                                 </div>
@@ -92,13 +92,13 @@
                             <div class="col-md-6">
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Precio Base</label>
-                                    <input type="text" class="form-control" placeholder="Precio Base" name="precio_base"
+                                    <input type="number" class="form-control" placeholder="Precio Base" name="precio_base"
                                         id="precio_base" value="{{ $product->precio_base }}" required>
                                         <p style="font-size: 12px; color: red;" id="hid_precio_base"></p>
                                 </div>
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Descuento</label>
-                                    <input type="text" class="form-control" placeholder="Descuento" name="descuento"
+                                    <input type="number" class="form-control" placeholder="Descuento" name="descuento"
                                         id="descuento" value="{{ $product->descuento }}" required>
                                         <p style="font-size: 12px; color: red;" id="hid_descuento"></p>
                                 </div>

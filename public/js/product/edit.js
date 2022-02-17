@@ -48,8 +48,8 @@ async function actualizarProd(event) {
             hid_nombre.innerHTML = "* The nombre field is required, less than 50 and more than 5." + "<br>";
             cont = true;
         }
-        if ((cantidad === "") || (cantidad < 0)){
-            hid_cantidad.innerHTML = "* The cantidad field is required." + "<br>";
+        if ((cantidad === "") && (!Number.isInteger(cantidad)) || (Math.sign(cantidad) === -1)){
+            hid_cantidad.innerHTML = "* The cantidad field is required, integer and more than 0." + "<br>";
             cont = true;
         }
         if ((descripcion === "") || (descripcion.length < 10) || (descripcion.length > 255)){
@@ -60,15 +60,15 @@ async function actualizarProd(event) {
             hid_category_id.innerHTML = "* The category id field is required, integer." + "<br>";
             cont = true;
         }
-        if ((precio_base === "") && (!Number.isInteger(precio_base)) || (precio_base.length < 0)){
+        if ((precio_base === "") && (!Number.isInteger(precio_base)) || (Math.sign(precio_base) === -1) || (precio_base.length < 0)){
             hid_precio_base.innerHTML = "* The precio base field is required, integer and more than 0." + "<br>";
             cont = true;
         }
-        if ((impuestos === "") && (!Number.isInteger(impuestos))  || (impuestos.length < 0)){
+        if ((impuestos === "") && (!Number.isInteger(impuestos)) || (Math.sign(impuestos) === -1)){
             hid_impuestos.innerHTML = "* The impuestos field is required, integer and more than 0." + "<br>";
             cont = true;
         }
-        if ((descuento === "") && (!Number.isInteger(descuento))  || (descuento.length < 0)){
+        if ((descuento === "") && (!Number.isInteger(descuento)) || (Math.sign(descuento) === -1)){
             hid_descuento.innerHTML = "* The descuento field is required, integer and more than 0." + "<br>";
             cont = true;
         }

@@ -37,36 +37,36 @@
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Nombre</label>
                                     <input type="text" name="nombre" id="nombre" class="form-control"
-                                        placeholder="Nombre" value="{{old('nombre')}}">
+                                        placeholder="Nombre" value="{{old('nombre')}}" required>
                                         <p style="font-size: 12px; color: red;" id="hid_nombre"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Cantidad</label>
-                                    <input type="text" name="cantidad" id="cantidad" class="form-control"
-                                        placeholder="Cantidad" value="{{old('cantidad')}}" >
+                                    <input type="number" name="cantidad" id="cantidad" class="form-control"
+                                        placeholder="Cantidad" value="{{old('cantidad')}}" required>
                                         <p style="font-size: 12px; color: red;" id="hid_cantidad"></p>
                                 </div>
 
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Impuestos</label>
-                                    <input type="text" class="form-control" value="{{old('impuestos')}}" placeholder="Impuestos" name="impuestos"
-                                        id="impuestos">
+                                    <input type="number" class="form-control" value="{{old('impuestos')}}" placeholder="Impuestos" name="impuestos"
+                                        id="impuestos" required>
                                         <p style="font-size: 12px; color: red;" id="hid_impuestos"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Precio Base</label>
-                                    <input type="text" class="form-control" placeholder="Precio Base" name="precio_base"
-                                        id="precio_base" value="{{old('precio_base')}}">
+                                    <input type="number" class="form-control" placeholder="Precio Base" name="precio_base"
+                                        id="precio_base" value="{{old('precio_base')}}" required>
                                         <p style="font-size: 12px; color: red;" id="hid_precio_base"></p>
                                 </div>
                                 <div class="form-group m-2">
                                     <label for="exampleFormControlTextarea1" class="form-label">Descuento</label>
-                                    <input type="text" class="form-control" placeholder="Descuento" name="descuento"
-                                        id="descuento" value="{{old('descuentos')}}">
+                                    <input type="number" class="form-control" placeholder="Descuento" name="descuento"
+                                        id="descuento" value="{{old('descuentos')}}" required>
                                         <p style="font-size: 12px; color: red;" id="hid_descuento"></p>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                     <label for="exampleFormControlTextarea1" class="form-label">Descripción</label>
                                     <textarea class="form-control" name="descripcion"
                                         placeholder="Añade una descripción del articulo detallada" id="descripcion"
-                                        rows="5" value="{{old('descripcion')}}"></textarea>
+                                        rows="5" value="{{old('descripcion')}}" required></textarea>
                                         <p style="font-size: 12px; color: red;" id="hid_descripcion"></p>
                                 </div>
                             </div>

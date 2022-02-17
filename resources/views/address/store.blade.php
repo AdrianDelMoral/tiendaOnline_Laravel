@@ -54,7 +54,7 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="puerta">Puerta</label>
-                                        <input type="text" name="puerta" id="puerta" placeholder="Puerta" value="{{old('puerta')}}" class="form-control">
+                                        <input type="number" name="puerta" id="puerta" placeholder="Puerta" value="{{old('puerta')}}" class="form-control">
 								<p id="hid-puerta" style="font-size: 11px; color: red;"></p>
 
                                     </div>
