@@ -32,6 +32,8 @@ Route::resource('/', InicioController::class)->parameters(["catalogo"=> "product
 /* categorias */
 Route::resource('/categorias', CategoryController::class)->parameters(["categorias" => 'category']);
 
+/* direcciones */
+Route::resource('/direccion', AddressController::class)->parameters(["direccion"=> "address"]);
 
 /* Catalogo */
 Route::get("/catalogo/gestionar", [ProductController::class, 'gestionar'])->name("gestionar");
@@ -55,6 +57,3 @@ Route::resource('/direccion', AddressController::class)->parameters(["direccion"
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-
-
-

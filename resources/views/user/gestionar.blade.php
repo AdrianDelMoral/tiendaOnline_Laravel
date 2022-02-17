@@ -11,6 +11,7 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">rol</th>
                             <th scope="col">email</th>
+                            <th scope="col">Editar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,14 +26,17 @@
                             <tr>
                                 <td class="text-center">
                                     <div>
-                                        <img src="{{ $user->profile_photo_path? '/storage/' . $user->profile_photo_path: 'http://cdn.onlinewebfonts.com/svg/img_574534.png' }}"
-                                            alt="image profile" class="imgProduct">
+                                        <img src="{{ $user->profile_photo_path? '/storage/' . $user->profile_photo_path: 'http://cdn.onlinewebfonts.com/svg/img_574534.png' }}" alt="image profile" class="imgProduct">
                                     </div>
                                 </td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->rol }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td><a href="{{route('gestionarpedido', $user->id)}}">Ver Pedidos</a></td>
+                                <td>
+                                    <a class="btn btn-success"  href="{{route('gestionarpedido', $user->id)}}">
+                                        <span class="fas fa-eye span_product"></span>
+                                    </a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

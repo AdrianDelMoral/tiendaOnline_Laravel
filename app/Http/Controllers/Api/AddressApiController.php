@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Address;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+/* use App\Http\Requests\AddressApiRequest; */
+use Illuminate\Support\Facades\Validator;
+/* use Illuminate\Http\Response;
+use Exception; */
 
 class AddressApiController extends Controller
 {
@@ -16,6 +21,7 @@ class AddressApiController extends Controller
      */
     public function index()
     {
+
         $addresses = Address::get();
         return response()->json($addresses, 200);
     }
@@ -28,19 +34,39 @@ class AddressApiController extends Controller
      */
     public function store(Request $request)
     {
-        $address = new Address();
-        $address -> user_id =  $request->get('userId');
-        $address -> calle = $request->get('calle');
-        $address -> patio = $request->get('patio');
-        $address -> puerta = $request->get('puerta');
-        $address -> numero = $request->get('numero');
-        $address -> cod_postal = $request->get('cod_postal');
-        $address -> ciudad = $request->get('ciudad');
-        $address -> provincia = $request->get('provincia');
-        $address -> pais = $request->get('pais');
-        $address->save();
+        /*         if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
+        /*  $messages = [
+            'calle.required' => 'La :attribute se requiere',
+        ]; */
+        $validator = Validator::make($request->all(), /* $messages, */ [
+            'calle' => 'string|required|max:50|min:4',
+            'patio' => 'nullable|integer|min:0',
+            'puerta' => 'nullable|integer|min:0',
+            'numero' => 'integer|required|min:0',
+            'cod_postal' => 'integer|required|min:0|max:50000',
+            'ciudad' => 'string|required|max:50|min:3',
+            'provincia' => 'string|required|max:50|min:3',
+            'pais' => 'string|required|max:50|min:3',
+        ]);
 
-        return response()->json($address, 201);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        } else {
+            $address = new Address();
+            $address->user_id =  $request->get('userId');
+            $address->calle = $request->get('calle');
+            $address->patio = $request->get('patio');
+            $address->puerta = $request->get('puerta');
+            $address->numero = $request->get('numero');
+            $address->cod_postal = $request->get('cod_postal');
+            $address->ciudad = $request->get('ciudad');
+            $address->provincia = $request->get('provincia');
+            $address->pais = $request->get('pais');
+            $address->save();
+            return response()->json(['Direccion' => $address->calle], 201);
+        }
     }
 
     /**
@@ -63,17 +89,34 @@ class AddressApiController extends Controller
      */
     public function update(Request $request, Address $address)
     {
-        $address -> calle = $request->get('calle');
-        $address -> patio = $request->get('patio');
-        $address -> puerta = $request->get('puerta');
-        $address -> numero = $request->get('numero');
-        $address -> cod_postal = $request->get('cod_postal');
-        $address -> ciudad = $request->get('ciudad');
-        $address -> provincia = $request->get('provincia');
-        $address -> pais = $request->get('pais');
-        $address->save();
+        /*         if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
+        $validator = Validator::make($request->all(), /* $messages, */ [
+            'calle' => 'string|required|max:50|min:4',
+            'patio' => 'nullable|integer|min:0',
+            'puerta' => 'nullable|integer|min:0',
+            'numero' => 'integer|required|min:0',
+            'cod_postal' => 'integer|required|min:0|max:50000',
+            'ciudad' => 'string|required|max:50|min:3',
+            'provincia' => 'string|required|max:50|min:3',
+            'pais' => 'string|required|max:50|min:3',
+        ]);
 
-        return response()->json($address, 201);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        } else {
+            $address->calle = $request->get('calle');
+            $address->patio = $request->get('patio');
+            $address->puerta = $request->get('puerta');
+            $address->numero = $request->get('numero');
+            $address->cod_postal = $request->get('cod_postal');
+            $address->ciudad = $request->get('ciudad');
+            $address->provincia = $request->get('provincia');
+            $address->pais = $request->get('pais');
+            $address->save();
+            return response()->json(['Direccion' => $address->calle], 201);
+        }
     }
 
     /**

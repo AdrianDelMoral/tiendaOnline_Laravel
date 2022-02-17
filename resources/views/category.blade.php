@@ -16,7 +16,7 @@
     <!-- Link CSS locales-->
     <link rel="stylesheet" href="{{URL::asset('css/navFooter.css')}}">
     <link rel="stylesheet" href="{{URL::asset('css/category.css')}}">
-
+    <script src="{{ asset('js/categorias/store.js') }}" defer></script>
     <title>@yield('titulo')</title>{{-- Titulo de catalogo --}}
 </head>
 <body>

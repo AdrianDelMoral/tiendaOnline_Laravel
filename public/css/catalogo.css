@@ -1,7 +1,5 @@
 
-span:before{
-    color: white;
-}
+
 a, a:hover {
     text-decoration: none;
     color: inherit;
@@ -147,4 +145,27 @@ a, a:hover {
 .carousel-control-prev-icon, .carousel-control-next-icon {
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: .6rem;
+}
+
+/*  */
+.page-item.active .page-link {
+    color: #fff;
+    background-color: #eb9300;
+    border-color: #000;
+}
+.page-link {
+    color: #000!important;
+}
+
+.page-link {
+    color: #000!important;
+}
+.page-link:hover{
+    transition: 1s;
+    border-color: #000;
+    background-color: #eb9300!important;
+}
+
+.span_product:before{
+    color: white;
 }

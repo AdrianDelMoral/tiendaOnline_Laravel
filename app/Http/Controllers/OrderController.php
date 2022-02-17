@@ -24,7 +24,7 @@ class OrderController extends Controller
     {
         //
         if(!Auth::user()){
-            return "No estas registrado, registate o iniciar session para completar el pedido";
+            return view('orders.noregistered');//"No estas registrado, registate o iniciar session para completar el pedido"
         }else{
             $direcciones = Address::where("user_id", Auth::user()->id)->get();
             return view("orders.index", compact("direcciones"));
@@ -55,7 +55,7 @@ class OrderController extends Controller
         $productos = CartLine::where("user_id", Auth::user()->id)->get();
         //return dd($productos);
         if($productos->isEmpty()){
-            return 'No tienes ningun articulo en la cesta, añade uno y vuelve a intentarlo <a href="/">volver al inicio Inicio</a>';
+            return view('orders.noarticle');
         }
         $order = new Order();
         $order->user_id = Auth::user()->id;
