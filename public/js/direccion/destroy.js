@@ -3,6 +3,9 @@ eliminarHandler.onclick = destroyAddress;
 
 
 async function destroyAddress(event){
+    if(event.target.id !== "eliminar"){
+        return;
+    }
     console.log(event.target);
     event.preventDefault();
     let form = event.target.parentElement;
