@@ -36,7 +36,7 @@ class ProductApiController extends Controller
             return response()->json("No tienes permisos", 401);
         } */
         $validator = Validator::make($request->all(), [
-            'nombre' => 'string|required|max:10|min:5',
+            'nombre' => 'string|required|max:50|min:5',
             'descripcion' => 'max:255|min:10|required',
             'visibilidad' => 'required',
             'cantidad' => 'integer|min:0|required',
@@ -108,11 +108,10 @@ class ProductApiController extends Controller
             'category_id' => 'integer|required',
             'precio_base' => 'integer|required|min:1',
             'impuestos' => 'integer|required|min:0',
-            'descuento' => 'integer|required|min:0',
-            'prod-img' => 'required|min:1'
+            'descuento' => 'integer|required|min:0'
         ]);
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 401);
+            return response()->json(['errors' => $validator->errors()], 400);
         } else {
             $product->nombre = $request->get('nombre');
             $product->descripcion = $request->get('descripcion');

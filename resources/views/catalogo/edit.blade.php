@@ -104,25 +104,27 @@
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex flex-column justify-content-center">
+                                <label for="exampleFormControlTextarea1" class="form-label">Visibilidad</label>
                                 <div class="m-2">
-                                    <label for="visibilidad" class="form-label">Visibilidad: 1: Visible / 2:
-                                        Oculto:</label>
-                                    <input type="number" class="form-control" name="visibilidad" id="visibilidad"
-                                        value="{{ $product->visibilidad }}">
-                                        <p style="font-size: 12px; color: red;" id="hid_visibilidad"></p>
+                                    <select class="form-group_ta form-select form-select-sm" name="visibilidad"
+                                        id="visibilidad" aria-label=".form-select-sm example" value="{{old('visibilidad')}}">
+                                        <option disabled selected="{{$product->visibilidad}}">Selecciona la Visibilidad del producto</option>
+                                        <option value="1">Visible</option>
+                                        <option value="2">Oculto</option>
+                                    </select>
+                                    <p style="font-size: 12px; color: red;" id="hid_visibilidad"></p>
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex flex-column justify-content-center">
                                 <label for="exampleFormControlTextarea1" class="form-label">Categoria</label>
                                 <div class="m-2">
-                                    <select class="form-group_ta form-select form-select-sm" name="category_id"
-                                        id="category_id" aria-label=".form-select-sm example" required>
+                                    <select class="form-group_ta form-select form-select-sm" name="category_id" id="category_id" aria-label=".form-select-sm example" required>
                                         <option disabled selected>Selecciona una categoria</option>
                                         @foreach ($categories as $cat)
-                                            <option value="{{ $cat->id }}" selected>{{ $cat->nombre }}</option>
+                                            <option value="{{ $cat->id }}" {{$cat->id == $product->category_id?'selected':''}}>{{ $cat->nombre }}</option>
                                         @endforeach
                                     </select>
-                                    <p style="font-size: 12px; color: red;" id="hid_categoria"></p>
+                                    <p style="font-size: 12px; color: red;" id="hid_category_id"></p>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -141,8 +143,8 @@
                                 <label for="formFileMultiple" class="form-label">Seleccionar Imagenes</label>
                                 <input class="form-control input_fotos" type="file" name="prod-img[]" id="prod-img"
                                     multiple>
-                                    <p style="font-size: 12px; color: red;" id="hid_prod_img"></p>
                             </div>
+
                         </section>
                         <button type="submit" id="actualizar" class="btnSubmit btn-light text-dark m-2">Submit</button>
                     </form>
