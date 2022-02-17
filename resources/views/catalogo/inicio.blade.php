@@ -81,5 +81,6 @@
                 @endforeach
             </div>
         </div>
+        {{$products->links()}}
     </main>
 @endsection
