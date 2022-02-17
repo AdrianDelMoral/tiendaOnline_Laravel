@@ -6,9 +6,6 @@
     </form>
 @endif
 
-
-
-
 @forelse ($orders as $order)
     @if($loop->first)
         USUARIO {{$order->user->name}}<br>

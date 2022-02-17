@@ -3,7 +3,7 @@
 @section('cuerpo')
     {{-- cargar de 20 en 20 --}}
 
-    <main class="section-products mt-5">
+    <main class="section-products mt-5 mb-4">
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-md-8 col-lg-6">
