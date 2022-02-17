@@ -18,7 +18,7 @@
         <article class="container mt-5">
             <div class="row">
                 <div class="col-md-4">
-                    <h2>Gestionar Productos</h2>
+                    <h2>Gestión de Stock</h2>
                     <p>Sección donde están las opciones para editar productos y ver que categorias e imagen tienen. </p>
                     <p>
                         <a class="btn btn-primary" href="{{ route('gestionar') }}" role="button">Acceder</a>
