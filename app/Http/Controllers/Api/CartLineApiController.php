@@ -31,6 +31,9 @@ class CartLineApiController extends Controller
     {
         //
 
+        if(!$request->get('user_id')){
+            return response()->json("invitado");
+        }
         $linea = CartLine::where("product_id", $request->get("product_id"))->where("user_id", $request->get("user_id"))->first();
 
         if($linea){

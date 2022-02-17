@@ -39,7 +39,7 @@
                                     Pais: {{ $direccion->pais }}
                                 </label>
                                 <hr class="text-light">
-                                <input type="radio" id="{{ $direccion->id }}" name="address_id" value="{{ $direccion->id }}">
+                                <input type="radio" id="{{ $direccion->id }}" name="address_id" value="{{ $direccion->id }}" required>
                             </div>
                           </div>
                             <div>

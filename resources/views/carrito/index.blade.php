@@ -26,41 +26,47 @@ El carrito está vacío
                         </tr>
                     </thead>
                     <tbody class="border-dark">
-                        @forelse ($cartLines as $cartline)
-                        <tr>
-                            <td class="text-center">
-                                <div>
-                                    {{-- img de la imagen aquí recibiendola de la bbdd --}}
-                                    <img src="/storage/{{$cartline->product->images[0]->img_path}}"
-                                        alt="{{$cartline->product->nombre}}" class="imgProduct">
-                                    <p>{{$cartline->product->nombre}}</p>
-                                    {{-- {{producto.nombre}} --}}
-                                </div>
-                            </td>
-                            <td class="text-center mt-7">
-                                <p>{{$cartline->product->precio_base}}€</p>
-                                {{-- {{producto.precio}} --}}
-                            </td>
-                            <td class="text-center mt-7">
-                                <p>{{$cartline->cantidad}} <strong>Uds</strong></p>
-                                {{-- {{producto.cantidad}} --}}
-                            </td>
-                            <td class="text-center mt-7">
-                                <p>{{($cartline->product->precio_base)*($cartline->cantidad)." €"}}</p>
-                                {{-- {{producto.total}} --}}
-                            </td>
-                            <td class="text-center">
-                                <form method="POST" class="mt-5">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="text" id="cartId" value="{{$cartline->id}}" hidden>
-                                    <button type="submit" id="deletebtn" class="btn btn-danger"><span class="fa fa-trash"></span></button>
-                                </form>
-                            </td>
-                        </tr>
-                        @empty
-                            El carrito está vacío
-                        @endforelse
+                        @if(Auth::user())
+                            @forelse ($cartLines as $cartline)
+                            <tr>
+                                <td class="text-center">
+                                    <div>
+                                        {{-- img de la imagen aquí recibiendola de la bbdd --}}
+                                        <img src="/storage/{{$cartline->product->images[0]->img_path}}"
+                                            alt="{{$cartline->product->nombre}}" class="imgProduct">
+                                        <p>{{$cartline->product->nombre}}</p>
+                                        {{-- {{producto.nombre}} --}}
+                                    </div>
+                                </td>
+                                <td class="text-center mt-7">
+                                    <p>{{$cartline->product->precio_base}}€</p>
+                                    {{-- {{producto.precio}} --}}
+                                </td>
+                                <td class="text-center mt-7">
+                                    <p>{{$cartline->cantidad}} <strong>Uds</strong></p>
+                                    {{-- {{producto.cantidad}} --}}
+                                </td>
+                                <td class="text-center mt-7">
+                                    <p>{{($cartline->product->precio_base)*($cartline->cantidad)." €"}}</p>
+                                    {{-- {{producto.total}} --}}
+                                </td>
+                                <td class="text-center">
+                                    <form method="POST" class="mt-5">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="text" id="cartId" value="{{$cartline->id}}" hidden>
+                                        <button type="submit" id="deletebtn" class="btn btn-danger"><span class="fa fa-trash"></span></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @empty
+                                El carrito está vacío
+                            @endforelse
+
+                        @endif
+                        @if(!Auth::user())
+                        <script src="{{asset('js/carrito/loadLocalCart.js')}}" defer></script>
+                        @endif
                     </tbody>
                 </table>
             </div>

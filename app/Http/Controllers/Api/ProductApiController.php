@@ -71,6 +71,8 @@ class ProductApiController extends Controller
     public function show(Product $product)
     {
         //
+        $products = Product::where("id", $product->id)->with("images")->get();
+        return $products;
     }
 
     /**

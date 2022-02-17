@@ -52,13 +52,17 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+        $productos = CartLine::where("user_id", Auth::user()->id)->get();
+        //return dd($productos);
+        if($productos->isEmpty()){
+            return 'No tienes ningun articulo en la cesta, añade uno y vuelve a intentarlo <a href="/">volver al inicio Inicio</a>';
+        }
         $order = new Order();
         $order->user_id = Auth::user()->id;
         $order->address_id = $request->get("address_id");
         $order->save();
         //return response()->json($order->id, 201);
 
-        $productos = CartLine::where("user_id", Auth::user()->id)->get();
         //return dd($productos);
         // foreach ($productos as $producto) {
         //     return dd($producto['id']);
