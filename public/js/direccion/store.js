@@ -31,19 +31,18 @@ async function sendForm(event) {
 
         let cont = false;
         if ((calle === "") || (calle === null) || (calle.length < 4) || (calle.length > 50)){
-            console.log(calle);
             hid_calle.innerHTML = "* The calle field is required, less than 50 and more than 5." + "<br>";
             cont = true;
         }
         if(patio !== ""){
-            if ((!Number.isInteger(patio)) || (patio < 0)){
+            if ((patio === "") && (!Number.isInteger(patio)) || (patio < 0)){
                 hid_patio.innerHTML = "* The patio field is optional, integer and more than 0." + "<br>";
                 cont = true;
             }
         }
 
         if (puerta !== ""){
-            if (!Number.isInteger(puerta)  || (puerta < 0)){
+            if ( (puerta === "") && (!Number.isInteger(puerta))  || (puerta < 0)){
                 hid_puerta.innerHTML = "* The puerta field is optional, integer and more than 0." +  "<br>";
                 cont = true;
             }
@@ -53,7 +52,7 @@ async function sendForm(event) {
             hid_numero.innerHTML = "* The numero id field is required, integer and more than 0." + "<br>";
             cont = true;
         }
-        if ((cod_postal === "") || (!Number.isInteger(cod_postal)) || (cod_postal.length < 0) || (cod_postal.length > 50000)){
+        if ((cod_postal === "") && (!Number.isInteger(cod_postal)) || (cod_postal.length < 0) || (cod_postal.length > 50000)){
             hid_cp.innerHTML = "* The cod_postal base field is required, integer, less than 50000 and more than 0." + "<br>";
             cont = true;
         }
@@ -119,9 +118,7 @@ async function sendForm(event) {
             }
 
         }
-        if (response.status !== 400 || 201){
-            console.log("Error no catalogado" + response.status);
-        }
+
         //RESPUESTA CORRECTA
         if (response.status === 201) {
             alert("La direccion: " + result.Direccion + " ha sido creada con éxito");

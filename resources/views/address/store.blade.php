@@ -41,7 +41,7 @@
                                     <!-- Email input -->
                                     <div class="form-outline">
                                         <label class="form-label" for="patio">Patio</label>
-                                        <input type="number" name="patio" id="patio" placeholder="Patio" class="form-control">
+                                        <input type="number" name="patio" id="patio" placeholder="Patio" value="{{old('patio')}}" class="form-control">
 								<p id="hid-patio" style="font-size: 11px; color: red;"></p>
 
                                     </div>
@@ -62,7 +62,7 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="numero">Numero</label>
-                                        <input type="number" name="numero" id="numero" placeholder="Numero" value="{{old('puerta')}}" class="form-control">
+                                        <input type="number" name="numero" id="numero" placeholder="Numero" value="{{old('numero')}}" class="form-control">
 								<p id="hid-numero" style="font-size: 11px; color: red;"></p>
 
                                     </div>
@@ -75,7 +75,7 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="cod_postal">Codigo Postal</label>
-                                        <input type="number" name="cod_postal" id="cod_postal" placeholder="Codigo Postal" value="{{old('puerta')}}"  class="form-control">
+                                        <input type="number" name="cod_postal" id="cod_postal" placeholder="Codigo Postal" value="{{old('cod_postal')}}"  class="form-control">
 								<p id="hid-cp" style="font-size: 11px; color: red;"></p>
 
                                     </div>
@@ -83,7 +83,7 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="ciudad">Ciudad</label>
-                                        <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad" value="{{old('puerta')}}" class="form-control">
+                                        <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad" value="{{old('ciudad')}}" class="form-control">
 								<p id="hid-ciudad" style="font-size: 11px; color: red;"></p>
 
                                     </div>
@@ -94,7 +94,7 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="provincia">Provincia</label>
-                                        <input type="text" name="provincia" id="provincia" placeholder="Provincia" value="{{old('puerta')}}" class="form-control">
+                                        <input type="text" name="provincia" id="provincia" placeholder="Provincia" value="{{old('provincia')}}" class="form-control">
 								<p id="hid-provincia" style="font-size: 11px; color: red;"></p>
 
                                     </div>
@@ -103,7 +103,7 @@
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="pais">Pais</label>
-                                        <input type="text" name="pais" id="pais" placeholder="Pais" value="{{old('puerta')}}" class="form-control">
+                                        <input type="text" name="pais" id="pais" placeholder="Pais" value="{{old('pais')}}" class="form-control">
 								<p id="hid-pais" style="font-size: 11px; color: red;"></p>
 
                                     </div>

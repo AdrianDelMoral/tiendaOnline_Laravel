@@ -31,41 +31,47 @@ async function sendForm(event) {
     function errorValidation(){
 
         let cont = false;
-        if ((calle === "") || (calle === null) || (calle.length > 4) || (calle.length < 50)){
+        if ((calle === "") || (calle === null) || (calle.length < 4) || (calle.length > 50)){
             hid_calle.innerHTML = "* The calle field is required, less than 50 and more than 5." + "<br>";
             cont = true;
         }
-        if ((patio === "") || (!Number.isInteger(patio)) || (patio.length < 200) || (patio.length > 0)){
-            hid_patio.innerHTML = "* The patio field is required, integer, less than 200 and more than 0." + "<br>";
+        if(patio !== ""){
+            if ((patio === "") && (!Number.isInteger(patio)) || (patio < 0)){
+                hid_patio.innerHTML = "* The patio field is optional, integer and more than 0." + "<br>";
+                cont = true;
+            }
+        }
+
+        if (puerta !== ""){
+            if ( (puerta === "") && (!Number.isInteger(puerta))  || (puerta < 0)){
+                hid_puerta.innerHTML = "* The puerta field is optional, integer and more than 0." +  "<br>";
+                cont = true;
+            }
+        }
+
+        if ((numero === "") && (!Number.isInteger(numero)) || (numero < 0)){
+            hid_numero.innerHTML = "* The numero id field is required, integer and more than 0." + "<br>";
             cont = true;
         }
-        if ((puerta === "") || (!Number.isInteger(puerta))  || (puerta.length < 255) || (puerta.length > 0)){
-            hid_puerta.innerHTML = "* The puerta field is required, integer, less than 255 and more than 0." +  "<br>";
-            cont = true;
-        }
-        if ((numero === "") || (!Number.isInteger(numero)) || (numero.length < 100) || (numero.length > 0)){
-            hid_numero.innerHTML = "* The numero id field is required, integer, less than 100 and more than 0." + "<br>";
-            cont = true;
-        }
-        if ((cod_postal === "")  || (!Number.isInteger(cod_postal)) || (cod_postal.length < 50000) || (cod_postal.length > 0)){
+        if ((cod_postal === "") && (!Number.isInteger(cod_postal)) || (cod_postal.length < 0) || (cod_postal.length > 50000)){
             hid_cp.innerHTML = "* The cod_postal base field is required, integer, less than 50000 and more than 0." + "<br>";
             cont = true;
         }
-        if ((ciudad === "") || (ciudad.length > 3) || (ciudad.length < 50)){
+        if ((ciudad === "") || (ciudad.length < 3) || (ciudad.length > 50)){
             hid_ciudad.innerHTML = "* The ciudad field is required, less than 50 and more than 5." + "<br>";
             cont = true;
         }
 
-        if ((provincia === "") || (provincia.length > 3) || (provincia.length < 50)){
+        if ((provincia === "") || (provincia.length < 3) || (provincia.length > 50)){
             hid_provincia.innerHTML = "* The provincia field is required, less than 50 and more than 5." + "<br>";
             cont = true;
         }
-        if ((pais === "") || (pais.length > 3) || (pais.length < 50)){
+        if ((pais === "") || (pais.length < 3) || (pais.length > 50)){
             hid_pais.innerHTML = "* The pais field is required, less than 50 and more than 4." + "<br>";
             cont = true;
         }
 
-        setTimeout(displayError, 10000);
+        setTimeout(displayError, 3000);
         return cont;
     }
 
@@ -113,13 +119,11 @@ async function sendForm(event) {
             }
 
         }
-        if (response.status !== 400 || 201){
-            console.log("Error no catalogado" + response.status);
-        }
+
         //RESPUESTA CORRECTA
         if (response.status === 201) {
-            alert("La direccion: " + result.Direccion + " ha sido creada con éxito");
-            window.location.href = "/user/profile";
+            alert("La direccion: " + result.Direccion + " ha sido editada con éxito");
+            window.location.href = "/direccion";
         }
     }
 
@@ -133,4 +137,6 @@ async function sendForm(event) {
     }
 
 }
+
+
 
