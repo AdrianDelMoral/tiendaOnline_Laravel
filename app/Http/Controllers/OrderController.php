@@ -24,7 +24,7 @@ class OrderController extends Controller
     {
         //
         if(!Auth::user()){
-            return "No estas registrado, registate o iniciar session para completar el pedido";
+            return view('orders.noregistered');//"No estas registrado, registate o iniciar session para completar el pedido"
         }else{
             $direcciones = Address::where("user_id", Auth::user()->id)->get();
             return view("orders.index", compact("direcciones"));

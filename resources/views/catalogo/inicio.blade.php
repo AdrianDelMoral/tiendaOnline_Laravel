@@ -64,11 +64,11 @@
                                             @method('POST')
                                             <input type="text" name="user_id" value="{{ $user_id }}" hidden>
                                             <input type="text" id="product_id" name="product_id" value="{{ $product->id }}" hidden>
-                                            <a href="#"><span class="fas fa-shopping-cart"></span></a>
+                                            <a href="#"><span class="fas fa-shopping-cart span_product"></span></a>
                                         </form>
                                     </li>
                                     <li class="icons_bg">
-                                        <a href="{{ route('catalogo.show', $product) }}"><span class="fas fa-eye"></span></a>
+                                        <a href="{{ route('catalogo.show', $product) }}"><span class="fas fa-eye span_product"></span></a>
                                     </li>
                                 </ul>
                                 <h2 class="product-old-price">{{ $product->precio_base }}€</h2>
