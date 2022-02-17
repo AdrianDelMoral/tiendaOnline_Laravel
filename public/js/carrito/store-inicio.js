@@ -1,6 +1,8 @@
 let productHandler = document.body.querySelector(".section-products");
 productHandler.onclick = storeProduct;
 
+
+
 setCartNum();
 function setCartNum() {
     let cartNum = document.body.querySelector(".circulo__inside");
@@ -20,11 +22,17 @@ async function storeProduct(event) {
             body: new FormData(formulario)
         });
 
-        if (response.status !== 201) {
+        if (response.status !== 201 && response.status!== 200) {
             alert("Ha ocurrido un error al agregar el elemento al carrito");
             return;
         }
         let result = await response.json();
+
+        if(result === "invitado"){
+            guestCart(event);
+            return;
+        }
+
         let cartNum = document.body.querySelector(".circulo__inside");
         console.log(result);
         cartNum.textContent = result.length;
@@ -56,4 +64,46 @@ async function checkCantidad(event) {
         }
     }
 
+}
+
+function guestCart(event){
+    let formProducto = event.target.closest("form");
+    let producto = formProducto.querySelector("#product_id").value;
+
+    //COMPRUEBA SI EXISTE YA EL PRODUCTO E INCREMENTA LA CANTIDAD
+    if(localStorage.getItem("carrito") === null){
+        let cartModel = [{
+            product: producto,
+            cantidad: 1,
+        }]
+        localStorage.setItem("carrito", JSON.stringify(cartModel))
+        return;
+
+    }
+    if(checkIfExistCart(producto)){
+        return;
+    }
+
+    let cartModel = {
+        product: producto,
+        cantidad: 1,
+    }
+
+    //localStorage.setItem("carrito", JSON.stringify(cartModel))
+    let a = JSON.parse(localStorage.getItem("carrito"));
+    a.push(cartModel);
+    localStorage.setItem("carrito", JSON.stringify(a))
+}
+
+function checkIfExistCart(productoForm){
+    let productsLocal = JSON.parse(localStorage.getItem("carrito"));
+    console.log(productsLocal);
+    for (let producto of productsLocal){
+        if(producto.product === productoForm){
+            console.log("Incrementado");
+            producto.cantidad = producto.cantidad +1;
+            localStorage.setItem("carrito", JSON.stringify(productsLocal));
+            return true;
+        }
+    }
 }
