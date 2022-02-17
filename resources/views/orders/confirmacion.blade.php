@@ -13,9 +13,11 @@
                 </thead>
                 <tbody>
                     @foreach ($order->orderlines as $orderline)
-                    <td>
-                        <p>{{ $orderline->product->nombre }}</p>
-                    </td>
+                    <tr>
+                        <td>
+                            <p>{{ $orderline->product->nombre }}</p>
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
