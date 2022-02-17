@@ -165,3 +165,7 @@ a, a:hover {
     border-color: #000;
     background-color: #eb9300!important;
 }
+
+.span_product:before{
+    color: white;
+}
