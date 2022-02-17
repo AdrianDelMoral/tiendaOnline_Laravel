@@ -9,7 +9,7 @@ async function sendForm(event) {
 
     event.preventDefault();
     //campos
-    let formulario = document.body.querySelector("#subirAddress");
+    let formulario = document.body.querySelector("#editarAddress");
     let calle = document.body.querySelector("#calle").value;
     let patio = document.body.querySelector("#patio").value;
     let puerta = document.body.querySelector("#puerta").value;
@@ -18,8 +18,6 @@ async function sendForm(event) {
     let ciudad = document.body.querySelector("#ciudad").value;
     let provincia = document.body.querySelector("#provincia").value;
     let pais = document.body.querySelector("#pais").value;
-    /*     let div = document.createElement("div");
-        let p = document.createElement("p"); */
 
     let hid_calle = document.body.querySelector("#hid-calle");
     let hid_patio = document.body.querySelector("#hid-patio");
@@ -30,104 +28,102 @@ async function sendForm(event) {
     let hid_provincia = document.body.querySelector("#hid-provincia");
     let hid_pais = document.body.querySelector("#hid-pais");
 
-    let formData = new FormData(formulario);
-    //console.log([...formData.entries()]);
-    let response = await fetch('/api/direccion/'+ addressId, {
-        method: 'POST',
-        body: formData
-    });
-    let result = await response.json();
-    let errores = result.errors;
-    //ERROR
-    if (response.status !== 201) {
-        for (let err of Object.entries(errores)) {
-            switch (err[0]) {
-                case "calle":
-                    if ((calle === "") || (calle === null) || (calle.length > 10) || (calle.length < 5))
-                        console.log(hid_calle);
-                        hid_calle.innerHTML = "*" + err[1] + "<br>";
-                    break;
-                // case "patio":
-                //     if ((patio === "") || (!Number.isInteger(patio)) || (patio.length < 0) || (patio.length > 100))
-                //         hid_patio.innerHTML = "*" + err[1] + "<br>";
-                //     break;
-                // case "puerta":
-                //     if ((puerta === "") || (!Number.isInteger(puerta)) || (puerta.length < 0) || (puerta.length > 100))
-                //         hid_puerta.innerHTML = "*" + err[1] + "<br>";
-                //     break;
-                case "numero":
-                    if ((numero === "") || (!Number.isInteger(numero)) || (numero.length < 0) || (numero.length > 100))
-                        hid_numero.innerHTML = "*" + err[1] + "<br>";
-                    break;
-                case "cod_postal":
-                    if ((cod_postal === "") || (!Number.isInteger(cod_postal)) || (cod_postal.length < 0) || (cod_postal.length > 50000))
-                        hid_cp.innerHTML = "*" + err[1] + "<br>";
-                    break;
-                case "ciudad":
-                    if ((ciudad === "") || (ciudad.length > 10) || (ciudad.length < 5))
-                        hid_ciudad.innerHTML = "*" + err[1] + "<br>";
-                    break;
-                case "provincia":
-                    if ((provincia === "") || (provincia.length > 20) || (provincia.length < 5))
-                        hid_provincia.innerHTML = "*" + err[1] + "<br>";
-                    break;
-                case "pais":
-                    if ((pais === "") || (pais.length > 10) || (pais.length < 5))
-                        hid_pais.innerHTML = "*" + err[1] + "<br>";
+    function errorValidation(){
 
-                    break;
+        let cont = false;
+        if ((calle === "") || (calle === null) || (calle.length < 4) || (calle.length > 50)){
+            hid_calle.innerHTML = "* The calle field is required, less than 50 and more than 5." + "<br>";
+            cont = true;
+        }
+
+        if ((patio === "") && (!Number.isInteger(patio)) || (Math.sign(patio) === -1)){
+            hid_patio.innerHTML = "* The patio field is optional, integer and more than 0." + "<br>";
+            cont = true;
+        }
+
+        if ( (puerta === "") && (!Number.isInteger(puerta))  || (Math.sign(puerta) === -1)){
+            hid_puerta.innerHTML = "* The puerta field is optional, integer and more than 0." +  "<br>";
+            cont = true;
+        }
+
+        if ((numero === "") && (!Number.isInteger(numero)) || (Math.sign(numero) === -1)){
+            hid_numero.innerHTML = "* The numero id field is required, integer and more than 0." + "<br>";
+            cont = true;
+        }
+        if ((cod_postal === "") && (!Number.isInteger(cod_postal)) || (Math.sign(cod_postal) === -1) || (cod_postal.length > 50000)){
+            hid_cp.innerHTML = "* The cod_postal base field is required, integer, less than 50000 and more than 0." + "<br>";
+            cont = true;
+        }
+        if ((ciudad === "") || (ciudad.length < 3) || (ciudad.length > 50)){
+            hid_ciudad.innerHTML = "* The ciudad field is required, less than 50 and more than 5." + "<br>";
+            cont = true;
+        }
+
+        if ((provincia === "") || (provincia.length < 3) || (provincia.length > 50)){
+            hid_provincia.innerHTML = "* The provincia field is required, less than 50 and more than 5." + "<br>";
+            cont = true;
+        }
+        if ((pais === "") || (pais.length < 3) || (pais.length > 50)){
+            hid_pais.innerHTML = "* The pais field is required, less than 50 and more than 4." + "<br>";
+            cont = true;
+        }
+
+        setTimeout(displayError, 3000);
+        return cont;
+    }
+
+    let comprobarErrores = errorValidation();
+    if(!comprobarErrores){
+        let formData = new FormData(formulario);
+        //console.log([...formData.entries()]);
+        let response = await fetch('/api/direccion/' + addressId , {
+            method: 'POST',
+            body: formData
+        });
+        let result = await response.json();
+        let errores = result.errors;
+        //ERROR
+        if (response.status === 400) {
+            for (let err of Object.entries(errores)) {
+                switch (err[0]) {
+                    case "calle":
+                        hid_calle.innerHTML = "*" + err[1] + "<br>";
+                        break;
+                    case "patio":
+                        hid_patio.innerHTML = "*" + err[1] + "<br>";
+                        break;
+                    case "puerta":
+                        hid_puerta.innerHTML = "*" + err[1] + "<br>";
+                        break;
+                    case "numero":
+                        hid_numero.innerHTML = "*" + err[1] + "<br>";
+                        break;
+                    case "cod_postal":
+                        hid_cp.innerHTML = "*" + err[1] + "<br>";
+                        break;
+                    case "ciudad":
+                        hid_ciudad.innerHTML = "*" + err[1] + "<br>";
+                        break;
+                    case "provincia":
+                        hid_provincia.innerHTML = "*" + err[1] + "<br>";
+                        break;
+                    case "pais":
+                        hid_pais.innerHTML = "*" + err[1] + "<br>";
+                        break;
+                }
+                setTimeout(displayError, 3000);
+
             }
-            setTimeout(displayError, 3000);
-            /* if ((calle === "") && (err[0] === "calle")){
-                hid_calle.textContent = "*"+err[1];
-            }
-            if ((patio === "") && (err[0] === "patio")){
-                hid_patio.textContent = "*"+err[1];
-            }
-            if ((puerta === "") && (err[0] === "puerta")){
-                hid_puerta.textContent = "*"+err[1];
-            }
-            if ((numero === "") && (err[0] === "puerta")){
-                hid_numero.textContent = "*"+err[1];
-            }
-            if ((cod_postal === "") && (err[0] === "cod_postal")){
-                hid_cp.textContent = "*"+err[1];
-            }
-            if ((ciudad === "") && (err[0] === "ciudad")){
-                hid_ciudad.textContent = "*"+err[1];
-            }
-            if ((provincia === "") && (err[0] === "provincia")){
-                hid_provincia.textContent = "*"+err[1];
-            }
-            if ((pais === "") && (err[0] === "pais")){
-                hid_pais.textContent = "*"+err[1];
-            } */
 
         }
 
-
-        /* div.style.backgroundColor = "blue";
-        div.style.height = "20%";
-        div.style.width = "20%";
-        div.style.display = "flex";
-        div.style.fontSize = "12px";
-        div.style.columnGap = "1rem";
-
-        for (let err of Object.entries(errores)) {
-            /* error.innerHTML += "<p>"+"*"+err[1]+"</p>";
-            p = document.createElement("p");
-            p.textContent += "*"+err[1];
-            p.style.display="inline-block";
-            div.append(p);
-            document.body.append(div);
-            remove = setTimeout(rld, 3000);
-        } */
+        //RESPUESTA CORRECTA
+        if (response.status === 201) {
+            alert("La direccion: " + result.Direccion + " ha sido editada con éxito");
+            window.location.href = "/direccion";
+        }
     }
 
-
-    /* function rld(){
-        div.remove();
-    } */
 
     function displayError() {
         let p = formulario.querySelectorAll("p");
@@ -137,12 +133,6 @@ async function sendForm(event) {
 
     }
 
-    //RESPUESTA CORRECTA
-    if (response.status === 201) {
-        alert("La dirección: " + result.Direccion + " ha sido editada con éxito");
-        window.location.href = "/direccion";
-    }
-
-
 }
+
 
