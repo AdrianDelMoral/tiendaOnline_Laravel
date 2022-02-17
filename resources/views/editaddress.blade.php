@@ -20,7 +20,7 @@
     <script src="https://kit.fontawesome.com/75b8de379c.js" crossorigin="anonymous"></script>
 
     <script src="{{ asset('js/direccion/edit.js') }}" defer></script>
-    {{-- <script src="{{ asset('js/direccion/destroy.js') }}" defer></script> --}}
+    <script src="{{ asset('js/direccion/destroy.js') }}" defer></script>
 
 
     <title>@yield('titulo')</title>
