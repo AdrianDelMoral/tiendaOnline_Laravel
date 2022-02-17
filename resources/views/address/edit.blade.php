@@ -32,6 +32,7 @@
                                     <div class="form-outline">
                                         <label class="form-label" for="calle">Calle</label>
                                         <input type="text" name="calle" id="calle" placeholder="Calle" class="form-control" value="{{ $address->calle }}">
+                                        <p id="hid-calle" style="font-size: 11px; color: red;"></p>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -39,6 +40,7 @@
                                     <div class="form-outline">
                                         <label class="form-label" for="patio">Patio</label>
                                         <input type="number" name="patio" id="patio" placeholder="Patio" class="form-control" value="{{ $address->patio }}">
+                                        <p id="hid-patio" style="font-size: 11px; color: red;"></p>
                                     </div>
                                 </div>
                             </div>
@@ -50,12 +52,14 @@
                                     <div class="form-outline">
                                         <label class="form-label" for="puerta">Puerta</label>
                                         <input type="text" name="puerta" id="puerta" placeholder="Puerta" class="form-control" value="{{ $address->puerta }}">
+                                        <p id="hid-puerta" style="font-size: 11px; color: red;"></p>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="numero">Numero</label>
                                         <input type="number" name="numero" id="numero" placeholder="Numero" class="form-control" value="{{ $address->numero }}">
+                                        <p id="hid-numero" style="font-size: 11px; color: red;"></p>
                                     </div>
                                 </div>
                             </div>
@@ -67,12 +71,14 @@
                                     <div class="form-outline">
                                         <label class="form-label" for="cod_postal">Codigo Postal</label>
                                         <input type="number" name="cod_postal" id="cod_postal" placeholder="Codigo Postal"  class="form-control" value="{{ $address->cod_postal }}">
+                                        <p id="hid-cp" style="font-size: 11px; color: red;"></p>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-outline">
                                         <label class="form-label" for="ciudad">Ciudad</label>
                                         <input type="text" name="ciudad" id="ciudad" placeholder="Ciudad" class="form-control" value="{{ $address->ciudad }}">
+                                        <p id="hid-ciudad" style="font-size: 11px; color: red;"></p>
                                     </div>
                                 </div>
                             </div>
@@ -82,6 +88,7 @@
                                     <div class="form-outline">
                                         <label class="form-label" for="provincia">Provincia</label>
                                         <input type="text" name="provincia" id="provincia" placeholder="Provincia" class="form-control" value="{{ $address->provincia }}">
+                                        <p id="hid-provincia" style="font-size: 11px; color: red;"></p>
                                     </div>
                                 </div>
 
@@ -89,6 +96,7 @@
                                     <div class="form-outline">
                                         <label class="form-label" for="pais">Pais</label>
                                         <input type="text" name="pais" id="pais" placeholder="Pais" class="form-control" value="{{ $address->pais }}">
+                                        <p id="hid-pais" style="font-size: 11px; color: red;"></p>
                                     </div>
                                 </div>
                             </div>

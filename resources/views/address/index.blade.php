@@ -116,10 +116,11 @@
                                     <td class="text-center"><a class="btn btn-success text-ligth"
                                             href="{{ route('direccion.edit', $address->id) }}"> Editar</a></td>
                                     <td class="text-center">
-                                        <form action="{{ route('direccion.destroy', $address->id) }}" method="post">
+                                        <form method="post" id="formAddress">
                                             @csrf
                                             @method('delete')
-                                            <input type="submit" class="btn btn-danger" value="Eliminar">
+                                            <input id="addressid" type="text" value="{{$address->id}}" hidden>
+                                            <input id="eliminar" type="submit" class="btn btn-danger" value="Eliminar">
                                         </form>
                                     </td>
                                 </tr>

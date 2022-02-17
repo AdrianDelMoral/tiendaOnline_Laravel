@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\address;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,7 @@ class AddressController extends Controller
     public function index()
     {
         $usuario = Auth::user()->id;
-        $addresses = address::paginate(4);
+        $addresses = address::where("user_id", $usuario)->get();
         return view("address.index", compact("addresses", "usuario"));
     }
 
@@ -43,7 +44,20 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        /* $address = new Address();
+        $address -> user_id =  $request->get('userId');
+        $address -> calle = $request->get('calle');
+        $address -> patio = $request->get('patio');
+        $address -> puerta = $request->get('puerta');
+        $address -> numero = $request->get('numero');
+        $address -> cod_postal = $request->get('cod_postal');
+        $address -> ciudad = $request->get('ciudad');
+        $address -> provincia = $request->get('provincia');
+        $address -> pais = $request->get('pais');
+        $address->save();
+
+        return response()->json($address, 201); */
     }
 
     /**
@@ -54,7 +68,7 @@ class AddressController extends Controller
      */
     public function show(address $address)
     {
-        /* return view('address.show', compact('address')); */
+        return view('address.show', compact('address'));
     }
 
     /**

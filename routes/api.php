@@ -5,9 +5,9 @@ use App\Http\Controllers\Api\CartLineApiController;
 use App\Http\Controllers\Api\ProductApiController;
 use App\Http\Controllers\Api\CategoryApiController;
 use App\Http\Controllers\Api\ImageApiController;
-use App\Models\CartLine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ Route::apiResource('/direccion', AddressApiController::class)->parameters(['dire
 // Route::apiResource('/borrarProducto', ProductApiController::class)->only("destroy")->parameters(["borrarProducto"=> "requests"]);
 
 
-Route::apiResource('/agregarCategoria', CategoryApiController::class)->only("store");
+Route::apiResource('/agregarCategoria', CategoryApiController::class);
 Route::put("/productos/deshabilitar/{product}", [ProductApiController::class, "deshabilitar"]);
 Route::apiResource("/image", ImageApiController::class);
 Route::apiResource('/productos', ProductApiController::class)->parameters(['productos' => 'product']);

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryApiController extends Controller
 {
@@ -16,8 +18,11 @@ class CategoryApiController extends Controller
      */
     public function index()
     {
+       /*  if (!Auth::user() === "administrador") {
+            return response()->json("No tienes permisos", 401);
+        } */
         $categories = Category::get();
-        return response()->json($categories, 200);
+        return response()->json($categories, 201);
     }
 
     /**
@@ -28,13 +33,26 @@ class CategoryApiController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
-        $category -> nombre = $request->get('nombre');
-        $category -> descripcion = $request->get('descripcion');
+        /* if (Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
+        $validator = Validator::make($request->all(), [
+            'nombre' => 'string|required|max:10|min:5',
+            'descripcion' => 'max:255|min:10|required',
+        ]);
 
-        $category->save();
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 401);
+        } else {
+            $category = new Category();
+            $category -> nombre = $request->get('nombre');
+            $category -> descripcion = $request->get('descripcion');
 
-        return response()->json($category, 201);
+            $category->save();
+
+            return response()->json(['Categoria' => $category->nombre], 201);
+        }
+
     }
 
     /**
@@ -45,7 +63,9 @@ class CategoryApiController extends Controller
      */
     public function show(Category $category)
     {
-        //
+    /*     if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
         $products = Product::where("category_id", $category->id)->with('images')->paginate(20);
         return response()->json($products);
 
@@ -71,6 +91,9 @@ class CategoryApiController extends Controller
      */
     public function destroy(Category $category)
     {
+/*         if (!Auth::user()) {
+            return response()->json("No tienes permisos", 401);
+        } */
         $category->delete();
         return response()->json(null, 204);
     }
