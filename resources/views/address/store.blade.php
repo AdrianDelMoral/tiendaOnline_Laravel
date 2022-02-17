@@ -1,4 +1,4 @@
-@extends('address')
+@extends('storeaddress')
 @section('titulo', 'Crear Dirección')
 @section('cuerpo')
     {{-- <form action="/api/direccion" method="POST">

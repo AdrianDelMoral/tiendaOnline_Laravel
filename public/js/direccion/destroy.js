@@ -18,6 +18,9 @@ try{
         });
 
         let result = await response.text();
+        let tr = event.target.closest("tr");
+        console.log(tr);
+        tr.remove();
         console.log(result);
     }
 
