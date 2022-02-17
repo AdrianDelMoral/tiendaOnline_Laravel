@@ -9,7 +9,7 @@ async function sendForm(event) {
 
     event.preventDefault();
     //campos
-    let formulario = document.body.querySelector("#subirAddress");
+    let formulario = document.body.querySelector("#editarAddress");
     let calle = document.body.querySelector("#calle").value;
     let patio = document.body.querySelector("#patio").value;
     let puerta = document.body.querySelector("#puerta").value;
@@ -138,5 +138,3 @@ async function sendForm(event) {
     }
 
 }
-
-

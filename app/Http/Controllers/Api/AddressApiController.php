@@ -34,10 +34,10 @@ class AddressApiController extends Controller
      */
     public function store(Request $request)
     {
-/*         if (!Auth::user()) {
+        /*         if (!Auth::user()) {
             return response()->json("No tienes permisos", 401);
         } */
-       /*  $messages = [
+        /*  $messages = [
             'calle.required' => 'La :attribute se requiere',
         ]; */
         $validator = Validator::make($request->all(), /* $messages, */ [
@@ -89,7 +89,7 @@ class AddressApiController extends Controller
      */
     public function update(Request $request, Address $address)
     {
-/*         if (!Auth::user()) {
+        /*         if (!Auth::user()) {
             return response()->json("No tienes permisos", 401);
         } */
         $validator = Validator::make($request->all(), /* $messages, */ [
