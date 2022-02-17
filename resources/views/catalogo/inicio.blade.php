@@ -71,8 +71,12 @@
                                         <a href="{{ route('catalogo.show', $product) }}"><span class="fas fa-eye span_product"></span></a>
                                     </li>
                                 </ul>
-                                <h2 class="product-old-price">{{ $product->precio_base }}€</h2>
+                                @if ($product->descuento > 0)
+                                <h2 class="product-old-price">{{ $product->precio_base - $product->descuento }}€</h2>
                                 <h2>{{ $product->precio_base - $product->descuento + $product->impuestos }}€</h2>
+                                @elseif ($product->descuento <= 0)
+                                <h2>{{ $product->precio_base - $product->descuento + $product->impuestos }}€</h2>
+                                @endif
                                 <br>
                                 <h2 class="product-info">{{ $product->category->nombre }}</h2>
                             </div>
