@@ -8,7 +8,7 @@
                 <input name="descripcion" id="descripcion" placeholder="descripcion">
                 <input type="submit" id="enviar">
             </form> --}}
-            <form {{-- action="/api/agregarCategoria" --}} method="POST" enctype="multipart/form-data" id="subirCategoria">
+            <form method="POST" enctype="multipart/form-data" id="subirCategoria" class="p-5 text-light">
                 @csrf
                 @method('post')
                 <!-- Name input -->
@@ -20,7 +20,7 @@
 
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <label class="form-label" for="textAreaExample">Descripción:</label>
+                    <label class="form-label fs-5" for="textAreaExample">Descripción:</label>
                     <textarea name="descripcion" id="descripcion" value="{{old('descripcion')}}" class="form-control" id="textAreaExample" rows="4" placeholder="Descripcion" required></textarea>
                     <p  style="font-size: 12px; color: red;" id="hid-descripcion"></p>
                   </div>
