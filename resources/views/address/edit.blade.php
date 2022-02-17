@@ -1,4 +1,4 @@
-@extends('address')
+@extends('editaddress')
 @section('titulo', 'Editar Dirección')
 @section('cuerpo')
 {{-- <form action="/api/direccion/{{$address->id}}" method="POST">
@@ -23,7 +23,8 @@
                     </div>
                     <form {{-- action="/api/direccion" --}}  method="POST" enctype="multipart/form-data" id="subirAddress">
                         @csrf
-                        @method('post')
+                        @method('put')
+                        <input type="text" id="addressId" hidden value="{{$address->id}}">
                         <input type="text" class="form-control" name="userId" value="{{ $usuario }}" hidden>
                         <div class="container">
                             <div class="row">
