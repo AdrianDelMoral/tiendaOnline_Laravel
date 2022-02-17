@@ -36,14 +36,14 @@ class ProductApiController extends Controller
             return response()->json("No tienes permisos", 401);
         } */
         $validator = Validator::make($request->all(), [
-            'nombre' => 'string|required|max:10|min:5',
-            'descripcion' => 'max:255|min:10|required',
+            'nombre' => 'string|required|min:5',
+            'descripcion' => 'min:10|required',
             'visibilidad' => 'required',
             'cantidad' => 'integer|min:0|required',
             'category_id' => 'integer|required',
-            'precio_base' => 'integer|required|min:0',
+            'precio_base' => 'required|regex:/^\d+(\.\d{1,2})?$/|required|min:0',
             'impuestos' => 'integer|required|min:0',
-            'descuento' => 'integer|required|min:0',
+            'descuento' => 'required|regex:/^\d+(\.\d{1,2})?$/|required|min:0',
             'prod-img' => 'required|min:1'
         ]);
 
@@ -103,15 +103,14 @@ class ProductApiController extends Controller
             return response()->json("No tienes permisos", 401);
         } */
         $validator = Validator::make($request->all(), [
-            'nombre' => 'string|required|max:10|min:5',
-            'descripcion' => 'max:255|min:10|required',
+            'nombre' => 'string|required|min:5',
+            'descripcion' => 'min:10|required',
             'visibilidad' => 'required',
             'cantidad' => 'integer|min:0|required',
             'category_id' => 'integer|required',
-            'precio_base' => 'integer|required|min:1',
+            'precio_base' => 'required|regex:/^\d+(\.\d{1,2})?$/|required|min:0',
             'impuestos' => 'integer|required|min:0',
-            'descuento' => 'integer|required|min:0',
-            'prod-img' => 'required|min:1'
+            'descuento' => 'required|regex:/^\d+(\.\d{1,2})?$/|required|min:0',
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 401);
