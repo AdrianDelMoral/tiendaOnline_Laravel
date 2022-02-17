@@ -83,7 +83,6 @@ async function actualizarProd(event) {
     }
 
     let comprobarErrores = errorValidation();
-    console.log(comprobarErrores);
     if(!comprobarErrores){
         let formData = new FormData(formulario);
         //console.log([...formData.entries()]);
