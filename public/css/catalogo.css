@@ -1,7 +1,5 @@
 
-.span_product:before{
-    color: white;
-}
+
 a, a:hover {
     text-decoration: none;
     color: inherit;
@@ -147,30 +145,4 @@ a, a:hover {
 .carousel-control-prev-icon, .carousel-control-next-icon {
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: .6rem;
-}
-
-.page-item.active .page-link {
-    z-index: 3;
-    color: #fff;
-    background-color: #fd960d!important;
-    border-color: #000000!important;
-}
-
-.page-item.active .page-link {
-    z-index: 3;
-    color: #000;
-    background-color: #fd960d!important;
-    border-color: #000!important;
-}
-
-.page-link:hover {
-    z-index: 2;
-    color: #000!important;
-    background-color: #e9ecef;
-    border-color: #dee2e6;
-}
-.page-item a {
-    z-index: 2;
-    color: #000!important;
-    border-color: #dee2e6;
 }

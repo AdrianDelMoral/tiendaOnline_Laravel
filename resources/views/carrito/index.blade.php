@@ -96,7 +96,7 @@ El carrito está vacío
             </div>
         </div>
         <form class="mb-4" method="POST" id="vaciarCesta">
-            <a href={{route("pedido.index")}} type="submit" class="btn btn-success realizarBtn">Realizar Pedido</a>
+            <button class="btn btn-success"><a href={{route("pedido.index")}} type="submit" class="text-light realizarBtn">Realizar Pedido</a></button>
             <a class="btn btn-danger"><span class="fa fa-trash"></span> Vaciar cesta</a>
         </form>
     </div>
