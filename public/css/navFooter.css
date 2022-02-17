@@ -28,6 +28,16 @@
     position: fixed;
     margin: 2.2rem 0 0 1.2rem;
 }
+.circulo {
+    position: fixed;
+    margin: 2.2rem 0 0 1.2rem;
+}
+@media (max-width: 992px){
+    .circulo {
+        position: fixed;
+        margin: .6rem 0 0 7.2rem;
+    }
+}
 
 .circulo__inside {
     background-color: #ba7903;

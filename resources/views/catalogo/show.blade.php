@@ -53,7 +53,13 @@
                         <input name="product_id" value="{{ $product->id }}" hidden>
                         <label for="cantidad">Cantidad:</label>
                         <input type="text" id="cantidad" name="cantidad" value="1" class="input_quantity" max="99">
-                        <button type="button" id="addBtn" class="btn btn-danger cart">Add to cart</button>
+                        <form action="POST">
+                            @csrf
+                            @method('POST')
+                            <input type="text" name="user_id" value="{{ $user_id }}" hidden>
+                            <input type="text" id="product_id" name="product_id" value="{{ $product->id }}" hidden>
+                            <button type="button" id="addBtn" class="btn btn-danger cart">Add to cart</button>
+                        </form>
                     </form>
                 </div>
             </div>

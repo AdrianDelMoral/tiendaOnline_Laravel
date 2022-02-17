@@ -26,7 +26,7 @@
 
                     <div class="d-flex flex-row flex-wrap">
                         @foreach ($direcciones as $direccion)
-                        <div class="card m-3" style="width: 18rem;">
+                        <div class="card m-3 w_18">
                             <div class="card-body bg-dark">
                                 <label class="text-light">
                                     Calle: {{ $direccion->calle }} <br>

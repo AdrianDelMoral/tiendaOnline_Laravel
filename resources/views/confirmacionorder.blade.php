@@ -18,9 +18,7 @@
 
     <!-- Link CSS locales-->
     <link rel="stylesheet" href="{{ URL::asset('css/navFooter.css') }}">{{-- Se incluirá el css de public/css/navFooter.css --}}
-    <link rel="stylesheet" href="{{ URL::asset('css/orders.css') }}">
-
-    <script src="{{asset("js/carrito/clearCart.js")}}" defer></script>
+    <link rel="stylesheet" href="{{ URL::asset('css/conforder.css') }}">
 
     <title>@yield('titulo')</title>{{-- Titulo de Dashboard - Inicio --}}
 </head>

@@ -18,7 +18,7 @@
 
     <!-- Link CSS locales-->
     <link rel="stylesheet" href="{{ URL::asset('css/navFooter.css') }}">{{-- Se incluirá el css de public/css/navFooter.css --}}
-    <link rel="stylesheet" href="{{ URL::asset('css/orders_first.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/orders_admin.css') }}">
 
     <title>@yield('titulo')</title>{{-- Titulo de Dashboard - Inicio --}}
 </head>

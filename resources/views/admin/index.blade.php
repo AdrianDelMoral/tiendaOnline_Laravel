@@ -18,7 +18,7 @@
         <article class="container mt-5">
             <div class="row">
                 <div class="col-md-4">
-                    <h2>Gestionar Productos</h2>
+                    <h2>Gestión de Stock</h2>
                     <p>Sección donde están las opciones para editar productos y ver que categorias e imagen tienen. </p>
                     <p>
                         <a class="btn btn-primary" href="{{ route('gestionar') }}" role="button">Acceder</a>
@@ -47,13 +47,6 @@
                 </div>
                 <div class="col-md-4 mb-5">
                     <h2>Crear Producto</h2>
-                    <p>Sección donde está el formulario para crear un nuevo producto. </p>
-                    <p>
-                        <a class="btn btn-primary" href="{{ route('catalogo.create') }}" role="button">Acceder</a>
-                    </p>
-                </div>
-                <div class="col-md-4 mb-5">
-                    <h2>Gestión de Stock</h2>
                     <p>Sección donde está el formulario para crear un nuevo producto. </p>
                     <p>
                         <a class="btn btn-primary" href="{{ route('catalogo.create') }}" role="button">Acceder</a>
