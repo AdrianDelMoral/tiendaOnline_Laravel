@@ -1,5 +1,7 @@
 
-
+span:before{
+    color: white;
+}
 a, a:hover {
     text-decoration: none;
     color: inherit;
@@ -83,7 +85,11 @@ a, a:hover {
     padding: .7rem 1rem;
     margin-right: 1rem;
 }
+.icons_bg:hover,.span:hover {
+    transition: 1s;
+    background-color: rgb(169, 110, 0);
 
+}
 
 .product-title {
     font-size: 1rem;

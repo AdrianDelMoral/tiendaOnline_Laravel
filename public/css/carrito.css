@@ -17,3 +17,6 @@
 .mt-7 p{
     margin-top: 3rem!important;
 }
+.realizarBtn:before{
+    color: #fff!important;
+}

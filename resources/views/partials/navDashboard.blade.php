@@ -15,10 +15,10 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('gestionar') }}"><span class="fa-solid fa-database"></span> Gestionar Productos</a>
+                    <a class="nav-link" href="{{ route('gestionar') }}"><span class="fa-solid fa-database"></span> Gestión de Stock</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('gestionar-user') }}"><span class="fa-solid fa-address-book"></span> Gestionar usuarios</a>
+                    <a class="nav-link" href="{{ route('gestionar-user') }}"><span class="fa-solid fa-address-book"></span> Gestion de Usuarios</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('catalogo.create') }}"><span class="fa-solid fa-folder-plus"></span> Crear Productos</a>
@@ -26,9 +26,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('categorias.create') }}"><span class="fa-solid fa-layer-group"></span> Crear Categorias</a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="fa-solid fa-chart-line"></span> Gestion de stock y ventas</a>
-                </li> --}}
             </ul>
         </div>
     </div>

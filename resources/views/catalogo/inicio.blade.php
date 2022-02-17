@@ -63,8 +63,7 @@
                                             @csrf
                                             @method('POST')
                                             <input type="text" name="user_id" value="{{ $user_id }}" hidden>
-                                            <input type="text" id="product_id" name="product_id"
-                                                value="{{ $product->id }}" hidden>
+                                            <input type="text" id="product_id" name="product_id" value="{{ $product->id }}" hidden>
                                             <a href="#"><span class="fas fa-shopping-cart"></span></a>
                                         </form>
                                     </li>
