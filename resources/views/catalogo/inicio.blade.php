@@ -81,6 +81,8 @@
                 @endforeach
             </div>
         </div>
-        {{$products->links()}}
+        <div class="mt-3 d-flex justify-content-center">
+            {{$products->links()}}
+        </div>
     </main>
 @endsection
