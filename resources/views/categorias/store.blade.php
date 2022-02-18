@@ -25,11 +25,11 @@
                     <p  style="font-size: 12px; color: red;" id="hid-descripcion"></p>
                   </div>
 
-                <!-- Checkbox -->
+                {{-- <!-- Checkbox -->
                 <div class="form-check d-flex justify-content-center mb-4">
                     <input class="form-check-input me-2" type="checkbox" value="" id="form5Example3" checked/>
                     <label class="form-check-label" for="form5Example3">Estoy de acuerdo con crear una Categoria</label>
-                </div>
+                </div> --}}
 
                 <!-- Submit button -->
                 <button type="submit" class="btn btn-primary btn-block mb-4" id="enviar">Añadir</button>

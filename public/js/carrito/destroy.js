@@ -44,7 +44,7 @@ async function clearProduct(event) {
         precioTotalStr = precioTotal.textContent.replace("€", "");
         precioTotalFloat = parseFloat(precioTotalStr);
 
-        precioTotal.textContent = precioTotalFloat - (cantidad * precio) + "€";
+        precioTotal.textContent = precioTotalFloat - (precio) + "€";
         contenido.remove();
 
     }
