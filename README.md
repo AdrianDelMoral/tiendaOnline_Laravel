@@ -8,6 +8,6 @@
 </p>
 
 ## Proyecto realizado en dos semanas por:
-[Yo](github.com/borjaa112/)  
+[Yo](https://github.com/borjaa112)  
 [Adrian](https://github.com/AdrianDelMoral)  
 [Angel](https://github.com/SHETILINI)
