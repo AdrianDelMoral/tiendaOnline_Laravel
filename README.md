@@ -7,8 +7,8 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-*## Proyecto realizado en dos semanas por:*
-*[Borja](https://github.com/borjaa112)*  
-*[Adrian](https://github.com/AdrianDelMoral)*  
-*[Angel](https://github.com/SHETILINI)*  
+## Proyecto realizado en dos semanas por:
+[Borja](https://github.com/borjaa112)  
+[Adrian](https://github.com/AdrianDelMoral)  
+[Angel](https://github.com/SHETILINI)  
 
