@@ -18,7 +18,7 @@ async function clearProduct(event) {
         let idCart = formulario.querySelector("#cartId").value;
 
 
-        let response = await fetch("/api/carrito/" + idCart,{
+        let response = await fetch("/api/carrito/" + idCart, {
             method: 'post',
             body: new FormData(formulario)
         });
@@ -34,20 +34,31 @@ async function clearProduct(event) {
 
         localStorage.setItem("cantidad", cartNum.textContent);
 
+        let cantidad = contenido.children[2].children[0].textContent;
+        let precio = contenido.children[3].children[0].textContent;
 
+        cantidad = parseInt(cantidad);
+        precio = parseFloat(precio);
+
+        let precioTotal = document.body.querySelector("#preciototal");
+        precioTotalStr = precioTotal.textContent.replace("€", "");
+        precioTotalFloat = parseFloat(precioTotalStr);
+
+        precioTotal.textContent = precioTotalFloat - (precio) + "€";
         contenido.remove();
+
     }
 }
 
 
-async function clearCart(event){
-    if(event.target.classList.contains('btn-danger') || (event.target.classList.contains('fa-trash'))){
+async function clearCart(event) {
+    if (event.target.classList.contains('btn-danger') || (event.target.classList.contains('fa-trash'))) {
         event.preventDefault();
         let deleteContainer = document.body.querySelectorAll(".mt-5");
 
-        for(let deleteform of deleteContainer){
+        for (let deleteform of deleteContainer) {
             let idCart = deleteform.querySelector("#cartId").value;
-            let response = await fetch("/api/carrito/" + idCart,{
+            let response = await fetch("/api/carrito/" + idCart, {
                 method: 'post',
                 body: new FormData(deleteform)
             });
@@ -58,6 +69,8 @@ async function clearCart(event){
             contenido = deleteform.closest("tr");
             contenido.remove();
 
+            let precioTotal = document.body.querySelector("#preciototal");
+            precioTotal.textContent = "0€"
 
         }
     }

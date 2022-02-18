@@ -88,7 +88,7 @@ El carrito está vacío
                         @empty
                         @endforelse
                         @php
-                            echo '<p class="h3">'.$cantidad.'€</p>';
+                            echo '<p class="h3" id="preciototal">'.$cantidad.'€</p>';
                         @endphp
                         {{-- <p class="h3">1.007,98€</p> --}}
                     </div>
